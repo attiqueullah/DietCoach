@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Help-->
+        <scene sceneID="a7g-2A-0rt">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" id="P7D-Bs-8C7" customClass="HelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wk9-aJ-1mW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ngh-Ax-aaY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Agx-QK-dml">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-R2-h4N">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="0uj-R2-h4N" secondAttribute="bottom" id="3XS-lO-a3m"/>
+                            <constraint firstAttribute="trailing" secondItem="0uj-R2-h4N" secondAttribute="trailing" id="Roi-fK-NNQ"/>
+                            <constraint firstItem="0uj-R2-h4N" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" id="Vkc-hw-pvi"/>
+                            <constraint firstItem="0uj-R2-h4N" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" id="rPI-8d-7fe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="385-lc-9VL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="5Xr-Bf-DZr"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbl-Qo-go3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.60000000000002" y="189.3553223388306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8gm-yM-Vvt">
+            <objects>
+                <navigationController storyboardIdentifier="HelpNavigation" automaticallyAdjustsScrollViewInsets="NO" id="3RA-bS-FdP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="O3a-Hc-0kv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P7D-Bs-8C7" kind="relationship" relationship="rootViewController" id="dLi-6g-tc1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNI-HK-ods" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="190.25487256371815"/>
+        </scene>
+    </scenes>
+</document>

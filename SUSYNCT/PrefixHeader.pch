@@ -1,0 +1,115 @@
+//
+//  PrefixHeader.pch
+//  SUSYNCT
+//
+//  Created by Attique Ullah on 08/12/2016.
+//  Copyright © 2016 V-PRO. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Parse/Parse.h>
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+#import <MapKit/MapKit.h>
+
+#import "SVProgressHUD.h"
+#import "NSUserDefaults+Helpers.h"
+#import "NSDate+Category.h"
+#import "NSDate+Utilities.h"
+#import "IQDropDownTextField.h"
+#import "SWRevealViewController.h"
+#import "AppDelegate.h"
+#import "BaseViewController.h"
+#import "FriendsViewController.h"
+#import "MSCellAccessory.h"
+#import "ScheduleSetupController.h"
+#import "NewClassController.h"
+#import "SportsViewController.h"
+#import "EventsViewController.h"
+#import "GroupsViewController.h"
+#import "NotificationsViewController.h"
+#import "SettingsViewController.h"
+#import "HelpViewController.h"
+#import "AboutViewController.h"
+#import "CalendarSettingsController.h"
+
+#pragma mark Cells
+#import "TextFieldCell.h"
+#import "LeftTableViewCell.h"
+#import "LabelCollectionCell.h"
+
+#pragma mark Managers
+#import "DataManger.h"
+#import "APIManager.h"
+
+
+#pragma mark Models
+#import "UserInfo.h"
+#import "DepartmentInfo.h"
+#import "CourseInfo.h"
+#import "SubCourseInfo.h"
+
+#pragma mark Storyboards
+#define MAIN         [UIStoryboard storyboardWithName:@"Main"                    bundle:nil]
+#define STUDENT      [UIStoryboard storyboardWithName:@"StudentSetup"            bundle:nil]
+#define SPORTS       [UIStoryboard storyboardWithName:@"Sports"                  bundle:nil]
+#define FRIENDS      [UIStoryboard storyboardWithName:@"Friends"                 bundle:nil]
+#define EVENTS       [UIStoryboard storyboardWithName:@"Events"                  bundle:nil]
+#define GROUPS       [UIStoryboard storyboardWithName:@"Groups"                  bundle:nil]
+#define NOTIFI       [UIStoryboard storyboardWithName:@"Notifications"           bundle:nil]
+#define SETTINGS     [UIStoryboard storyboardWithName:@"Settings"                bundle:nil]
+#define HELP         [UIStoryboard storyboardWithName:@"Help"                    bundle:nil]
+#define ABOUT        [UIStoryboard storyboardWithName:@"About"                   bundle:nil]
+#define CALSETTINGS  [UIStoryboard storyboardWithName:@"CalendarSettings"        bundle:nil]
+
+#pragma mark PARSE Keys
+#define APPID          @"tjMZ2kybaLyosuQbpOEmxJlMboqr1WSusr4dLhz9"
+#define CLIENTID       @"OPtVkMuF4LDzkrInfCXwJMKqgW7o9NKwXhS549mk"
+#define SERVER         @"https://parseapi.back4app.com/"
+
+#pragma mark Constants
+#define DATAMANAGER  [DataManger  sharedInstance]
+#define PARSEMANAGER [APIManager sharedInstance]
+#define API          [APIS  sharedInstance]
+
+
+#define CHECK_CLASS          [self isKindOfClass:[ScheduleSetupController class]] || [self isKindOfClass:[SportsViewController class]]
+
+#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+
+#define AvenirRegular       @"AvenirNextCondensed-Regular"
+#define AvenirBold          @"AvenirNextCondensed-Bold"
+#define AvenirUltraLight    @"AppleSDGothicNeo-UltraLight"
+
+#define TableFontSize    20
+
+#define DEFAULT_TIME     30
+
+#define INTERNET   @"Internet Unavailable"
+
+#define APP_TITLE   @"SUSYNCT"
+
+#define UNI_URL @"http://web-app.usc.edu/web/soc/api"
+
+#pragma mark METHODS
+#define TERMS            @"terms"
+#define DEPARTMENTS      @"depts"
+#define CLASSES          @"classes"
+
+#pragma mark NAVIGATIONS CONSTANTS
+#define NAV_LOGIN              @"LoginNavigation"
+#define NAV_MAIN               @"MainNavigation"
+#define NAV_SPORTS             @"SportsNavigation"
+#define NAV_FRIENDS            @"FriendsNavigation"
+#define NAV_EVENTS             @"EventsNavigation"
+#define NAV_GROUPS             @"GroupsNavigation"
+#define NAV_NOTIFI             @"NotificationsNavigation"
+#define NAV_SETTINGS           @"SettingsNavigation"
+#define NAV_HELP               @"HelpNavigation"
+#define NAV_ABOUT              @"AboutNavigation"
+#define NAV_CALSETTINGS        @"CalendarNavigation"
+#endif /* PrefixHeader_pch */
