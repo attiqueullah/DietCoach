@@ -1,30 +1,27 @@
 //
-//  TermsViewController.m
-//  SUSYNCT
+//  ProfileViewController.m
+//  MODEL_1
 //
-//  Created by Attique Ullah on 09/12/2016.
-//  Copyright © 2016 V-PRO. All rights reserved.
+//  Created by Attique Ullah on 08/02/2017.
+//  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "TermsViewController.h"
+#import "ProfileViewController.h"
 
-@interface TermsViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation TermsViewController
+@implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)btnDone:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

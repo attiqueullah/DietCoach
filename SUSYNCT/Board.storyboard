@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AV8-UK-FCR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LeaderBoard-->
+        <scene sceneID="ADr-UG-NnM">
+            <objects>
+                <viewController storyboardIdentifier="LeaderboardViewController" id="Oph-FW-NV3" customClass="LeaderboardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dNz-dd-F4U"/>
+                        <viewControllerLayoutGuide type="bottom" id="CBy-PQ-lwx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TkZ-kW-cdv">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="aPi-dA-hdV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aPi-dA-hdV" firstAttribute="leading" secondItem="TkZ-kW-cdv" secondAttribute="leading" id="LZh-oD-j5r"/>
+                            <constraint firstAttribute="trailing" secondItem="aPi-dA-hdV" secondAttribute="trailing" id="Tyh-tY-7mY"/>
+                            <constraint firstItem="aPi-dA-hdV" firstAttribute="top" secondItem="dNz-dd-F4U" secondAttribute="bottom" id="UNq-1m-Bk5"/>
+                            <constraint firstItem="CBy-PQ-lwx" firstAttribute="top" secondItem="aPi-dA-hdV" secondAttribute="bottom" id="im6-ys-UtE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="LeaderBoard" id="B5r-eN-AZ9">
+                        <barButtonItem key="backBarButtonItem" title=" " id="4kT-0G-nH3"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gho-WC-X1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3999.1999999999998" y="-545.57721139430294"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="6q7-la-fF8">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigation" automaticallyAdjustsScrollViewInsets="NO" id="AV8-UK-FCR" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="sjh-il-hhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oph-FW-NV3" kind="relationship" relationship="rootViewController" id="ug2-dH-pZJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3x-ET-22d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3223" y="-546"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+    </resources>
+</document>

@@ -24,18 +24,16 @@
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
 #import "BaseViewController.h"
-#import "FriendsViewController.h"
+#import "SaudiMealsController.h"
 #import "MSCellAccessory.h"
-#import "ScheduleSetupController.h"
-#import "NewClassController.h"
-#import "SportsViewController.h"
-#import "EventsViewController.h"
-#import "GroupsViewController.h"
-#import "NotificationsViewController.h"
-#import "SettingsViewController.h"
+#import "LeaderboardViewController.h"
+
+#import "WesternMealsController.h"
+#import "ProfileViewController.h"
+#import "SMSViewController.h"
 #import "HelpViewController.h"
 #import "AboutViewController.h"
-#import "CalendarSettingsController.h"
+
 
 #pragma mark Cells
 #import "TextFieldCell.h"
@@ -55,16 +53,14 @@
 
 #pragma mark Storyboards
 #define MAIN         [UIStoryboard storyboardWithName:@"Main"                    bundle:nil]
-#define STUDENT      [UIStoryboard storyboardWithName:@"StudentSetup"            bundle:nil]
-#define SPORTS       [UIStoryboard storyboardWithName:@"Sports"                  bundle:nil]
-#define FRIENDS      [UIStoryboard storyboardWithName:@"Friends"                 bundle:nil]
-#define EVENTS       [UIStoryboard storyboardWithName:@"Events"                  bundle:nil]
+#define BOARD        [UIStoryboard storyboardWithName:@"Board"                   bundle:nil]
+#define SAUDI        [UIStoryboard storyboardWithName:@"Saudi"                   bundle:nil]
+#define WESTERN      [UIStoryboard storyboardWithName:@"Western"                 bundle:nil]
 #define GROUPS       [UIStoryboard storyboardWithName:@"Groups"                  bundle:nil]
-#define NOTIFI       [UIStoryboard storyboardWithName:@"Notifications"           bundle:nil]
-#define SETTINGS     [UIStoryboard storyboardWithName:@"Settings"                bundle:nil]
+#define PROFILE      [UIStoryboard storyboardWithName:@"Profile"                 bundle:nil]
+#define SMS          [UIStoryboard storyboardWithName:@"SMS"                     bundle:nil]
 #define HELP         [UIStoryboard storyboardWithName:@"Help"                    bundle:nil]
 #define ABOUT        [UIStoryboard storyboardWithName:@"About"                   bundle:nil]
-#define CALSETTINGS  [UIStoryboard storyboardWithName:@"CalendarSettings"        bundle:nil]
 
 #pragma mark PARSE Keys
 #define APPID          @"tjMZ2kybaLyosuQbpOEmxJlMboqr1WSusr4dLhz9"
@@ -91,25 +87,16 @@
 
 #define INTERNET   @"Internet Unavailable"
 
-#define APP_TITLE   @"SUSYNCT"
-
-#define UNI_URL @"http://web-app.usc.edu/web/soc/api"
-
-#pragma mark METHODS
-#define TERMS            @"terms"
-#define DEPARTMENTS      @"depts"
-#define CLASSES          @"classes"
+#define APP_TITLE   @"Diet Coach"
 
 #pragma mark NAVIGATIONS CONSTANTS
 #define NAV_LOGIN              @"LoginNavigation"
 #define NAV_MAIN               @"MainNavigation"
 #define NAV_SPORTS             @"SportsNavigation"
-#define NAV_FRIENDS            @"FriendsNavigation"
-#define NAV_EVENTS             @"EventsNavigation"
-#define NAV_GROUPS             @"GroupsNavigation"
-#define NAV_NOTIFI             @"NotificationsNavigation"
-#define NAV_SETTINGS           @"SettingsNavigation"
+#define NAV_SAUDI              @"SaudiNavigation"
+#define NAV_WESTERN            @"WesternNavigation"
+#define NAV_AVATAR             @"ProfileNavigation"
+#define NAV_SMS                @"SMSNavigation"
 #define NAV_HELP               @"HelpNavigation"
 #define NAV_ABOUT              @"AboutNavigation"
-#define NAV_CALSETTINGS        @"CalendarNavigation"
 #endif /* PrefixHeader_pch */

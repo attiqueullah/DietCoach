@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self goToDashboard:self.window.rootViewController];
+    //[self goToDashboard:self.window.rootViewController];
     [self setupParse];
     
     //self.window.backgroundColor = RGB(57, 181, 74);
@@ -27,7 +27,7 @@
 
 -(void)goToDashboard:(UIViewController*)controller
 {
-    ScheduleSetupController *frontViewController = [STUDENT instantiateViewControllerWithIdentifier:NAV_MAIN];
+    LeaderboardViewController *frontViewController = [BOARD instantiateViewControllerWithIdentifier:NAV_MAIN];
     MenuViewController *rearViewController = [controller.storyboard instantiateViewControllerWithIdentifier:@"MenuController"];
     
     SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearViewController frontViewController:frontViewController];

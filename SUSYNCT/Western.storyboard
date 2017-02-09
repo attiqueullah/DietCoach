@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Western Meals-->
+        <scene sceneID="tfc-ZB-dgt">
+            <objects>
+                <viewController storyboardIdentifier="WesternMealsController" id="4GV-fl-VRE" customClass="WesternMealsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sfu-AT-lsu"/>
+                        <viewControllerLayoutGuide type="bottom" id="QEa-eh-Mgb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vhP-uQ-S79">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ws0-c8-85r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QEa-eh-Mgb" firstAttribute="top" secondItem="Ws0-c8-85r" secondAttribute="bottom" id="Ayg-2A-Uy7"/>
+                            <constraint firstAttribute="trailing" secondItem="Ws0-c8-85r" secondAttribute="trailing" id="NR6-EI-JXu"/>
+                            <constraint firstItem="Ws0-c8-85r" firstAttribute="top" secondItem="sfu-AT-lsu" secondAttribute="bottom" id="Wj2-ax-KB7"/>
+                            <constraint firstItem="Ws0-c8-85r" firstAttribute="leading" secondItem="vhP-uQ-S79" secondAttribute="leading" id="hqX-lx-0NM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Western Meals" id="rLp-En-eNL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="lDu-Qw-xTQ"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olw-Jk-9Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="187.55622188905548"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="TyU-5h-fnL">
+            <objects>
+                <navigationController storyboardIdentifier="WesternNavigation" automaticallyAdjustsScrollViewInsets="NO" id="3Xr-L9-T8b" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ffy-NO-Wy8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4GV-fl-VRE" kind="relationship" relationship="rootViewController" id="3zH-z6-jQX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lnm-m5-ynH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.200000000000003" y="187.55622188905548"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+    </resources>
+</document>

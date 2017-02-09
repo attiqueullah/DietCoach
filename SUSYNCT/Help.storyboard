@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Myriad Pro Semibold.ttf">
+            <string>MyriadPro-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Help-->
         <scene sceneID="a7g-2A-0rt">
@@ -21,20 +26,34 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-R2-h4N">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="FfX-Va-FyD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-R2-h4N">
+                                <rect key="frame" x="5" y="20" width="365" height="583"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Welcome to Diet Coach! In this game, you will be learning some interesting facts about some of the most popular meals/dishes in our culture. The game has two parts. In the first part, you be learning about a new concept called Nutritional Value Score or NuVal Score. Each meal will have a score from 1 – 100, with 100 being the highest score possible. A higher score simply means that the meal provides more nutrition to our bodies, in other words healthier. 
+
+Please pay close attention to each meal and its overall score as later on in the game you will answer some quizzes about those meals. It is an opportunity to test your knowledge before moving on to the next phase of the game, diet coaching.
+
+In the final phase of the game, you will have the opportunity to be the diet coach for an avatar. In this phase, you will need to be the diet expert for that avatar and help him/her to select the healthiest possible choices. If you succeed in doing so for three consecutive days, your avatar will win the championship!
+
+Are you ready??? Let’s start by learning!!!</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FfX-Va-FyD" secondAttribute="trailing" id="0j8-cv-FrQ"/>
                             <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="0uj-R2-h4N" secondAttribute="bottom" id="3XS-lO-a3m"/>
-                            <constraint firstAttribute="trailing" secondItem="0uj-R2-h4N" secondAttribute="trailing" id="Roi-fK-NNQ"/>
-                            <constraint firstItem="0uj-R2-h4N" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" id="Vkc-hw-pvi"/>
-                            <constraint firstItem="0uj-R2-h4N" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" id="rPI-8d-7fe"/>
+                            <constraint firstItem="FfX-Va-FyD" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" id="Eiy-l5-iu8"/>
+                            <constraint firstItem="FfX-Va-FyD" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" id="Mdj-nj-E0K"/>
+                            <constraint firstAttribute="trailing" secondItem="0uj-R2-h4N" secondAttribute="trailing" constant="5" id="Roi-fK-NNQ"/>
+                            <constraint firstItem="0uj-R2-h4N" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" constant="5" id="Vkc-hw-pvi"/>
+                            <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="FfX-Va-FyD" secondAttribute="bottom" id="hlj-Jt-4qv"/>
+                            <constraint firstItem="0uj-R2-h4N" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" constant="20" id="rPI-8d-7fe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="385-lc-9VL">
@@ -45,15 +64,20 @@
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="189.3553223388306"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="8gm-yM-Vvt">
             <objects>
-                <navigationController storyboardIdentifier="HelpNavigation" automaticallyAdjustsScrollViewInsets="NO" id="3RA-bS-FdP" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HelpNavigation" automaticallyAdjustsScrollViewInsets="NO" id="3RA-bS-FdP" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="O3a-Hc-0kv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="O3a-Hc-0kv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.22352941176470587" green="0.70980392156862748" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -65,4 +89,7 @@
             <point key="canvasLocation" x="45.600000000000001" y="190.25487256371815"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+    </resources>
 </document>

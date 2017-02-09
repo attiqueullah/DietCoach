@@ -48,41 +48,44 @@
 #pragma mark GO TO LeaderBoard
 -(void)goToLederBoard
 {
-    
+    LeaderboardViewController *frontViewController = [BOARD instantiateViewControllerWithIdentifier:NAV_MAIN];
+    [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+ 
 }
 
 #pragma mark GO TO Saudi Meals
 -(void)goToSaudiMeals
 {
-    FriendsViewController *frontViewController = [FRIENDS instantiateViewControllerWithIdentifier:NAV_FRIENDS];
+    SaudiMealsController *frontViewController = [SAUDI instantiateViewControllerWithIdentifier:NAV_SAUDI];
      [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
      [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
 }
 #pragma mark GO TO Western Meals
 -(void)goToWesternMeals
 {
-    EventsViewController *frontViewController = [EVENTS instantiateViewControllerWithIdentifier:NAV_EVENTS];
+    WesternMealsController *frontViewController = [WESTERN instantiateViewControllerWithIdentifier:NAV_WESTERN];
     [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
     [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
 }
 #pragma mark GO TO SMS
 -(void)goToSMS
 {
-        GroupsViewController *frontViewController = [GROUPS instantiateViewControllerWithIdentifier:NAV_GROUPS];
-        [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
-        [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+    SMSViewController *frontViewController = [SMS instantiateViewControllerWithIdentifier:NAV_SMS];
+    [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
 }
 #pragma mark GO TO Profile
 -(void)goToProfile
 {
-        NotificationsViewController *frontViewController = [NOTIFI instantiateViewControllerWithIdentifier:NAV_NOTIFI];
+        ProfileViewController *frontViewController = [PROFILE instantiateViewControllerWithIdentifier:NAV_AVATAR];
         [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
 }
-#pragma mark GO TO SETTINGS
+#pragma mark GO TO SMS
 -(void)goToSettings
     {
-        SettingsViewController *frontViewController = [SETTINGS instantiateViewControllerWithIdentifier:NAV_SETTINGS];
+        SMSViewController *frontViewController = [SMS instantiateViewControllerWithIdentifier:NAV_SMS];
         [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
     }
@@ -279,15 +282,12 @@
     else
     {
         if (indexPath.row==0) {
-            [self goToSettings];
+            [self goToAbout];
         }
         if (indexPath.row==1) {
             [self goToHelp];
         }
         if (indexPath.row==2) {
-            [self goToAbout];
-        }
-        if (indexPath.row==3) {
             ///// LOGOUT /////
             [self goToLogout];
         }

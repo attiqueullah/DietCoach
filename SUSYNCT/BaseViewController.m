@@ -22,24 +22,14 @@
     }
     
     [self.revController panGestureRecognizer];
-    
+    [self.revController tapGestureRecognizer];
 
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:self.revController action:@selector(revealToggle:)];
     
-    [revealButtonItem setTintColor:[UIColor blackColor]];
+    [revealButtonItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    if (CHECK_CLASS) {
-        self.revController.tapGestureRecognizer.enabled = NO;
-        self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self.revController action:@selector(revealToggle:)];
-        [self.view addGestureRecognizer:_tap];
-    }
-    else
-    {
-        self.revController.tapGestureRecognizer.enabled = YES;
-        [self.view removeGestureRecognizer:_tap];
-        [self.revController tapGestureRecognizer];
-    }
+   
 }
 
 - (void)didReceiveMemoryWarning {

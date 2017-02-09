@@ -1,18 +1,18 @@
 //
-//  AddGroupsController.m
-//  SUSYNCT
+//  WesternMealsController.m
+//  MODEL_1
 //
-//  Created by Attique Ullah on 29/12/2016.
-//  Copyright © 2016 V-PRO. All rights reserved.
+//  Created by Attique Ullah on 08/02/2017.
+//  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "AddGroupsController.h"
+#import "WesternMealsController.h"
 
-@interface AddGroupsController ()
+@interface WesternMealsController ()
 
 @end
 
-@implementation AddGroupsController
+@implementation WesternMealsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

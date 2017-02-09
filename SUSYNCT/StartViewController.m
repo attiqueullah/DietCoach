@@ -1,18 +1,18 @@
 //
-//  CalendarSettingsController.m
-//  SUSYNCT
+//  StartViewController.m
+//  MODEL_1
 //
-//  Created by Attique Ullah on 31/12/2016.
-//  Copyright © 2016 V-PRO. All rights reserved.
+//  Created by Attique Ullah on 08/02/2017.
+//  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "CalendarSettingsController.h"
+#import "StartViewController.h"
 
-@interface CalendarSettingsController ()
+@interface StartViewController ()
 
 @end
 
-@implementation CalendarSettingsController
+@implementation StartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +24,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+#pragma mark Actions
+-(IBAction)btnStartGame:(UIButton*)sender
+{
+     [AppDelegateAccessor goToDashboard:self];
+}
 /*
 #pragma mark - Navigation
 

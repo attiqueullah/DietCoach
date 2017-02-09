@@ -1,18 +1,18 @@
 //
-//  SettingsViewController.m
-//  SUSYNCT
+//  LeaderboardViewController.m
+//  MODEL_1
 //
-//  Created by Attique Ullah on 30/12/2016.
-//  Copyright © 2016 V-PRO. All rights reserved.
+//  Created by Attique Ullah on 08/02/2017.
+//  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "LeaderboardViewController.h"
 
-@interface SettingsViewController ()
+@interface LeaderboardViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation LeaderboardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,9 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)btnNotficationSettings:(id)sender {
-    [self performSegueWithIdentifier:@"notifi_settings" sender:self];
 }
 
 /*

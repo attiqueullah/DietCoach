@@ -1,18 +1,18 @@
 //
-//  SearchGroupController.m
-//  SUSYNCT
+//  SaudiMealsController.m
+//  MODEL_1
 //
-//  Created by Attique Ullah on 29/12/2016.
-//  Copyright © 2016 V-PRO. All rights reserved.
+//  Created by Attique Ullah on 08/02/2017.
+//  Copyright © 2017 V-PRO. All rights reserved.
 //
 
-#import "SearchGroupController.h"
+#import "SaudiMealsController.h"
 
-@interface SearchGroupController ()
+@interface SaudiMealsController ()
 
 @end
 
-@implementation SearchGroupController
+@implementation SaudiMealsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

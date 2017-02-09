@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Avatar-->
+        <scene sceneID="NMN-qM-I1N">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="eRv-un-Jl8" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U8n-Og-Cxn"/>
+                        <viewControllerLayoutGuide type="bottom" id="RQH-Fh-GHb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GjA-PZ-9ni">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-W7-9BI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Frj-W7-9BI" secondAttribute="trailing" id="162-NC-cvt"/>
+                            <constraint firstItem="Frj-W7-9BI" firstAttribute="leading" secondItem="GjA-PZ-9ni" secondAttribute="leading" id="72m-zQ-UQr"/>
+                            <constraint firstItem="RQH-Fh-GHb" firstAttribute="top" secondItem="Frj-W7-9BI" secondAttribute="bottom" id="9DU-0H-njN"/>
+                            <constraint firstItem="Frj-W7-9BI" firstAttribute="top" secondItem="U8n-Og-Cxn" secondAttribute="bottom" id="x0H-0U-HwJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Avatar" id="MyC-Mj-nJo">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fsQ-a9-IEZ"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBN-F0-es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="187.55622188905548"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="Ifi-yL-Dbh">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" id="kbr-bI-0gE" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="4K4-wm-otF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eRv-un-Jl8" kind="relationship" relationship="rootViewController" id="OBw-Rj-daD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aNW-Am-ehN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="188.45577211394306"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+    </resources>
+</document>

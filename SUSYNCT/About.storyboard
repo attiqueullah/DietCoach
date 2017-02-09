@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Myriad Pro Semibold.ttf">
+            <string>MyriadPro-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--About-->
         <scene sceneID="SBl-Hq-H1w">
@@ -21,20 +26,40 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-FP-d5S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="etE-uo-D92">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-FP-d5S">
+                                <rect key="frame" x="5" y="60" width="365" height="543"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">This game, “DietCoach”, aims to elevate the awareness of adolescents about the nutritional value for most of the popular meals/dishes in the Saudi Arabian culture. Inspired by the emerging concept of “gamification of learning”, this game simplifies nutritional knowledge in the form of a diet coaching game.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message To Kids And Parents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvz-Yh-PSj">
+                                <rect key="frame" x="0.0" y="15" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hDA-Gc-w34"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bpt-FP-d5S" secondAttribute="trailing" id="Edu-L6-bfB"/>
-                            <constraint firstItem="bpt-FP-d5S" firstAttribute="top" secondItem="fIP-H2-28f" secondAttribute="bottom" id="LMs-r4-UR7"/>
+                            <constraint firstItem="etE-uo-D92" firstAttribute="top" secondItem="fIP-H2-28f" secondAttribute="bottom" id="5QF-JP-GeP"/>
+                            <constraint firstAttribute="trailing" secondItem="bpt-FP-d5S" secondAttribute="trailing" constant="5" id="Edu-L6-bfB"/>
+                            <constraint firstItem="bpt-FP-d5S" firstAttribute="top" secondItem="Wvz-Yh-PSj" secondAttribute="bottom" constant="15" id="K0c-JM-uVB"/>
+                            <constraint firstItem="etE-uo-D92" firstAttribute="leading" secondItem="jVN-f2-VyI" secondAttribute="leading" id="MGb-gS-jIL"/>
+                            <constraint firstAttribute="trailing" secondItem="Wvz-Yh-PSj" secondAttribute="trailing" id="Pw5-AQ-bZh"/>
+                            <constraint firstItem="N94-P8-ah0" firstAttribute="top" secondItem="etE-uo-D92" secondAttribute="bottom" id="Vfu-7b-Jo4"/>
+                            <constraint firstItem="Wvz-Yh-PSj" firstAttribute="leading" secondItem="jVN-f2-VyI" secondAttribute="leading" id="Y1C-sf-ffN"/>
                             <constraint firstItem="N94-P8-ah0" firstAttribute="top" secondItem="bpt-FP-d5S" secondAttribute="bottom" id="ZEl-Gf-TOt"/>
-                            <constraint firstItem="bpt-FP-d5S" firstAttribute="leading" secondItem="jVN-f2-VyI" secondAttribute="leading" id="nN5-G2-5NO"/>
+                            <constraint firstItem="Wvz-Yh-PSj" firstAttribute="top" secondItem="fIP-H2-28f" secondAttribute="bottom" constant="15" id="ayo-q8-vLb"/>
+                            <constraint firstAttribute="trailing" secondItem="etE-uo-D92" secondAttribute="trailing" id="cdE-uF-CdW"/>
+                            <constraint firstItem="bpt-FP-d5S" firstAttribute="leading" secondItem="jVN-f2-VyI" secondAttribute="leading" constant="5" id="nN5-G2-5NO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="NBr-ga-25k">
@@ -45,12 +70,12 @@
             </objects>
             <point key="canvasLocation" x="1133.5999999999999" y="154.27286356821591"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="vVj-fn-ZlR">
             <objects>
-                <navigationController storyboardIdentifier="AboutNavigation" automaticallyAdjustsScrollViewInsets="NO" id="NiE-JJ-kAY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AboutNavigation" automaticallyAdjustsScrollViewInsets="NO" id="NiE-JJ-kAY" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="623-Ur-TdU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="623-Ur-TdU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,4 +90,7 @@
             <point key="canvasLocation" x="293.60000000000002" y="155.17241379310346"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+    </resources>
 </document>

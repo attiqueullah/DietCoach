@@ -8,7 +8,6 @@
 
 #import "SignUpViewController.h"
 #import "TextFieldCell.h"
-#import "TermsViewController.h"
 @interface SignUpViewController ()<TTTAttributedLabelDelegate>
 @property (nonatomic,strong)UserInfo* userData;
 @property (weak, nonatomic) IBOutlet UITableView *tblSignIn;
@@ -118,8 +117,8 @@
 -(void)btnSignUp:(UIButton*)sender
 {
     [self hideKeyboard];
-    
-    if (self.userData.first_name.length==0) {
+    [self performSegueWithIdentifier:@"start" sender:self];
+    /*if (self.userData.first_name.length==0) {
         [DATAMANAGER showWithStatus:@"Please Enter First Name" withType:ERROR];
         return;
         
@@ -170,9 +169,9 @@
             /////Go to Home Screen////
             
             [NSUserDefaults saveObject:[NSDate date] forKey:@"loginDate"];
-            [AppDelegateAccessor goToDashboard:self];
+            //[self performSegueWithIdentifier:@"start" sender:self];
         }
-    }];
+    }];*/
 }
 -(void)btnSignUpFacebook:(UIButton*)sender
 {
@@ -416,12 +415,5 @@
     [v setBackgroundColor:[UIColor clearColor]];
     return v;
 }
-#pragma mark - TTTAttributedLabelDelegate
 
-- (void)attributedLabel:(__unused TTTAttributedLabel *)label
-   didSelectLinkWithURL:(NSURL *)url
-{
-    TermsViewController* vc = [[TermsViewController alloc] initWithNibName:@"TermsViewController" bundle:nil];
-    [self presentViewController:vc animated:YES completion:nil];
-}
 @end
