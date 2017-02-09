@@ -91,7 +91,7 @@
 		02311F1C1DFFD6E7000F9FFD /* ResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordController.m; sourceTree = "<group>"; };
 		02311F2B1DFFFEA1000F9FFD /* LabelCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCollectionCell.h; sourceTree = "<group>"; };
 		02311F2C1DFFFEA1000F9FFD /* LabelCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelCollectionCell.m; sourceTree = "<group>"; };
-		0231A5911DF93E65003D63DB /* MODEL_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MODEL_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0231A5911DF93E65003D63DB /* Diet Coach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Coach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0231A5951DF93E65003D63DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0231A5971DF93E65003D63DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0231A5981DF93E65003D63DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		0231A5921DF93E65003D63DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0231A5911DF93E65003D63DB /* MODEL_1.app */,
+				0231A5911DF93E65003D63DB /* Diet Coach.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -593,9 +593,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0231A5901DF93E65003D63DB /* MODEL_1 */ = {
+		0231A5901DF93E65003D63DB /* Diet Coach */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0231A5A81DF93E65003D63DB /* Build configuration list for PBXNativeTarget "MODEL_1" */;
+			buildConfigurationList = 0231A5A81DF93E65003D63DB /* Build configuration list for PBXNativeTarget "Diet Coach" */;
 			buildPhases = (
 				2FD202887D36B0FAC0133A0D /* [CP] Check Pods Manifest.lock */,
 				0231A58D1DF93E65003D63DB /* Sources */,
@@ -608,9 +608,9 @@
 			);
 			dependencies = (
 			);
-			name = MODEL_1;
+			name = "Diet Coach";
 			productName = SUSYNCT;
-			productReference = 0231A5911DF93E65003D63DB /* MODEL_1.app */;
+			productReference = 0231A5911DF93E65003D63DB /* Diet Coach.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -628,7 +628,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0231A58C1DF93E65003D63DB /* Build configuration list for PBXProject "MODEL_1" */;
+			buildConfigurationList = 0231A58C1DF93E65003D63DB /* Build configuration list for PBXProject "Diet Coach" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -641,7 +641,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0231A5901DF93E65003D63DB /* MODEL_1 */,
+				0231A5901DF93E65003D63DB /* Diet Coach */,
 			);
 		};
 /* End PBXProject section */
@@ -914,7 +914,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0231A58C1DF93E65003D63DB /* Build configuration list for PBXProject "MODEL_1" */ = {
+		0231A58C1DF93E65003D63DB /* Build configuration list for PBXProject "Diet Coach" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0231A5A61DF93E65003D63DB /* Debug */,
@@ -923,7 +923,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0231A5A81DF93E65003D63DB /* Build configuration list for PBXNativeTarget "MODEL_1" */ = {
+		0231A5A81DF93E65003D63DB /* Build configuration list for PBXNativeTarget "Diet Coach" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0231A5A91DF93E65003D63DB /* Debug */,

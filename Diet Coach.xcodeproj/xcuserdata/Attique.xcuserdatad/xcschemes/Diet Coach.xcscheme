@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0231A5901DF93E65003D63DB"
-               BuildableName = "MODEL_1.app"
-               BlueprintName = "MODEL_1"
-               ReferencedContainer = "container:MODEL_1.xcodeproj">
+               BuildableName = "Diet Coach.app"
+               BlueprintName = "Diet Coach"
+               ReferencedContainer = "container:Diet Coach.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0231A5901DF93E65003D63DB"
-            BuildableName = "MODEL_1.app"
-            BlueprintName = "MODEL_1"
-            ReferencedContainer = "container:MODEL_1.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0231A5901DF93E65003D63DB"
-            BuildableName = "MODEL_1.app"
-            BlueprintName = "MODEL_1"
-            ReferencedContainer = "container:MODEL_1.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
