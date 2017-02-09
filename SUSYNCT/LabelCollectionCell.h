@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInput5;
 @property (weak, nonatomic) IBOutlet UILabel *lblInput6;
 @property (weak, nonatomic) IBOutlet UIButton *btnAction;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 @end

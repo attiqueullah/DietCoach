@@ -52,6 +52,8 @@
 		02414B501E12401C0060C26F /* Saudi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02414B4F1E12401C0060C26F /* Saudi.storyboard */; };
 		02414B611E139C4D0060C26F /* Western.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02414B601E139C4D0060C26F /* Western.storyboard */; };
 		02414B681E13C9AB0060C26F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02414B671E13C9AB0060C26F /* MapKit.framework */; };
+		0250335C1E4C322800789B01 /* Westmeath Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335A1E4C322800789B01 /* Westmeath Italic.ttf */; };
+		0250335D1E4C322900789B01 /* Westmeath.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335B1E4C322800789B01 /* Westmeath.ttf */; };
 		025BA56C1DFAF8E600670EBD /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5651DFAF8E600670EBD /* NSDate+Category.m */; };
 		025BA56D1DFAF8E600670EBD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5671DFAF8E600670EBD /* NSDate+Utilities.m */; };
 		025BA56E1DFAF8E600670EBD /* NSUserDefaults+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5691DFAF8E600670EBD /* NSUserDefaults+Helpers.m */; };
@@ -137,6 +139,8 @@
 		02414B4F1E12401C0060C26F /* Saudi.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saudi.storyboard; sourceTree = "<group>"; };
 		02414B601E139C4D0060C26F /* Western.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Western.storyboard; sourceTree = "<group>"; };
 		02414B671E13C9AB0060C26F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0250335A1E4C322800789B01 /* Westmeath Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Westmeath Italic.ttf"; sourceTree = "<group>"; };
+		0250335B1E4C322800789B01 /* Westmeath.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Westmeath.ttf; sourceTree = "<group>"; };
 		025BA5641DFAF8E600670EBD /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		025BA5651DFAF8E600670EBD /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		025BA5661DFAF8E600670EBD /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 		0231A5941DF93E65003D63DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0250335A1E4C322800789B01 /* Westmeath Italic.ttf */,
+				0250335B1E4C322800789B01 /* Westmeath.ttf */,
 				021658FF1E4B7A7600D779C1 /* Myriad Pro Semibold.ttf */,
 				02928F5F1E4631BE00C31578 /* Myriad Pro Regular.ttf */,
 				0264A1151E09131C000ED0FC /* reveal-icon.png */,
@@ -650,11 +656,13 @@
 				023A86011E178FCA00D291FC /* About.storyboard in Resources */,
 				0231A5A41DF93E65003D63DB /* LaunchScreen.storyboard in Resources */,
 				0264A11F1E091516000ED0FC /* Board.storyboard in Resources */,
+				0250335C1E4C322800789B01 /* Westmeath Italic.ttf in Resources */,
 				0264A1171E09131C000ED0FC /* reveal-icon.png in Resources */,
 				02414B501E12401C0060C26F /* Saudi.storyboard in Resources */,
 				0264A1181E09131C000ED0FC /* reveal-icon@2x.png in Resources */,
 				02928F601E4631BE00C31578 /* Myriad Pro Regular.ttf in Resources */,
 				02414B611E139C4D0060C26F /* Western.storyboard in Resources */,
+				0250335D1E4C322900789B01 /* Westmeath.ttf in Resources */,
 				0231A5A11DF93E65003D63DB /* Assets.xcassets in Resources */,
 				0231A59F1DF93E65003D63DB /* Main.storyboard in Resources */,
 				023A85FF1E178FBF00D291FC /* Help.storyboard in Resources */,
