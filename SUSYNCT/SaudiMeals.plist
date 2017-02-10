@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Kabsa</string>
+		<key>score</key>
+		<string>58</string>
+		<key>image</key>
+		<string>kabsa.png</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Chicken</string>
+			<string>Rice</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Margoog</string>
+		<key>score</key>
+		<string>86</string>
+		<key>image</key>
+		<string>margoog.png</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Lamb Meat</string>
+			<string>Wheat</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Jareesh</string>
+		<key>score</key>
+		<string>84</string>
+		<key>image</key>
+		<string>jareesh.png</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Bulger Wheat</string>
+			<string>Butter Milk</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Grains</string>
+			<string>Dairy</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mandi</string>
+		<key>score</key>
+		<string>57</string>
+		<key>image</key>
+		<string>mandi.png</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Goat Meat</string>
+			<string>Basmati Rice</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Saleeq</string>
+		<key>score</key>
+		<string>59</string>
+		<key>image</key>
+		<string>saleeq.png</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Rice Short Grain</string>
+			<string>Milk</string>
+			<string>Chicken</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Grains</string>
+			<string>Dairy</string>
+			<string>Meat &amp; Beans</string>
+		</array>
+	</dict>
+</array>
+</plist>

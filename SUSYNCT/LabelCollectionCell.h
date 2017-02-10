@@ -17,4 +17,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInput6;
 @property (weak, nonatomic) IBOutlet UIButton *btnAction;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property (weak, nonatomic) IBOutlet UIButton *previousBtn;
+@property (weak, nonatomic) IBOutlet UIButton *forwardBtn;
+
+@property(nonatomic,strong)NSArray* mainIngrediants;
+@property(nonatomic,strong)NSArray* foodGroup;
+
+#pragma  mark Configure Cell
+-(void)configureCell:(NSArray*)foodItem withIndexPath:(NSIndexPath*)ind;
 @end

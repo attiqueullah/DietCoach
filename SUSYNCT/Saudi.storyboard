@@ -12,6 +12,9 @@
         <array key="Myriad Pro Semibold.ttf">
             <string>MyriadPro-Semibold</string>
         </array>
+        <array key="WOX-Striped_Triple_Demo.otf">
+            <string>WOX-StripedTripleDemo</string>
+        </array>
         <array key="Westmeath.ttf">
             <string>Westmeath</string>
         </array>
@@ -54,21 +57,21 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="VJL-7B-578"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Westmeath" family="Westmeath" pointSize="30"/>
+                                                    <color key="textColor" red="0.22352941179999999" green="0.70980392160000005" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHEESEBURGER AND FRIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAe-RL-s5s">
-                                                    <rect key="frame" x="8" y="50" width="359" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kabsa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="HAe-RL-s5s">
+                                                    <rect key="frame" x="8" y="50" width="359" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="WKU-KZ-ZHh"/>
+                                                        <constraint firstAttribute="height" constant="100" id="WKU-KZ-ZHh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="WOX-StripedTripleDemo" family="WOX-Striped Triple Demo" pointSize="100"/>
+                                                    <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cheeseBurger" translatesAutoresizingMaskIntoConstraints="NO" id="Y7H-vX-UxH">
-                                                    <rect key="frame" x="112" y="115" width="150" height="150"/>
+                                                    <rect key="frame" x="112" y="165" width="150" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="3Qq-TV-FbT"/>
                                                         <constraint firstAttribute="width" constant="150" id="hhA-nm-a2A"/>
@@ -116,10 +119,10 @@
                                                     </connections>
                                                 </button>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KSY-qo-fGO">
-                                                    <rect key="frame" x="15" y="280" width="345" height="208"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="15" y="330" width="345" height="158"/>
+                                                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" rowHeight="30" id="SsT-Lw-Eop" customClass="LeftTableViewCell">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Header" rowHeight="30" id="SsT-Lw-Eop" customClass="LeftTableViewCell">
                                                             <rect key="frame" x="0.0" y="28" width="345" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SsT-Lw-Eop" id="BZR-ya-rr2">
@@ -150,9 +153,9 @@
                                                                     <constraint firstItem="OW7-c5-F4j" firstAttribute="leading" secondItem="BZR-ya-rr2" secondAttribute="leading" id="uC7-Sy-wzo"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </tableViewCell>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderDetails" rowHeight="30" id="Cvt-KD-iyj" customClass="TextFieldCell">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderDetails" rowHeight="30" id="Cvt-KD-iyj" customClass="TextFieldCell">
                                                             <rect key="frame" x="0.0" y="58" width="345" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cvt-KD-iyj" id="5bi-eg-78Q">
@@ -183,7 +186,7 @@
                                                                     <constraint firstItem="55b-3G-Lq5" firstAttribute="top" secondItem="5bi-eg-78Q" secondAttribute="top" id="tap-pC-z16"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <connections>
                                                                 <outlet property="lblInput1" destination="beu-D9-bEh" id="zxE-04-oeG"/>
                                                                 <outlet property="lblInput2" destination="55b-3G-Lq5" id="DW2-1r-8Jp"/>
@@ -223,8 +226,10 @@
                                             <constraint firstAttribute="bottom" secondItem="1lR-JT-JZ2" secondAttribute="bottom" constant="8" id="xNf-5t-Rdg"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="forwardBtn" destination="0hb-jt-kIH" id="Jkk-VH-qtb"/>
                                             <outlet property="lblInput2" destination="HAe-RL-s5s" id="VqC-o3-MT1"/>
                                             <outlet property="lblInput3" destination="1lR-JT-JZ2" id="B7Q-md-yw6"/>
+                                            <outlet property="previousBtn" destination="J0f-N2-iCf" id="Mju-Tp-Jnl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
