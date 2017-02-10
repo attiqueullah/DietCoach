@@ -68,6 +68,7 @@
 		0296A21B1E01768300E0A853 /* DepartmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A21A1E01768300E0A853 /* DepartmentInfo.m */; };
 		0296A2211E01811400E0A853 /* CourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296A2201E01811400E0A853 /* CourseInfo.m */; };
 		6B6990D406F56B5C6CAC7661 /* libPods-MODEL_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FA095131F01F2AE9680C05 /* libPods-MODEL_1.a */; };
+		A426FF62A83BF6F40E462B53 /* libPods-Diet Coach.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7664170E554A36C5F537A /* libPods-Diet Coach.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,7 +165,10 @@
 		0296A21A1E01768300E0A853 /* DepartmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentInfo.m; sourceTree = "<group>"; };
 		0296A21F1E01811400E0A853 /* CourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInfo.h; sourceTree = "<group>"; };
 		0296A2201E01811400E0A853 /* CourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInfo.m; sourceTree = "<group>"; };
+		16F7664170E554A36C5F537A /* libPods-Diet Coach.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diet Coach.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FA095131F01F2AE9680C05 /* libPods-MODEL_1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MODEL_1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB830D45C1D3F7C555260DE /* Pods-Diet Coach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet Coach.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach.release.xcconfig"; sourceTree = "<group>"; };
+		540464748200726D4D2051FE /* Pods-Diet Coach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet Coach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4CF1094D10FCD91A3CD387 /* Pods-MODEL_1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODEL_1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODEL_1/Pods-MODEL_1.debug.xcconfig"; sourceTree = "<group>"; };
 		7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSYNCT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSYNCT/Pods-SUSYNCT.release.xcconfig"; sourceTree = "<group>"; };
 		7CD78D341009531A24365440 /* libPods-SUSYNCT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SUSYNCT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +195,7 @@
 				0231A5ED1DFA9837003D63DB /* Parse.framework in Frameworks */,
 				0231A5EC1DFA9837003D63DB /* Bolts.framework in Frameworks */,
 				6B6990D406F56B5C6CAC7661 /* libPods-MODEL_1.a in Frameworks */,
+				A426FF62A83BF6F40E462B53 /* libPods-Diet Coach.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +580,7 @@
 				0231A5EE1DFA984D003D63DB /* AudioToolbox.framework */,
 				7CD78D341009531A24365440 /* libPods-SUSYNCT.a */,
 				23FA095131F01F2AE9680C05 /* libPods-MODEL_1.a */,
+				16F7664170E554A36C5F537A /* libPods-Diet Coach.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -586,6 +592,8 @@
 				7C2046370F32777967DC1998 /* Pods-SUSYNCT.release.xcconfig */,
 				5B4CF1094D10FCD91A3CD387 /* Pods-MODEL_1.debug.xcconfig */,
 				910BC53D5BE06A8F0246911E /* Pods-MODEL_1.release.xcconfig */,
+				540464748200726D4D2051FE /* Pods-Diet Coach.debug.xcconfig */,
+				2FB830D45C1D3F7C555260DE /* Pods-Diet Coach.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -700,7 +708,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MODEL_1/Pods-MODEL_1-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C0D3D8FD542FF8B71FF0A4D /* [CP] Embed Pods Frameworks */ = {
@@ -715,7 +723,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MODEL_1/Pods-MODEL_1-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -875,7 +883,7 @@
 		};
 		0231A5A91DF93E65003D63DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4CF1094D10FCD91A3CD387 /* Pods-MODEL_1.debug.xcconfig */;
+			baseConfigurationReference = 540464748200726D4D2051FE /* Pods-Diet Coach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -894,7 +902,7 @@
 		};
 		0231A5AA1DF93E65003D63DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 910BC53D5BE06A8F0246911E /* Pods-MODEL_1.release.xcconfig */;
+			baseConfigurationReference = 2FB830D45C1D3F7C555260DE /* Pods-Diet Coach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
