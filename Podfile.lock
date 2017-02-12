@@ -14,6 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - HCSStarRatingView (1.4.5)
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManager (4.0.8)
   - MSCellAccessory (1.1.2)
@@ -22,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
+  - HCSStarRatingView (~> 1.4.4)
   - IQDropDownTextField
   - IQKeyboardManager
   - MSCellAccessory
@@ -30,12 +32,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  HCSStarRatingView: bff3f89314d3b5013ce826ea11897d3129ff6b8c
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   MSCellAccessory: 8265f3cd2386c1f372da00232472605ab11426e4
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 935bd9f7d833ccf59057a2ed32c205d3741d9fd4
+PODFILE CHECKSUM: 21c6e6901cb56f9548d8a30eca4bc989bf7c1940
 
 COCOAPODS: 1.1.1

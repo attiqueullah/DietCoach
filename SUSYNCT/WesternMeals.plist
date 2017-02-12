@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Cheese Burger &amp; Fries</string>
+		<key>score</key>
+		<string>30</string>
+		<key>image</key>
+		<string>cheeseBurger</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Ground Beef</string>
+			<string>Hamburger Buns</string>
+			<string>Fries</string>
+			<string>Soda</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+			<string>Vegetables</string>
+			<string>Suger</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Steak &amp; Vegetables</string>
+		<key>score</key>
+		<string>87</string>
+		<key>image</key>
+		<string>steak</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Steak</string>
+			<string>Mixed Veggies</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Vegetables</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Hot Dog &amp; Fries</string>
+		<key>score</key>
+		<string>19</string>
+		<key>image</key>
+		<string>hotdog</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Hot Dog</string>
+			<string>Hot Dog Bun</string>
+			<string>Fries</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+			<string>Vegetables</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Grilled Salmon</string>
+		<key>score</key>
+		<string>99</string>
+		<key>image</key>
+		<string>grilled</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Grilled Salmon Fish</string>
+			<string>Mixed Veggies</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Vegetables</string>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Chiken Sandwich</string>
+		<key>score</key>
+		<string>28</string>
+		<key>image</key>
+		<string>chickenSand</string>
+		<key>main_ingrediants</key>
+		<array>
+			<string>Chicken</string>
+			<string>Hamburger</string>
+		</array>
+		<key>food_group</key>
+		<array>
+			<string>Meat &amp; Beans</string>
+			<string>Grains</string>
+		</array>
+	</dict>
+</array>
+</plist>

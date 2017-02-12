@@ -13,7 +13,7 @@
     NSInteger _presentedRow;
     NSInteger _presentedSection;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tblData;
+
 @end
 
 @implementation MenuViewController
@@ -30,7 +30,10 @@
     
     self.tblData.backgroundView = tempImageView;
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

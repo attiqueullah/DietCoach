@@ -3,7 +3,7 @@
 
 target 'Diet Coach' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+   use_frameworks!
 
   # Pods for SUSYNCT
   pod 'IQKeyboardManager'
@@ -12,4 +12,5 @@ target 'Diet Coach' do
   pod 'SVProgressHUD'
   pod 'MSCellAccessory'
   pod 'SWRevealViewController'
+  pod 'HCSStarRatingView', '~> 1.4.4'
 end

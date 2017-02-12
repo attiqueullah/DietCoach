@@ -16,6 +16,7 @@
 #import <BlocksKit/BlocksKit+UIKit.h>
 #import <MapKit/MapKit.h>
 
+#import "MenuViewController.h"
 #import "SVProgressHUD.h"
 #import "NSUserDefaults+Helpers.h"
 #import "NSDate+Category.h"
@@ -50,6 +51,7 @@
 #import "DepartmentInfo.h"
 #import "CourseInfo.h"
 #import "SubCourseInfo.h"
+#import "Answers.h"
 
 #pragma mark Storyboards
 #define MAIN         [UIStoryboard storyboardWithName:@"Main"                    bundle:nil]

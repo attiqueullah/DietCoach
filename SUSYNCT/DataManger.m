@@ -80,5 +80,72 @@
         completionBlock(YES);
     }
 }
+#pragma mark - StorePrincipalInfoObject Method Implementation
 
+-(void)storeQuizesObject:(id)userObject
+{
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userObject];
+    if ([NSUserDefaults keyExists:@"quizes"]) {
+         [NSUserDefaults deleteObjectForKey:@"quizes"];
+    }
+     [NSUserDefaults saveObject:myEncodedObject forKey:@"quizes"];
+}
+#pragma mark - Load AccountInfo Method Implementation
+
+-(NSArray*)loadUserInfo:(QuizType)type
+{
+    NSData *myEncodedObject = [NSUserDefaults retrieveObjectForKey:@"quizes"];
+    if (myEncodedObject)
+    {
+        NSArray* quizes = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"SELF.quizType == %d", type];
+        NSArray *filteredArray = [quizes filteredArrayUsingPredicate:namePredicate];
+
+        return filteredArray;
+    }
+    return [NSArray new];
+}
+-(NSArray*)loadQuizes
+{
+    NSData *myEncodedObject = [NSUserDefaults retrieveObjectForKey:@"quizes"];
+    if (myEncodedObject)
+    {
+        NSArray* quizes = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+        
+        return quizes;
+    }
+    return [NSArray new];
+}
+#pragma mark Store Quizes Results
+-(void)evaluateResults:(NSArray*)results
+{
+    NSMutableArray* arr = [[self loadQuizes] mutableCopy];
+    for (Answers* ans in results) {
+        if (ans.points==20) {
+            if (arr.count>0) {
+                NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.quizType == %d) AND (SELF.questionType == %d)", ans.quizType,ans.questionType];
+                NSArray *filteredArray = [arr filteredArrayUsingPredicate:namePredicate];
+                if (filteredArray.count==0) {
+                    [arr addObject:ans];
+                }
+            }
+            else
+            {
+                [arr addObject:ans];
+            }
+            
+        }
+    }
+    [self storeQuizesObject:arr];
+}
+-(void)goToLeaderBoard:(SWRevealViewController*)baseController
+{
+    UINavigationController* vc = (UINavigationController*)baseController.rearViewController;
+    MenuViewController* menu = (MenuViewController*)[vc topViewController];
+    [menu.tblData reloadData];
+    LeaderboardViewController *frontViewController = [BOARD instantiateViewControllerWithIdentifier:NAV_MAIN];
+    [baseController setFrontViewController:frontViewController animated:YES];    //sf
+    [baseController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+    
+}
 @end

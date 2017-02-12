@@ -21,6 +21,9 @@
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIFont fontWithName:@"MyriadPro-Semibold" size:25], NSFontAttributeName,[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"MyriadPro-Semibold" size:16.0], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

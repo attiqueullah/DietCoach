@@ -82,3 +82,22 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/BlocksKit/BlocksKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HCSStarRatingView/HCSStarRatingView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSCellAccessory/MSCellAccessory.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SWRevealViewController/SWRevealViewController.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/BlocksKit/BlocksKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HCSStarRatingView/HCSStarRatingView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSCellAccessory/MSCellAccessory.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SWRevealViewController/SWRevealViewController.framework"
+fi

@@ -21,7 +21,7 @@
         self.revController = [self revealViewController];
     }
     
-    [self.revController panGestureRecognizer];
+    //[self.revController panGestureRecognizer];
     [self.revController tapGestureRecognizer];
 
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]

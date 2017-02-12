@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Cheese Burger </string>
+		<key>value</key>
+		<string>22</string>
+		<key>image</key>
+		<string>cheeseburger</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Broccoli</string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>broccoli</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Steak</string>
+		<key>value</key>
+		<string>46</string>
+		<key>image</key>
+		<string>steak_avatar</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Hot Dog</string>
+		<key>value</key>
+		<string>15</string>
+		<key>image</key>
+		<string>hotdog_avatar</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Grilled Salmon</string>
+		<key>value</key>
+		<string>96</string>
+		<key>image</key>
+		<string>grilled_avatar</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Steamed Carrots</string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>carrots</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Steamed Zucchini </string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>steamed</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Lamb Meat </string>
+		<key>value</key>
+		<string>38</string>
+		<key>image</key>
+		<string>lambMeat</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Chicken Sandwich</string>
+		<key>value</key>
+		<string>28</string>
+		<key>image</key>
+		<string>chickenSandwich</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>KitKat Bar</string>
+		<key>value</key>
+		<string>2</string>
+		<key>image</key>
+		<string>kitkat</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Orange Juice </string>
+		<key>value</key>
+		<string>47</string>
+		<key>image</key>
+		<string>orangeJuice</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>French Fries </string>
+		<key>value</key>
+		<string>28</string>
+		<key>image</key>
+		<string>fries</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Snickers Bar </string>
+		<key>value</key>
+		<string>2</string>
+		<key>image</key>
+		<string>snicker</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Chicken</string>
+		<key>value</key>
+		<string>40</string>
+		<key>image</key>
+		<string>chicken</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Green Salad</string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>salad</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>White Rice</string>
+		<key>value</key>
+		<string>75</string>
+		<key>image</key>
+		<string>rice</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cheesecake</string>
+		<key>value</key>
+		<string>5</string>
+		<key>image</key>
+		<string>cake</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Coke</string>
+		<key>value</key>
+		<string>1</string>
+		<key>image</key>
+		<string>coke</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Pineapple </string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>pineapple </string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Banana </string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>banana </string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Apple</string>
+		<key>value</key>
+		<string>100</string>
+		<key>image</key>
+		<string>apple</string>
+	</dict>
+</array>
+</plist>

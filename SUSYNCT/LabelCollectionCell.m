@@ -16,6 +16,7 @@
     NSDictionary*foodItem = foodItems[ind.row];
     self.lblInput2.text = foodItem[@"title"];
     self.lblInput3.text = foodItem[@"score"];
+    self.imgFood.image = [UIImage imageNamed:foodItem[@"image"]];
     self.mainIngrediants = foodItem[@"main_ingrediants"];
     self.foodGroup = foodItem[@"food_group"];
     [self.tableview reloadData];

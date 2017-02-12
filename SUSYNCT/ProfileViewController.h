@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "DNDDragAndDrop.h"
 
 @interface ProfileViewController : BaseViewController
-
+@property (nonatomic, strong) IBOutlet DNDDragAndDropController *dragAndDropController;
+@property (nonatomic, strong) IBOutletCollection(UIView) NSArray *dropTargetViews;
 @end

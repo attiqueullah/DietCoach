@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>First</key>
+	<array>
+		<dict>
+			<key>question</key>
+			<string>Can you estimate if the nutritional value of a rice and chicken meal would increase or decrease, if broccoli is added to it (Assuming that all food items compse 1/3 of the meal?</string>
+			<key>options</key>
+			<array>
+				<string>NuVal would increase (meal is healthier)</string>
+				<string>NuVal stays the same</string>
+				<string>NuVal would decrease (meal is less healthy)</string>
+				<string>I don&apos;t know</string>
+			</array>
+			<key>answer</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>question</key>
+			<string>All the previous five meals have something missing that is essential in our daily diet. Please check all that apply?</string>
+			<key>options</key>
+			<array>
+				<string>Fruits</string>
+				<string>Vegetables</string>
+				<string>Meat &amp; Beans</string>
+				<string>Daily Products</string>
+			</array>
+			<key>answer</key>
+			<string>2</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+	</array>
+	<key>Second</key>
+	<array>
+		<dict>
+			<key>question</key>
+			<string>Which is approximate nutrition value of the vegetables: (Broccoli,Zuchini,Tomato,Carrots) ?</string>
+			<key>options</key>
+			<array>
+				<string>NuVal = 30</string>
+				<string>NuVal = 100</string>
+				<string>NuVal = 55</string>
+				<string>NuVal = 80</string>
+			</array>
+			<key>answer</key>
+			<string>3</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>question</key>
+			<string>Which is approximate nutrition value cheese burger ?</string>
+			<key>options</key>
+			<array>
+				<string>NuVal = 35</string>
+				<string>NuVal = 78</string>
+				<string>NuVal = 22</string>
+				<string>NuVal = 15</string>
+			</array>
+			<key>answer</key>
+			<string>3</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+	</array>
+</dict>
+</plist>
