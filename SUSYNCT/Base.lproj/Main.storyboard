@@ -252,7 +252,7 @@
                 <navigationController storyboardIdentifier="LoginNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="SgO-m9-0ZT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="lB1-JN-2TB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="lB1-JN-2TB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.22352941176470587" green="0.70980392156862748" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -748,7 +748,7 @@
                 <navigationController storyboardIdentifier="MenuController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ka5-q6-MK3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="7ai-OX-Vse">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7ai-OX-Vse">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

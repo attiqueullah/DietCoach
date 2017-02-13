@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *foodCollection;
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starRateing;
 @property (nonatomic,strong)UIImageView* tempImage;
+@property (weak, nonatomic) IBOutlet UIImageView *userFeedImg;
 
+@property(nonatomic,strong)NSMutableArray* userFeedArray;
 @end
 
 @implementation ProfileViewController
@@ -22,11 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.foodData = [NSMutableArray new];
+    self.userFeedArray = [NSMutableArray new];
+    
     [self getAvatarData];
     // Do any additional setup after loading the view.
     self.starRateing.userInteractionEnabled = false;
     self.starRateing.value = 5.0;
     [self registerTableViewForDragging:self.foodCollection];
+    [self feedAvatar:nil];
    
    }
 - (void)registerTableViewForDragging:(UICollectionView *)tableView {
@@ -40,8 +45,6 @@
 {
     [super viewDidAppear:animated];
     for (UIView *dropTargetView in self.dropTargetViews) {
-        dropTargetView.layer.borderColor = [[UIColor clearColor] CGColor];
-        dropTargetView.layer.borderWidth = 4.0f;
         [self.dragAndDropController registerDropTarget:dropTargetView withDelegate:self];
     }
 }
@@ -69,6 +72,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)feedAvatar:(UIImageView*)img
+{
+    if (self.userFeedArray.count==6) {
+        [DATAMANAGER showWithStatus:@"You cannot choose more than 6 foods" withType:ERROR];
+        return;
+    }
+    [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]]];
+    self.userFeedImg.image = [self.userFeedArray lastObject];
+}
 #pragma mark CollectionView Delegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -86,7 +98,11 @@
     NSDictionary* dic = self.foodData[indexPath.row];
     cell.lblInput2.text = dic[@"name"];
     cell.contentView.tag = indexPath.item;
-   // [self.dragAndDropController registerDragSource:cell.contentView withDelegate:self];
+    cell.imgFood.image = [UIImage imageNamed:dic[@"image"]];
+    
+    cell.imgFood.layer.masksToBounds = NO;
+    cell.imgFood.clipsToBounds = YES;
+    cell.imgFood.layer.cornerRadius = cell.imgFood.frame.size.width/2;
     return cell;
 }
 
@@ -103,7 +119,7 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(80, 80);
+    return CGSizeMake(80, 100);
 }
 
 
@@ -117,9 +133,15 @@
         return nil;
     }
     LabelCollectionCell* cell = (LabelCollectionCell*)[tableView cellForItemAtIndexPath:indexPath];
-    NSData *tempArchiveView = [NSKeyedArchiver archivedDataWithRootObject:cell];
-    LabelCollectionCell *viewOfSelf = (LabelCollectionCell*)[NSKeyedUnarchiver unarchiveObjectWithData:tempArchiveView];
-   
+    
+    NSDictionary* dic = self.foodData[cell.contentView.tag];
+    UIImageView* tempImg = [[UIImageView alloc]initWithFrame:cell.imgFood.frame];
+    tempImg.image = [UIImage imageNamed:dic[@"image"]];
+    
+    tempImg.layer.masksToBounds = NO;
+    tempImg.clipsToBounds = YES;
+    tempImg.layer.cornerRadius = cell.imgFood.frame.size.width/2;
+    tempImg.tag =cell.contentView.tag;
     
     /*NSString *item = [items objectAtIndex:indexPath.row];
     [items removeObjectAtIndex:indexPath.row];
@@ -128,7 +150,7 @@
     self.sourceIndexPath = indexPath;*/
     
    
-    return viewOfSelf;
+    return tempImg;
 }
 
 - (void)dragOperationWillCancel:(DNDDragOperation *)operation {
@@ -142,21 +164,23 @@
 #pragma mark - Drop Target Delegate
 
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target {
-    target.backgroundColor = operation.draggingView.backgroundColor;
-    target.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    UIImageView* tempImg = (UIImageView *)operation.draggingView;
+    [self feedAvatar:tempImg];
     
     /*UIView* imgv = operation.dragSourceView;
     [self.foodData removeObjectAtIndex:imgv.tag];*/
     
     //[operation removeDraggingView];
+    
 }
 
 - (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target {
-    target.layer.borderColor = [operation.draggingView.backgroundColor CGColor];
+    
 }
 
 - (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target {
-    target.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
     
 }
 

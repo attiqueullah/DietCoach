@@ -31,11 +31,13 @@
 		<array>
 			<string>Lamb Meat</string>
 			<string>Wheat</string>
+			<string>Mixed Vegetables</string>
 		</array>
 		<key>food_group</key>
 		<array>
 			<string>Meat &amp; Beans</string>
 			<string>Grains</string>
+			<string>Vegetables</string>
 		</array>
 	</dict>
 	<dict>

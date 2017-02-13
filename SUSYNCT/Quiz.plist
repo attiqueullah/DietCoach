@@ -15,7 +15,7 @@
 				<string>I don&apos;t know</string>
 			</array>
 			<key>answer</key>
-			<string>1</string>
+			<string>0</string>
 			<key>points</key>
 			<string>20</string>
 		</dict>
@@ -30,7 +30,7 @@
 				<string>Daily Products</string>
 			</array>
 			<key>answer</key>
-			<string>2</string>
+			<string>0</string>
 			<key>points</key>
 			<string>20</string>
 		</dict>
@@ -39,7 +39,7 @@
 	<array>
 		<dict>
 			<key>question</key>
-			<string>Which is approximate nutrition value of the vegetables: (Broccoli,Zuchini,Tomato,Carrots) ?</string>
+			<string>What is the approximate nutritional value of the following vegetables (broccoli, zucchini, tomato, carrots.)?</string>
 			<key>options</key>
 			<array>
 				<string>NuVal = 30</string>
@@ -48,22 +48,22 @@
 				<string>NuVal = 80</string>
 			</array>
 			<key>answer</key>
-			<string>3</string>
+			<string>1</string>
 			<key>points</key>
 			<string>20</string>
 		</dict>
 		<dict>
 			<key>question</key>
-			<string>Which is approximate nutrition value cheese burger ?</string>
+			<string>What is the approximate nutritional value of a cheeseburger?</string>
 			<key>options</key>
 			<array>
-				<string>NuVal = 35</string>
+				<string>NuVal = 30</string>
 				<string>NuVal = 78</string>
 				<string>NuVal = 22</string>
 				<string>NuVal = 15</string>
 			</array>
 			<key>answer</key>
-			<string>3</string>
+			<string>0</string>
 			<key>points</key>
 			<string>20</string>
 		</dict>

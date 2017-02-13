@@ -98,6 +98,13 @@
 		029957C41E50CDB200DB1F0F /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 029957BC1E50CDB200DB1F0F /* DNDDragHandler.m */; };
 		029957C51E50CDB200DB1F0F /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 029957BE1E50CDB200DB1F0F /* DNDDragOperation.m */; };
 		029957C61E50CDB200DB1F0F /* DNDLongPressDragRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 029957C11E50CDB200DB1F0F /* DNDLongPressDragRecognizer.m */; };
+		02F523381E518A1D00E05CA2 /* male_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F523371E518A1D00E05CA2 /* male_0.png */; };
+		02F5233A1E518A3100E05CA2 /* female_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F523391E518A3100E05CA2 /* female_0.png */; };
+		02F5233F1E51996600E05CA2 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F5233B1E51996600E05CA2 /* banana.png */; };
+		02F523401E51996600E05CA2 /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F5233C1E51996600E05CA2 /* milk.png */; };
+		02F523411E51996600E05CA2 /* saleeq_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F5233D1E51996600E05CA2 /* saleeq_avatar.png */; };
+		02F523421E51996600E05CA2 /* cake.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F5233E1E51996600E05CA2 /* cake.png */; };
+		02F523441E5199D800E05CA2 /* jaresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F523431E5199D800E05CA2 /* jaresh.png */; };
 		F87E92112CFA09DB5CFD87A0 /* Pods_Diet_Coach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A9000434D7D2828B4B433B /* Pods_Diet_Coach.framework */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +244,13 @@
 		029957C01E50CDB200DB1F0F /* DNDLongPressDragRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDLongPressDragRecognizer.h; sourceTree = "<group>"; };
 		029957C11E50CDB200DB1F0F /* DNDLongPressDragRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDLongPressDragRecognizer.m; sourceTree = "<group>"; };
 		029957C21E50CDB200DB1F0F /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		02F523371E518A1D00E05CA2 /* male_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_0.png; sourceTree = "<group>"; };
+		02F523391E518A3100E05CA2 /* female_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_0.png; sourceTree = "<group>"; };
+		02F5233B1E51996600E05CA2 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
+		02F5233C1E51996600E05CA2 /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
+		02F5233D1E51996600E05CA2 /* saleeq_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saleeq_avatar.png; sourceTree = "<group>"; };
+		02F5233E1E51996600E05CA2 /* cake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cake.png; sourceTree = "<group>"; };
+		02F523431E5199D800E05CA2 /* jaresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jaresh.png; sourceTree = "<group>"; };
 		23FA095131F01F2AE9680C05 /* libPods-MODEL_1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MODEL_1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB830D45C1D3F7C555260DE /* Pods-Diet Coach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet Coach.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach.release.xcconfig"; sourceTree = "<group>"; };
 		540464748200726D4D2051FE /* Pods-Diet Coach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet Coach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diet Coach/Pods-Diet Coach.debug.xcconfig"; sourceTree = "<group>"; };
@@ -366,7 +380,6 @@
 		0231A5931DF93E65003D63DB /* SUSYNCT */ = {
 			isa = PBXGroup;
 			children = (
-				029957B61E50CDB200DB1F0F /* Sources */,
 				025BA5701DFAF90E00670EBD /* Categories */,
 				0231A5E81DFA9828003D63DB /* Third Party */,
 				0231A5DB1DFA77EF003D63DB /* App Delegte */,
@@ -386,6 +399,11 @@
 		0231A5941DF93E65003D63DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02F523431E5199D800E05CA2 /* jaresh.png */,
+				02F5233B1E51996600E05CA2 /* banana.png */,
+				02F5233C1E51996600E05CA2 /* milk.png */,
+				02F5233D1E51996600E05CA2 /* saleeq_avatar.png */,
+				02F5233E1E51996600E05CA2 /* cake.png */,
 				029957A91E505FA000DB1F0F /* female */,
 				0299579C1E505F6C00DB1F0F /* male */,
 				0299579B1E505F5400DB1F0F /* energy assets */,
@@ -452,6 +470,7 @@
 		0231A5E81DFA9828003D63DB /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				029957B61E50CDB200DB1F0F /* Sources */,
 				0231A6021DFAE277003D63DB /* TTTAttributedLabel */,
 				0231A5E91DFA9837003D63DB /* Parse-iOS */,
 				0231A5E51DFA8A63003D63DB /* Reachability.h */,
@@ -691,6 +710,7 @@
 		0299579C1E505F6C00DB1F0F /* male */ = {
 			isa = PBXGroup;
 			children = (
+				02F523371E518A1D00E05CA2 /* male_0.png */,
 				0299579D1E505F6C00DB1F0F /* male_1.png */,
 				0299579E1E505F6C00DB1F0F /* male_2.png */,
 				0299579F1E505F6C00DB1F0F /* male_3.png */,
@@ -704,6 +724,7 @@
 		029957A91E505FA000DB1F0F /* female */ = {
 			isa = PBXGroup;
 			children = (
+				02F523391E518A3100E05CA2 /* female_0.png */,
 				029957AA1E505FA000DB1F0F /* female_1.png */,
 				029957AB1E505FA000DB1F0F /* female_2.png */,
 				029957AC1E505FA000DB1F0F /* female_3.png */,
@@ -801,7 +822,8 @@
 				TargetAttributes = {
 					0231A5901DF93E65003D63DB = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 62EY8CJW9X;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -828,12 +850,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F523401E51996600E05CA2 /* milk.png in Resources */,
 				029957B41E505FA000DB1F0F /* female_5.png in Resources */,
 				0299579A1E505E0B00DB1F0F /* energy-6.png in Resources */,
 				029957961E505E0B00DB1F0F /* energy-2.png in Resources */,
 				023A85E81E1508F900D291FC /* Profile.storyboard in Resources */,
 				0299577E1E4EE7A500DB1F0F /* Quiz.plist in Resources */,
 				029957991E505E0B00DB1F0F /* energy-5.png in Resources */,
+				02F5233A1E518A3100E05CA2 /* female_0.png in Resources */,
 				029957771E4DBFBF00DB1F0F /* WOX-Striped_Triple_Demo.otf in Resources */,
 				029957B11E505FA000DB1F0F /* female_2.png in Resources */,
 				023A85F41E165B4100D291FC /* SMS.storyboard in Resources */,
@@ -845,11 +869,15 @@
 				029957A81E505F6C00DB1F0F /* male_6.png in Resources */,
 				029957751E4DB30100DB1F0F /* SaudiMeals.plist in Resources */,
 				029957951E505E0B00DB1F0F /* energy-1.png in Resources */,
+				02F523421E51996600E05CA2 /* cake.png in Resources */,
+				02F523381E518A1D00E05CA2 /* male_0.png in Resources */,
 				0250335C1E4C322800789B01 /* Westmeath Italic.ttf in Resources */,
 				0264A1171E09131C000ED0FC /* reveal-icon.png in Resources */,
 				029957A71E505F6C00DB1F0F /* male_5.png in Resources */,
 				029957A61E505F6C00DB1F0F /* male_4.png in Resources */,
 				02414B501E12401C0060C26F /* Saudi.storyboard in Resources */,
+				02F5233F1E51996600E05CA2 /* banana.png in Resources */,
+				02F523411E51996600E05CA2 /* saleeq_avatar.png in Resources */,
 				0264A1181E09131C000ED0FC /* reveal-icon@2x.png in Resources */,
 				02928F601E4631BE00C31578 /* Myriad Pro Regular.ttf in Resources */,
 				029957891E503AF000DB1F0F /* avatarData.plist in Resources */,
@@ -860,6 +888,7 @@
 				0231A5A11DF93E65003D63DB /* Assets.xcassets in Resources */,
 				0231A59F1DF93E65003D63DB /* Main.storyboard in Resources */,
 				029957B31E505FA000DB1F0F /* female_4.png in Resources */,
+				02F523441E5199D800E05CA2 /* jaresh.png in Resources */,
 				029957981E505E0B00DB1F0F /* energy-4.png in Resources */,
 				029957941E505E0B00DB1F0F /* energy-0.png in Resources */,
 				029957791E4ED4D700DB1F0F /* WesternMeals.plist in Resources */,
@@ -1087,7 +1116,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 62EY8CJW9X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SUSYNCT/Parse-iOS",
@@ -1096,7 +1126,7 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				INFOPLIST_FILE = SUSYNCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dietcoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.susynct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1107,7 +1137,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 62EY8CJW9X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SUSYNCT/Parse-iOS",
@@ -1116,7 +1147,7 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				INFOPLIST_FILE = SUSYNCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dietcoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.susynct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

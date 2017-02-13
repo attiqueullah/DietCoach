@@ -32,63 +32,61 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ua1-wR-dDI">
                                 <rect key="frame" x="0.0" y="353" width="375" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZXT-Gb-GaR">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZXT-Gb-GaR">
                                     <size key="itemSize" width="80" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodCollectionCell" id="BF2-P5-Zt5" customClass="LabelCollectionCell">
-                                        <rect key="frame" x="10" y="5" width="80" height="80"/>
+                                        <rect key="frame" x="10" y="10" width="80" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ka5-JH-kuZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                                                     <subviews>
                                                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="zfd-sU-sPP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="59"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <gestureRecognizers/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="5Eo-h9-CxY"/>
-                                                                <constraint firstAttribute="height" constant="59" id="AOV-zq-aLX"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-82-LgP">
-                                                            <rect key="frame" x="0.0" y="59" width="80" height="21"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.53333333329999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <rect key="frame" x="0.0" y="80" width="80" height="20"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="GQi-Hx-pS5"/>
-                                                                <constraint firstAttribute="height" constant="21" id="Z5w-Le-t3W"/>
+                                                                <constraint firstAttribute="height" constant="20" id="Z5w-Le-t3W"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Westmeath" family="Westmeath" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="zfd-sU-sPP" secondAttribute="trailing" id="GEx-WL-jW6"/>
-                                                        <constraint firstItem="zfd-sU-sPP" firstAttribute="top" secondItem="ka5-JH-kuZ" secondAttribute="top" id="IrA-ch-dYl"/>
+                                                        <constraint firstItem="zfd-sU-sPP" firstAttribute="leading" secondItem="ka5-JH-kuZ" secondAttribute="leading" id="Jys-Um-Pqt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zfd-sU-sPP" secondAttribute="trailing" id="PMv-4R-ri9"/>
                                                         <constraint firstAttribute="trailing" secondItem="WsP-82-LgP" secondAttribute="trailing" id="RMi-e4-dNf"/>
                                                         <constraint firstAttribute="bottom" secondItem="WsP-82-LgP" secondAttribute="bottom" id="XV9-yt-TaF"/>
-                                                        <constraint firstItem="zfd-sU-sPP" firstAttribute="leading" secondItem="ka5-JH-kuZ" secondAttribute="leading" id="a51-Wd-sml"/>
+                                                        <constraint firstItem="zfd-sU-sPP" firstAttribute="top" secondItem="ka5-JH-kuZ" secondAttribute="top" id="jL3-nC-0i5"/>
+                                                        <constraint firstItem="WsP-82-LgP" firstAttribute="top" secondItem="zfd-sU-sPP" secondAttribute="bottom" id="m2r-bl-7yq"/>
                                                         <constraint firstItem="WsP-82-LgP" firstAttribute="leading" secondItem="ka5-JH-kuZ" secondAttribute="leading" id="qI7-HD-DYe"/>
-                                                        <constraint firstItem="WsP-82-LgP" firstAttribute="top" secondItem="zfd-sU-sPP" secondAttribute="bottom" id="sQ6-U8-fTV"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ka5-JH-kuZ" secondAttribute="trailing" id="71j-a8-d71"/>
                                             <constraint firstItem="ka5-JH-kuZ" firstAttribute="leading" secondItem="BF2-P5-Zt5" secondAttribute="leading" id="aNO-R8-fR6"/>
                                             <constraint firstAttribute="bottom" secondItem="ka5-JH-kuZ" secondAttribute="bottom" id="wd7-8D-XxH"/>
                                             <constraint firstItem="ka5-JH-kuZ" firstAttribute="top" secondItem="BF2-P5-Zt5" secondAttribute="top" id="yTt-ky-FfV"/>
                                         </constraints>
-                                        <size key="customSize" width="80" height="80"/>
+                                        <size key="customSize" width="80" height="100"/>
                                         <connections>
                                             <outlet property="contentView" destination="ka5-JH-kuZ" id="ZuQ-Sy-XlN"/>
                                             <outlet property="imgFood" destination="zfd-sU-sPP" id="MVX-Ko-gTD"/>
@@ -153,7 +151,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-rH-vaL">
                                         <rect key="frame" x="67" y="59" width="240" height="290"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG4-YI-1Nt">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG4-YI-1Nt">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="290"/>
                                             </imageView>
                                         </subviews>
@@ -211,6 +209,7 @@
                         <outlet property="dragAndDropController" destination="W5b-hl-VcL" id="e3v-bx-KKy"/>
                         <outlet property="foodCollection" destination="ua1-wR-dDI" id="c0J-AH-5rU"/>
                         <outlet property="starRateing" destination="qnV-Qg-IKz" id="JdT-iu-E0T"/>
+                        <outlet property="userFeedImg" destination="QG4-YI-1Nt" id="ivm-gH-1Im"/>
                         <outletCollection property="dropTargetViews" destination="FY6-rH-vaL" id="jYs-xq-HLz"/>
                     </connections>
                 </viewController>
@@ -224,7 +223,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" id="kbr-bI-0gE" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4K4-wm-otF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="4K4-wm-otF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,6 +242,6 @@
         <image name="apple" width="120" height="81"/>
         <image name="background" width="540" height="960"/>
         <image name="energy-6.png" width="212" height="1172"/>
-        <image name="male_1.png" width="601" height="864"/>
+        <image name="male_0.png" width="591" height="855"/>
     </resources>
 </document>

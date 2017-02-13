@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInput2;
 @property (weak, nonatomic) IBOutlet UILabel *lblInput3;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgUser;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 -(void)createLink;
 @end

@@ -8,7 +8,7 @@
 		<key>value</key>
 		<string>22</string>
 		<key>image</key>
-		<string>cheeseburger</string>
+		<string>cheese_burger</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -120,7 +120,7 @@
 		<key>value</key>
 		<string>100</string>
 		<key>image</key>
-		<string>salad</string>
+		<string>salaad</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -152,7 +152,7 @@
 		<key>value</key>
 		<string>100</string>
 		<key>image</key>
-		<string>pineapple </string>
+		<string>pineapple</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -160,7 +160,7 @@
 		<key>value</key>
 		<string>100</string>
 		<key>image</key>
-		<string>banana </string>
+		<string>banana</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -169,6 +169,30 @@
 		<string>100</string>
 		<key>image</key>
 		<string>apple</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Saleeq</string>
+		<key>value</key>
+		<string>68</string>
+		<key>image</key>
+		<string>saleeq</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Jaresh</string>
+		<key>value</key>
+		<string>88</string>
+		<key>image</key>
+		<string>jaresh</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Milk</string>
+		<key>value</key>
+		<string>52</string>
+		<key>image</key>
+		<string>milk</string>
 	</dict>
 </array>
 </plist>
