@@ -10,6 +10,7 @@
 #import "Reachability.h"
 
 @interface DataManger ()
+@property(nonatomic,strong)UserInfo* userData;
 @end
 
 @implementation DataManger
@@ -147,5 +148,36 @@
     [baseController setFrontViewController:frontViewController animated:YES];    //sf
     [baseController setFrontViewPosition:FrontViewPositionLeft animated:YES];
     
+}
+
+
+-(void)saveUserData
+{
+    [self storeUserInfoObject:self.userData];
+}
+-(void)storeUserInfoObject:(id)userObject
+{
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userObject];
+    if ([userObject isKindOfClass:[UserInfo class]]) {
+        [NSUserDefaults saveObject:myEncodedObject forKey:@"userInfo"];
+    }
+    else
+    {
+        [NSUserDefaults deleteObjectForKey:@"userInfo"];
+    }
+}
+-(BOOL)loadUserInfo
+{
+    NSData *myEncodedObject = [NSUserDefaults retrieveObjectForKey:@"userInfo"];
+    if (myEncodedObject)
+    {
+        self.userData = (UserInfo *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+        if (self.userData) {
+            return YES;
+        }
+        else
+            return NO;
+    }
+    return NO;
 }
 @end

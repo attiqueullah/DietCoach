@@ -17,9 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //[self goToDashboard:self.window.rootViewController];
+    //
     [self setupParse];
-    
+    [self enableGoogleAnalytics];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    if ([PFUser currentUser]) {
+        [self goToDashboard:self.window.rootViewController];
+    }
+
     //self.window.backgroundColor = RGB(57, 181, 74);
 
     return YES;
@@ -42,6 +47,19 @@
     self.viewController = revealController;
     self.window.rootViewController = self.viewController;
 }
+-(void)enableGoogleAnalytics
+{
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+
+}
 -(void)setupParse
 {
    ParseClientConfiguration* config = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
@@ -50,6 +68,7 @@
         configuration.server = SERVER;
     }];
     [Parse initializeWithConfiguration:config];
+   
     // [PFUser enableRevocableSessionInBackground];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

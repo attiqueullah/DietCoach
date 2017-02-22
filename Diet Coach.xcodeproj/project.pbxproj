@@ -52,6 +52,7 @@
 		02414B501E12401C0060C26F /* Saudi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02414B4F1E12401C0060C26F /* Saudi.storyboard */; };
 		02414B611E139C4D0060C26F /* Western.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02414B601E139C4D0060C26F /* Western.storyboard */; };
 		02414B681E13C9AB0060C26F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02414B671E13C9AB0060C26F /* MapKit.framework */; };
+		024518A51E5D8FE2008A0489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 024518A41E5D8FE2008A0489 /* GoogleService-Info.plist */; };
 		0250335C1E4C322800789B01 /* Westmeath Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335A1E4C322800789B01 /* Westmeath Italic.ttf */; };
 		0250335D1E4C322900789B01 /* Westmeath.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335B1E4C322800789B01 /* Westmeath.ttf */; };
 		025BA56C1DFAF8E600670EBD /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5651DFAF8E600670EBD /* NSDate+Category.m */; };
@@ -177,6 +178,7 @@
 		02414B4F1E12401C0060C26F /* Saudi.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saudi.storyboard; sourceTree = "<group>"; };
 		02414B601E139C4D0060C26F /* Western.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Western.storyboard; sourceTree = "<group>"; };
 		02414B671E13C9AB0060C26F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		024518A41E5D8FE2008A0489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0250335A1E4C322800789B01 /* Westmeath Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Westmeath Italic.ttf"; sourceTree = "<group>"; };
 		0250335B1E4C322800789B01 /* Westmeath.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Westmeath.ttf; sourceTree = "<group>"; };
 		025BA5641DFAF8E600670EBD /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				029957781E4ED4D700DB1F0F /* WesternMeals.plist */,
 				0299577D1E4EE7A500DB1F0F /* Quiz.plist */,
 				029957881E503AF000DB1F0F /* avatarData.plist */,
+				024518A41E5D8FE2008A0489 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				02F523441E5199D800E05CA2 /* jaresh.png in Resources */,
 				029957981E505E0B00DB1F0F /* energy-4.png in Resources */,
 				029957941E505E0B00DB1F0F /* energy-0.png in Resources */,
+				024518A51E5D8FE2008A0489 /* GoogleService-Info.plist in Resources */,
 				029957791E4ED4D700DB1F0F /* WesternMeals.plist in Resources */,
 				029957971E505E0B00DB1F0F /* energy-3.png in Resources */,
 				029957A51E505F6C00DB1F0F /* male_3.png in Resources */,

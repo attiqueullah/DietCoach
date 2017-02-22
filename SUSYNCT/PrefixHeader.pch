@@ -15,6 +15,7 @@
 #import <BlocksKit/BlocksKit.h>
 #import <BlocksKit/BlocksKit+UIKit.h>
 #import <MapKit/MapKit.h>
+#import <Google/Analytics.h>
 
 #import "MenuViewController.h"
 #import "SVProgressHUD.h"
@@ -69,10 +70,13 @@
 #define CLIENTID       @"tMCW2kHH0Myu8xqKaYPyGiUSNf4koWBJlKpGC27Z"
 #define SERVER         @"https://parseapi.back4app.com/"
 
+#define GANNALYTICS    @"UA-41410883-2"
+
 #pragma mark Constants
 #define DATAMANAGER  [DataManger  sharedInstance]
 #define PARSEMANAGER [APIManager sharedInstance]
 #define API          [APIS  sharedInstance]
+
 
 
 #define CHECK_CLASS          [self isKindOfClass:[ScheduleSetupController class]] || [self isKindOfClass:[SportsViewController class]]

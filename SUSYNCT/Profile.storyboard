@@ -22,7 +22,7 @@
                         <viewControllerLayoutGuide type="top" id="U8n-Og-Cxn"/>
                         <viewControllerLayoutGuide type="bottom" id="RQH-Fh-GHb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GjA-PZ-9ni">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="GjA-PZ-9ni">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

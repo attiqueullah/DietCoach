@@ -24,7 +24,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker set:kGAIScreenName value:@"Leaderboard"];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+}
 /*
 #pragma mark - Navigation
 

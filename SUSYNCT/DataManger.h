@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "UserInfo.h"
 typedef NS_ENUM(NSUInteger, ProgressHUDType) {
     STATUS = 1,
     SUCESS,
@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
     AnswerTypeFourth = 3
 };
 @interface DataManger : NSObject
+@property(nonatomic,readonly)UserInfo* userData;
 +(id)sharedInstance;
 
 
@@ -44,4 +45,6 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
 -(NSArray*)loadUserInfo:(QuizType)type;
 -(void)evaluateResults:(NSArray*)results;
 -(void)goToLeaderBoard:(SWRevealViewController*)baseController;
+-(void)saveUserData;
+-(BOOL)loadUserInfo;
 @end

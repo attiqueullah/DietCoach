@@ -20,7 +20,7 @@
     return _sharedManager;
 }
 #pragma  mark Signup Method
--(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andPhone:(NSString*)phone andFirstName:(NSString*)fname andLastName:(NSString*)lname inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock
+-(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andName:(NSString*)name andGender:(NSString*)gender inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock
 
 {
     controller.view.userInteractionEnabled = NO;
@@ -36,9 +36,9 @@
          user.username = username;
          user.password = password;
          user.email = email;
-         user[@"first_name"] = fname;
-         user[@"last_name"] = lname;
-         user[@"mobile"] = phone;
+         user[@"gender"] = gender;
+         user[@"name"] = name;
+        
          
          [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
              controller.view.userInteractionEnabled = YES;

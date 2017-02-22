@@ -13,4 +13,5 @@ target 'Diet Coach' do
   pod 'MSCellAccessory'
   pod 'SWRevealViewController'
   pod 'HCSStarRatingView', '~> 1.4.4'
+  pod 'Google/Analytics'
 end

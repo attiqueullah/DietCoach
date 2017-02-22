@@ -16,7 +16,15 @@
 @property(nonatomic,strong)NSString* mobile;
 @property(nonatomic,strong)NSString* password;
 @property(nonatomic,strong)NSString* confirmPassword;
+@property(nonatomic,strong)NSString* gender;
 @property(nonatomic)BOOL validEmail;
 @property(nonatomic)BOOL validUsername;
 @property(nonatomic)BOOL isAgreeTerms;
+
+@property(nonatomic,assign)NSUInteger q1Attempt;
+@property(nonatomic,assign)NSUInteger q2Attempt;
+@property(nonatomic,assign)NSUInteger q3Attempt;
+@property(nonatomic,assign)NSUInteger q4Attempt;
+
+@property(nonatomic,assign)NSUInteger quizPassed;
 @end
