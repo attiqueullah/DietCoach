@@ -15,8 +15,10 @@
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starRateing;
 @property (nonatomic,strong)UIImageView* tempImage;
 @property (weak, nonatomic) IBOutlet UIImageView *userFeedImg;
+@property (weak, nonatomic) IBOutlet UIImageView *userEnergy;
 
 @property(nonatomic,strong)NSMutableArray* userFeedArray;
+@property(nonatomic,strong)NSMutableArray* userFoodArray;
 @end
 
 @implementation ProfileViewController
@@ -25,6 +27,7 @@
     [super viewDidLoad];
      self.foodData = [NSMutableArray new];
     self.userFeedArray = [NSMutableArray new];
+    self.userFoodArray = [NSMutableArray new];
     
     [self getAvatarData];
     // Do any additional setup after loading the view.
@@ -72,14 +75,18 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)feedAvatar:(UIImageView*)img
+-(BOOL)feedAvatar:(UIImageView*)img
 {
-    if (self.userFeedArray.count==6) {
+    if (self.userFeedArray.count>6) {
         [DATAMANAGER showWithStatus:@"You cannot choose more than 6 foods" withType:ERROR];
-        return;
+        
+        return false;
     }
-    [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]]];
-    self.userFeedImg.image = [self.userFeedArray lastObject];
+   
+    self.userFeedImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]];
+    self.userEnergy.image = [UIImage imageNamed:[NSString stringWithFormat:@"energy-%d",(int)self.userFeedArray.count]];
+     [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]]];
+    return true;
 }
 #pragma mark CollectionView Delegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -103,6 +110,26 @@
     cell.imgFood.layer.masksToBounds = NO;
     cell.imgFood.clipsToBounds = YES;
     cell.imgFood.layer.cornerRadius = cell.imgFood.frame.size.width/2;
+    
+    if (self.userFoodArray.count>0) {
+        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"SELF.name == %@ ", dic[@"name"]];
+        NSArray *filteredArray = [self.userFoodArray filteredArrayUsingPredicate:namePredicate];
+        if (filteredArray.count>0) {
+            cell.lblInput3.hidden = false;
+        }
+        else
+        {
+            cell.lblInput3.hidden = true;
+        }
+    }
+    else
+        cell.lblInput3.hidden = true;
+    
+    cell.lblInput3.layer.masksToBounds = NO;
+    cell.lblInput3.clipsToBounds = YES;
+    cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
+    
+
     return cell;
 }
 
@@ -134,6 +161,9 @@
     }
     LabelCollectionCell* cell = (LabelCollectionCell*)[tableView cellForItemAtIndexPath:indexPath];
     
+    if (!cell.lblInput3.isHidden) {
+        return nil;
+    }
     NSDictionary* dic = self.foodData[cell.contentView.tag];
     UIImageView* tempImg = [[UIImageView alloc]initWithFrame:cell.imgFood.frame];
     tempImg.image = [UIImage imageNamed:dic[@"image"]];
@@ -166,9 +196,22 @@
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target {
     
     UIImageView* tempImg = (UIImageView *)operation.draggingView;
-    [self feedAvatar:tempImg];
     
-    /*UIView* imgv = operation.dragSourceView;
+    if ([self feedAvatar:tempImg]) {
+        UICollectionView *tableView = (UICollectionView *)operation.dragSourceView;
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tempImg.tag inSection:0];
+        if (indexPath == nil) {
+            return ;
+        }
+        LabelCollectionCell* cell = (LabelCollectionCell*)[tableView cellForItemAtIndexPath:indexPath];
+        cell.lblInput3.hidden = false;
+        
+        NSDictionary* dic = self.foodData[tempImg.tag];
+        [self.userFoodArray addObject:dic];
+
+    }
+        /*UIView* imgv = operation.dragSourceView;
     [self.foodData removeObjectAtIndex:imgv.tag];*/
     
     //[operation removeDraggingView];

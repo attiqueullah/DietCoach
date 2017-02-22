@@ -65,8 +65,8 @@
 #define ABOUT        [UIStoryboard storyboardWithName:@"About"                   bundle:nil]
 
 #pragma mark PARSE Keys
-#define APPID          @"tjMZ2kybaLyosuQbpOEmxJlMboqr1WSusr4dLhz9"
-#define CLIENTID       @"OPtVkMuF4LDzkrInfCXwJMKqgW7o9NKwXhS549mk"
+#define APPID          @"uwnYFq3zSr7Ia1EMQPnibLpgdBpTc7YYIu7C6NjM"
+#define CLIENTID       @"tMCW2kHH0Myu8xqKaYPyGiUSNf4koWBJlKpGC27Z"
 #define SERVER         @"https://parseapi.back4app.com/"
 
 #pragma mark Constants

@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--My Avatar-->
+        <!--Adventure Chamber-->
         <scene sceneID="NMN-qM-I1N">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="eRv-un-Jl8" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -53,6 +53,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <gestureRecognizers/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="80" id="XdJ-Jy-NKh"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-82-LgP">
                                                             <rect key="frame" x="0.0" y="80" width="80" height="20"/>
@@ -65,16 +68,27 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-cL-SwC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="hvD-cL-SwC" firstAttribute="top" secondItem="zfd-sU-sPP" secondAttribute="top" id="4WP-5m-xah"/>
                                                         <constraint firstItem="zfd-sU-sPP" firstAttribute="leading" secondItem="ka5-JH-kuZ" secondAttribute="leading" id="Jys-Um-Pqt"/>
                                                         <constraint firstAttribute="trailing" secondItem="zfd-sU-sPP" secondAttribute="trailing" id="PMv-4R-ri9"/>
                                                         <constraint firstAttribute="trailing" secondItem="WsP-82-LgP" secondAttribute="trailing" id="RMi-e4-dNf"/>
                                                         <constraint firstAttribute="bottom" secondItem="WsP-82-LgP" secondAttribute="bottom" id="XV9-yt-TaF"/>
+                                                        <constraint firstItem="hvD-cL-SwC" firstAttribute="bottom" secondItem="zfd-sU-sPP" secondAttribute="bottom" id="YAR-eX-Eth"/>
+                                                        <constraint firstItem="hvD-cL-SwC" firstAttribute="trailing" secondItem="zfd-sU-sPP" secondAttribute="trailing" id="ijK-ZZ-HqK"/>
                                                         <constraint firstItem="zfd-sU-sPP" firstAttribute="top" secondItem="ka5-JH-kuZ" secondAttribute="top" id="jL3-nC-0i5"/>
                                                         <constraint firstItem="WsP-82-LgP" firstAttribute="top" secondItem="zfd-sU-sPP" secondAttribute="bottom" id="m2r-bl-7yq"/>
                                                         <constraint firstItem="WsP-82-LgP" firstAttribute="leading" secondItem="ka5-JH-kuZ" secondAttribute="leading" id="qI7-HD-DYe"/>
+                                                        <constraint firstItem="hvD-cL-SwC" firstAttribute="leading" secondItem="zfd-sU-sPP" secondAttribute="leading" id="ukZ-zt-fPt"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -91,6 +105,7 @@
                                             <outlet property="contentView" destination="ka5-JH-kuZ" id="ZuQ-Sy-XlN"/>
                                             <outlet property="imgFood" destination="zfd-sU-sPP" id="MVX-Ko-gTD"/>
                                             <outlet property="lblInput2" destination="WsP-82-LgP" id="nKT-0K-Hdq"/>
+                                            <outlet property="lblInput3" destination="hvD-cL-SwC" id="GQp-Wb-Fhu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -202,13 +217,14 @@
                             <constraint firstItem="Frj-W7-9BI" firstAttribute="top" secondItem="U8n-Og-Cxn" secondAttribute="bottom" id="x0H-0U-HwJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Avatar" id="MyC-Mj-nJo">
+                    <navigationItem key="navigationItem" title="Adventure Chamber" id="MyC-Mj-nJo">
                         <barButtonItem key="backBarButtonItem" title=" " id="fsQ-a9-IEZ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="dragAndDropController" destination="W5b-hl-VcL" id="e3v-bx-KKy"/>
                         <outlet property="foodCollection" destination="ua1-wR-dDI" id="c0J-AH-5rU"/>
                         <outlet property="starRateing" destination="qnV-Qg-IKz" id="JdT-iu-E0T"/>
+                        <outlet property="userEnergy" destination="bzp-H4-HyP" id="w4t-vG-gzR"/>
                         <outlet property="userFeedImg" destination="QG4-YI-1Nt" id="ivm-gH-1Im"/>
                         <outletCollection property="dropTargetViews" destination="FY6-rH-vaL" id="jYs-xq-HLz"/>
                     </connections>
@@ -223,7 +239,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" id="kbr-bI-0gE" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="4K4-wm-otF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4K4-wm-otF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,6 +258,6 @@
         <image name="apple" width="120" height="81"/>
         <image name="background" width="540" height="960"/>
         <image name="energy-6.png" width="212" height="1172"/>
-        <image name="male_0.png" width="591" height="855"/>
+        <image name="male_0.png" width="601" height="864"/>
     </resources>
 </document>

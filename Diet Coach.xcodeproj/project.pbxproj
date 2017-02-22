@@ -822,7 +822,7 @@
 				TargetAttributes = {
 					0231A5901DF93E65003D63DB = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 62EY8CJW9X;
+						DevelopmentTeam = E7M9XFE4R4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1117,7 +1117,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62EY8CJW9X;
+				DEVELOPMENT_TEAM = E7M9XFE4R4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SUSYNCT/Parse-iOS",
@@ -1126,7 +1126,7 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				INFOPLIST_FILE = SUSYNCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.susynct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dietcoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1138,7 +1138,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62EY8CJW9X;
+				DEVELOPMENT_TEAM = E7M9XFE4R4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SUSYNCT/Parse-iOS",
@@ -1147,7 +1147,7 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/SUSYNCT/PrefixHeader.pch";
 				INFOPLIST_FILE = SUSYNCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.susynct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dietcoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
