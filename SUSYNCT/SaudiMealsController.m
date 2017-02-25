@@ -29,7 +29,11 @@
    
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [DATAMANAGER trackPage:@"Saudi Meals"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -146,6 +150,7 @@
     CGPoint visiblePoint = CGPointMake(CGRectGetMidX(visibleRect), CGRectGetMidY(visibleRect));
     NSIndexPath *visibleIndexPath = [self.foodCollection indexPathForItemAtPoint:visiblePoint];
     track = visibleIndexPath.item;
+    
     [self takeQuiz:visibleIndexPath.item];
 }
 @end

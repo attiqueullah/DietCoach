@@ -16,4 +16,7 @@
 -(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andName:(NSString*)name andGender:(NSString*)gender inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock;
 #pragma  mark Login Email Method
 -(void)signinWithUsername:(NSString*)username andPassword:(NSString*)password  inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock;
+-(void)getAllQuizWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock;
+-(void)saveUserData:(UserInfo*)user;
+-(void)storeParseObject:(PFObject*)obj;
 @end

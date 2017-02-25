@@ -37,6 +37,11 @@
     [self feedAvatar:nil];
    
    }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [DATAMANAGER trackPage:@"Avatar"];
+}
 - (void)registerTableViewForDragging:(UICollectionView *)tableView {
     DNDLongPressDragRecognizer *dragRecognizer = [[DNDLongPressDragRecognizer alloc] init];
     dragRecognizer.minimumPressDuration = 0.1;
@@ -85,7 +90,7 @@
    
     self.userFeedImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]];
     self.userEnergy.image = [UIImage imageNamed:[NSString stringWithFormat:@"energy-%d",(int)self.userFeedArray.count]];
-     [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]]];
+    [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"male_%d",(int)self.userFeedArray.count]]];
     return true;
 }
 #pragma mark CollectionView Delegate

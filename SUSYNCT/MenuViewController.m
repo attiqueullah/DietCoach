@@ -109,6 +109,8 @@
 #pragma mark GO TO LOGOUT
 -(void)goToLogout
     {
+        [PFObject unpinAllObjectsInBackground];
+        [PFUser logOutInBackground];
         ViewController *frontViewController = [MAIN instantiateViewControllerWithIdentifier:NAV_LOGIN];
         [[UIApplication sharedApplication] keyWindow].rootViewController = frontViewController;
     }

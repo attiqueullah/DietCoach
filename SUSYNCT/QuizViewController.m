@@ -35,7 +35,11 @@
     self.answersArray = [NSMutableArray arrayWithArray:self.questionArray];
     
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [DATAMANAGER trackPage:@"Quiz"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -128,6 +132,29 @@
         return NO;
     }
 }
+-(void)updateUserData
+{
+    if (self.quizType==QuizTypeFirst) {
+        if (self.questionType==QuestionTypeFirst) {
+            [DATAMANAGER userData].q1Attempt =  [DATAMANAGER userData].q1Attempt+1;
+        }
+        else
+        {
+            [DATAMANAGER userData].q2Attempt =  [DATAMANAGER userData].q2Attempt+1;
+        }
+    }
+    else
+    {
+        if (self.questionType==QuestionTypeFirst) {
+            [DATAMANAGER userData].q3Attempt =  [DATAMANAGER userData].q3Attempt+1;
+        }
+        else
+        {
+            [DATAMANAGER userData].q4Attempt =  [DATAMANAGER userData].q4Attempt+1;
+        }
+    }
+    [DATAMANAGER saveUserData];
+}
 #pragma mark Actions
 -(IBAction)btnSelectOption:(UIButton*)sender
 {
@@ -153,10 +180,10 @@
     else
     {
         //// Go To Results ////
-        
         [self performSegueWithIdentifier:@"results" sender:self.answersArray];
     }
-   }
+    [self updateUserData];
+}
 
 
 #pragma mark - Navigation

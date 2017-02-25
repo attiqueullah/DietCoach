@@ -22,6 +22,7 @@
     [self enableGoogleAnalytics];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     if ([PFUser currentUser]) {
+        [DATAMANAGER loadUserInfo];
         [self goToDashboard:self.window.rootViewController];
     }
 
@@ -66,6 +67,7 @@
         configuration.applicationId = APPID;
         configuration.clientKey = CLIENTID;
         configuration.server = SERVER;
+       configuration.localDatastoreEnabled = YES;
     }];
     [Parse initializeWithConfiguration:config];
    

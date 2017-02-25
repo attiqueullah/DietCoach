@@ -17,6 +17,7 @@
 #import <MapKit/MapKit.h>
 #import <Google/Analytics.h>
 
+#import "AFNetworking.h"
 #import "MenuViewController.h"
 #import "SVProgressHUD.h"
 #import "NSUserDefaults+Helpers.h"
@@ -76,8 +77,11 @@
 #define DATAMANAGER  [DataManger  sharedInstance]
 #define PARSEMANAGER [APIManager sharedInstance]
 #define API          [APIS  sharedInstance]
+#define ISNETWORK        [DATAMANAGER networkConnectivitywithCompletionBlock]
 
-
+#pragma mark Twilio Credentials
+#define TwilioURL @"https://AC439073eae4b847809b8ee31d2259c6e4:afb444494d89fda4372a4d2048841359@api.twilio.com/2010-04-01/Accounts/AC439073eae4b847809b8ee31d2259c6e4/SMS/Messages.json"
+#define FROM_TWILIO @"+14247813414"
 
 #define CHECK_CLASS          [self isKindOfClass:[ScheduleSetupController class]] || [self isKindOfClass:[SportsViewController class]]
 

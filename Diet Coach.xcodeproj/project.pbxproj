@@ -55,6 +55,9 @@
 		024518A51E5D8FE2008A0489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 024518A41E5D8FE2008A0489 /* GoogleService-Info.plist */; };
 		0250335C1E4C322800789B01 /* Westmeath Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335A1E4C322800789B01 /* Westmeath Italic.ttf */; };
 		0250335D1E4C322900789B01 /* Westmeath.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0250335B1E4C322800789B01 /* Westmeath.ttf */; };
+		0256E5CB1E61423E0035C922 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5CA1E61423E0035C922 /* QueryManager.m */; };
+		0256E5CE1E614B930035C922 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5CD1E614B930035C922 /* ContactsViewController.m */; };
+		0256E5D11E616B820035C922 /* AvatarData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5D01E616B820035C922 /* AvatarData.m */; };
 		025BA56C1DFAF8E600670EBD /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5651DFAF8E600670EBD /* NSDate+Category.m */; };
 		025BA56D1DFAF8E600670EBD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5671DFAF8E600670EBD /* NSDate+Utilities.m */; };
 		025BA56E1DFAF8E600670EBD /* NSUserDefaults+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5691DFAF8E600670EBD /* NSUserDefaults+Helpers.m */; };
@@ -181,6 +184,12 @@
 		024518A41E5D8FE2008A0489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0250335A1E4C322800789B01 /* Westmeath Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Westmeath Italic.ttf"; sourceTree = "<group>"; };
 		0250335B1E4C322800789B01 /* Westmeath.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Westmeath.ttf; sourceTree = "<group>"; };
+		0256E5C91E61423E0035C922 /* QueryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
+		0256E5CA1E61423E0035C922 /* QueryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
+		0256E5CC1E614B930035C922 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		0256E5CD1E614B930035C922 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		0256E5CF1E616B820035C922 /* AvatarData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarData.h; sourceTree = "<group>"; };
+		0256E5D01E616B820035C922 /* AvatarData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarData.m; sourceTree = "<group>"; };
 		025BA5641DFAF8E600670EBD /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		025BA5651DFAF8E600670EBD /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		025BA5661DFAF8E600670EBD /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
@@ -311,6 +320,8 @@
 		02311F211DFFD8E1000F9FFD /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				0256E5C91E61423E0035C922 /* QueryManager.h */,
+				0256E5CA1E61423E0035C922 /* QueryManager.m */,
 				0231A5DC1DFA78A7003D63DB /* DataManger.h */,
 				0231A5DD1DFA78A7003D63DB /* DataManger.m */,
 				0231A5DF1DFA792A003D63DB /* APIManager.h */,
@@ -332,6 +343,8 @@
 				0264A1051E05332F000ED0FC /* SubCourseInfo.m */,
 				029957821E4F542900DB1F0F /* Answers.h */,
 				029957831E4F542900DB1F0F /* Answers.m */,
+				0256E5CF1E616B820035C922 /* AvatarData.h */,
+				0256E5D01E616B820035C922 /* AvatarData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -526,6 +539,8 @@
 				023A86121E1797D100D291FC /* Storyboard */,
 				021659071E4B832D00D779C1 /* SMSViewController.h */,
 				021659081E4B832D00D779C1 /* SMSViewController.m */,
+				0256E5CC1E614B930035C922 /* ContactsViewController.h */,
+				0256E5CD1E614B930035C922 /* ContactsViewController.m */,
 			);
 			name = SMS;
 			sourceTree = "<group>";
@@ -967,6 +982,7 @@
 				0231A5E41DFA7B4B003D63DB /* UserInfo.m in Sources */,
 				0231A59C1DF93E65003D63DB /* ViewController.m in Sources */,
 				0231A5D31DF99231003D63DB /* SignUpViewController.m in Sources */,
+				0256E5D11E616B820035C922 /* AvatarData.m in Sources */,
 				0231A5991DF93E65003D63DB /* AppDelegate.m in Sources */,
 				0216590F1E4B869900D779C1 /* LeaderboardViewController.m in Sources */,
 				023A85FA1E178FA200D291FC /* HelpViewController.m in Sources */,
@@ -975,6 +991,8 @@
 				029957C51E50CDB200DB1F0F /* DNDDragOperation.m in Sources */,
 				0231A5961DF93E65003D63DB /* main.m in Sources */,
 				029957841E4F542900DB1F0F /* Answers.m in Sources */,
+				0256E5CB1E61423E0035C922 /* QueryManager.m in Sources */,
+				0256E5CE1E614B930035C922 /* ContactsViewController.m in Sources */,
 				0231A5E11DFA792A003D63DB /* APIManager.m in Sources */,
 				02311F2D1DFFFEA1000F9FFD /* LabelCollectionCell.m in Sources */,
 				021659111E4B87F200D779C1 /* MenuViewController.m in Sources */,

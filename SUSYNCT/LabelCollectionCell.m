@@ -13,6 +13,7 @@
 #pragma  mark Configure Cell
 -(void)configureCell:(NSArray*)foodItems withIndexPath:(NSIndexPath*)ind
 {
+
     NSDictionary*foodItem = foodItems[ind.row];
     self.lblInput2.text = foodItem[@"title"];
     self.lblInput3.text = foodItem[@"score"];
@@ -36,8 +37,7 @@
     {
         self.forwardBtn.hidden = NO;
     }
-    
-
+     [DATAMANAGER trackPage:self.lblInput2.text];
 }
 
 #pragma mark - Table view data source

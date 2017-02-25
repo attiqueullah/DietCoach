@@ -21,10 +21,16 @@
 @property(nonatomic)BOOL validUsername;
 @property(nonatomic)BOOL isAgreeTerms;
 
-@property(nonatomic,assign)NSUInteger q1Attempt;
-@property(nonatomic,assign)NSUInteger q2Attempt;
-@property(nonatomic,assign)NSUInteger q3Attempt;
-@property(nonatomic,assign)NSUInteger q4Attempt;
+@property(nonatomic,strong)PFUser* userId;
 
-@property(nonatomic,assign)NSUInteger quizPassed;
+@property(nonatomic)NSUInteger q1Attempt;
+@property(nonatomic)NSUInteger q2Attempt;
+@property(nonatomic)NSUInteger q3Attempt;
+@property(nonatomic)NSUInteger q4Attempt;
+
+@property(nonatomic)NSUInteger quizPassed;
+
+@property(nonatomic)NSUInteger totalPoints;
+
+@property(nonatomic)NSUInteger totalSMS;
 @end

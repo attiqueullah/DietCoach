@@ -30,7 +30,11 @@
     [self loadCorrectAnswersTwo];
     [self totalPoints];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [DATAMANAGER trackPage:@"Results"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -73,6 +77,7 @@
     if ([ans isEqualToString:userAnswer]) {
         ans1.points = 20;
         self.userAns2.text = [NSString stringWithFormat:@"✅ %@",userAnswer];
+        
     }
     else
     {
@@ -94,6 +99,8 @@
 
 -(IBAction)btnCheckMyScore:(id)sender
 {
+    
+    
     [DATAMANAGER evaluateResults:self.answersArray];
     [DATAMANAGER goToLeaderBoard:self.revealViewController];
 }

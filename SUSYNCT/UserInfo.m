@@ -24,6 +24,8 @@
     [encoder encodeObject:[NSNumber numberWithInteger:self.q4Attempt] forKey:@"q4Attempt"];
     
     [encoder encodeObject:[NSNumber numberWithInteger:self.quizPassed] forKey:@"quizPassed"];
+    [encoder encodeObject:[NSNumber numberWithInteger:self.totalPoints] forKey:@"totalPoints"];
+    [encoder encodeObject:[NSNumber numberWithInteger:self.totalSMS] forKey:@"totalSMS"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -39,11 +41,13 @@
         self.gender = [decoder decodeObjectForKey:@"gender"];
         
         
-        self.q1Attempt = [[decoder decodeObjectForKey:@"q1Attempt"] integerValue];
-        self.q2Attempt = [[decoder decodeObjectForKey:@"q2Attempt"] integerValue];
-        self.q3Attempt = [[decoder decodeObjectForKey:@"q3Attempt"] integerValue];
-        self.q3Attempt = [[decoder decodeObjectForKey:@"q4Attempt"] integerValue];
-        self.quizPassed = [[decoder decodeObjectForKey:@"quizPassed"] integerValue];
+        self.q1Attempt   = [[decoder decodeObjectForKey:@"q1Attempt"]   integerValue];
+        self.q2Attempt   = [[decoder decodeObjectForKey:@"q2Attempt"]   integerValue];
+        self.q3Attempt   = [[decoder decodeObjectForKey:@"q3Attempt"]   integerValue];
+        self.q3Attempt   = [[decoder decodeObjectForKey:@"q4Attempt"]   integerValue];
+        self.quizPassed  = [[decoder decodeObjectForKey:@"quizPassed"]  integerValue];
+        self.totalPoints = [[decoder decodeObjectForKey:@"totalPoints"] integerValue];
+        self.totalSMS = [[decoder decodeObjectForKey:@"totalSMS"] integerValue];
         
         
     }

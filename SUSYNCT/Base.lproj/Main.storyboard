@@ -370,10 +370,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
                                                     <segments>
                                                         <segment title="👦 Male"/>
-                                                        <segment>
-                                                            <string key="title">👧 girl
-</string>
-                                                        </segment>
+                                                        <segment title="👧 Female"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.083531543609999995" green="0.1083666831" blue="0.47871804239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
@@ -457,7 +454,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="BuL-aR-uHK" secondAttribute="bottom" id="ZQS-Dz-0F8"/>
                                                 <constraint firstItem="BuL-aR-uHK" firstAttribute="leading" secondItem="gzZ-uQ-oXz" secondAttribute="leading" id="bwD-bv-OdR"/>
                                                 <constraint firstItem="BuL-aR-uHK" firstAttribute="top" secondItem="gzZ-uQ-oXz" secondAttribute="top" id="lDd-dR-8u1"/>
-                                                <constraint firstAttribute="bottom" secondItem="BuL-aR-uHK" secondAttribute="bottom" constant="-0.5" id="vHK-Gs-7aK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

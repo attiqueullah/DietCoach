@@ -41,10 +41,19 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
 #pragma mak Custom Methods
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 -(void)checkInterneConnectivitywithCompletionBlock:(void(^)( BOOL connect))completionBlock;
+-(BOOL)networkConnectivitywithCompletionBlock;
 -(void)storeQuizesObject:(id)userObject;
 -(NSArray*)loadUserInfo:(QuizType)type;
 -(void)evaluateResults:(NSArray*)results;
 -(void)goToLeaderBoard:(SWRevealViewController*)baseController;
 -(void)saveUserData;
 -(BOOL)loadUserInfo;
+-(void)saveParseUser:(PFUser*)user;
+-(void)trackPage:(NSString*)str;
+-(UserInfo*)getParseQuiz:(PFUser*)obj;
+-(void)hideStatus;
+-(NSString*)createShortText:(NSString*)name;
+-(void)storeUserInfoObject:(id)userObject;
+#pragma  mark SMS TWilio Method
+-(void)sendSMSViaTwilio:(NSString*)message withTo:(NSString*)to WithCompletionBlock:(void(^)(BOOL success,NSError* error))completionBlock;
 @end

@@ -9,6 +9,7 @@
 #import "LeaderboardViewController.h"
 
 @interface LeaderboardViewController ()
+@property(nonatomic,strong)NSArray* quizes;
 @property (weak, nonatomic) IBOutlet UITableView *tblUsers;
 
 @end
@@ -17,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getAllQuizes];
     // Do any additional setup after loading the view.
 }
 
@@ -27,9 +29,18 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
-    [tracker set:kGAIScreenName value:@"Leaderboard"];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    [DATAMANAGER trackPage:@"Leaderboard"];
+}
+-(void)getAllQuizes
+{
+    [PARSEMANAGER getAllQuizWithCompletionBlock:^(NSArray* quizes,NSError* error){
+        if (!error) {
+            if (quizes.count>0) {
+                self.quizes = quizes;
+                [self.tblUsers reloadData];
+            }
+        }
+    }];
 }
 /*
 #pragma mark - Navigation
@@ -45,19 +56,41 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     // Return the number of sections.
-    return 1;
+    return self.quizes.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 15;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UsersRankingCell" forIndexPath:indexPath];
-    cell.imgUser.layer.masksToBounds = NO;
-    cell.imgUser.clipsToBounds = YES;
-    cell.imgUser.layer.cornerRadius = cell.imgUser.frame.size.width/2;
+    
+    UserInfo* quiz = self.quizes[indexPath.section];
+    
+    cell.lblInput1.text = quiz.first_name;
+    cell.lblInput3.layer.masksToBounds = NO;
+    cell.lblInput3.clipsToBounds = YES;
+    cell.lblInput3.layer.borderColor = [UIColor blackColor].CGColor;
+    cell.lblInput3.layer.borderWidth = 1.5;
+    cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
+    cell.lblInput3.text = [DATAMANAGER createShortText:quiz.first_name];
+    
+    if (indexPath.section==0) {
+        cell.lblInput2.text = [NSString stringWithFormat:@"🥇%d",(int)quiz.totalPoints];
+    }
+    else if (indexPath.section==1) {
+        cell.lblInput2.text = [NSString stringWithFormat:@"🥈%d",(int)quiz.totalPoints];
+    }
+    else if (indexPath.section==2) {
+        cell.lblInput2.text = [NSString stringWithFormat:@"🥉%d",(int)quiz.totalPoints];
+    }
+    else
+    {
+        cell.lblInput2.text = [NSString stringWithFormat:@"%d",(int)quiz.totalPoints];
+    }
+    
     return cell;
     
 }
@@ -67,20 +100,26 @@
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    return 5.0;
 }
-/*- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
  UIView *v=[[UIView alloc]initWithFrame:CGRectZero];
  [v setBackgroundColor:[UIColor clearColor]];
  return v;
- }*/
+ }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *v=[[UIView alloc]initWithFrame:CGRectZero];
+    [v setBackgroundColor:[UIColor clearColor]];
+    return v;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return CGFLOAT_MIN;
+    return 5.0;
 }
+
 
 @end

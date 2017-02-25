@@ -35,7 +35,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaderbg" translatesAutoresizingMaskIntoConstraints="NO" id="FIy-xB-TDq">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="359"/>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m23-Kj-eCq">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m23-Kj-eCq">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="359"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -43,18 +43,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="343" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yzh-gp-fhD" id="YQ3-Ss-gIW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="49"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="WuY-cf-vxB">
-                                                            <rect key="frame" x="8" y="0.0" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="HqG-M8-8hh"/>
-                                                                <constraint firstAttribute="width" constant="50" id="cLJ-UV-h9K"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥇100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM6-ar-hrj">
-                                                            <rect key="frame" x="269" y="0.0" width="66" height="49"/>
+                                                            <rect key="frame" x="269" y="0.0" width="66" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="66" id="DKn-Dm-pT5"/>
                                                             </constraints>
@@ -63,31 +56,41 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osama Haider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eem-6P-gxT">
-                                                            <rect key="frame" x="64" y="4" width="203" height="45"/>
+                                                            <rect key="frame" x="63" y="0.0" width="204" height="50"/>
                                                             <fontDescription key="fontDescription" name="Westmeath" family="Westmeath" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-mC-5PR">
+                                                            <rect key="frame" x="8" y="0.0" width="50" height="50"/>
+                                                            <color key="backgroundColor" red="0.70349913128823005" green="0.93690350395062993" blue="0.94681614637374878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="aXn-yE-7Pj"/>
+                                                                <constraint firstAttribute="width" constant="50" id="sPy-sO-Tbd"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Westmeath" family="Westmeath" pointSize="22"/>
+                                                            <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="OM6-ar-hrj" firstAttribute="leading" secondItem="Eem-6P-gxT" secondAttribute="trailing" constant="2" id="3LB-Fs-w9I"/>
-                                                        <constraint firstItem="WuY-cf-vxB" firstAttribute="top" secondItem="YQ3-Ss-gIW" secondAttribute="top" id="87z-Ro-fdN"/>
                                                         <constraint firstAttribute="bottom" secondItem="Eem-6P-gxT" secondAttribute="bottom" id="Cos-IM-NRZ"/>
+                                                        <constraint firstItem="6Eu-mC-5PR" firstAttribute="leading" secondItem="YQ3-Ss-gIW" secondAttribute="leading" constant="8" id="JeS-Il-XPk"/>
                                                         <constraint firstAttribute="bottom" secondItem="OM6-ar-hrj" secondAttribute="bottom" id="M1D-Mc-Vc0"/>
-                                                        <constraint firstAttribute="bottom" secondItem="WuY-cf-vxB" secondAttribute="bottom" constant="-1" id="QUs-3u-nmf"/>
                                                         <constraint firstAttribute="trailing" secondItem="OM6-ar-hrj" secondAttribute="trailing" constant="8" id="VCW-n7-jcT"/>
-                                                        <constraint firstItem="Eem-6P-gxT" firstAttribute="top" secondItem="YQ3-Ss-gIW" secondAttribute="top" constant="4" id="eXE-7p-iha"/>
-                                                        <constraint firstItem="Eem-6P-gxT" firstAttribute="leading" secondItem="WuY-cf-vxB" secondAttribute="trailing" constant="6" id="pN0-LH-1Em"/>
-                                                        <constraint firstItem="WuY-cf-vxB" firstAttribute="leading" secondItem="YQ3-Ss-gIW" secondAttribute="leading" constant="8" id="vm3-I8-rd1"/>
+                                                        <constraint firstItem="Eem-6P-gxT" firstAttribute="top" secondItem="YQ3-Ss-gIW" secondAttribute="top" id="eXE-7p-iha"/>
+                                                        <constraint firstItem="6Eu-mC-5PR" firstAttribute="centerY" secondItem="YQ3-Ss-gIW" secondAttribute="centerY" id="fjQ-Yf-ORs"/>
+                                                        <constraint firstItem="Eem-6P-gxT" firstAttribute="leading" secondItem="6Eu-mC-5PR" secondAttribute="trailing" constant="5" id="ibp-8f-dD9"/>
                                                         <constraint firstItem="OM6-ar-hrj" firstAttribute="top" secondItem="YQ3-Ss-gIW" secondAttribute="top" id="yGx-7e-ygp"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="imgUser" destination="WuY-cf-vxB" id="xtA-li-802"/>
                                                     <outlet property="lblInput1" destination="Eem-6P-gxT" id="dZr-Zh-L75"/>
                                                     <outlet property="lblInput2" destination="OM6-ar-hrj" id="Dnl-eg-lxz"/>
+                                                    <outlet property="lblInput3" destination="6Eu-mC-5PR" id="9n4-bP-hos"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -162,7 +165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple" width="120" height="81"/>
         <image name="background" width="540" height="960"/>
         <image name="leaderbg" width="492" height="466"/>
         <image name="leaderboard" width="540" height="346"/>
