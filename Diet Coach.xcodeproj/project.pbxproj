@@ -58,6 +58,7 @@
 		0256E5CB1E61423E0035C922 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5CA1E61423E0035C922 /* QueryManager.m */; };
 		0256E5CE1E614B930035C922 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5CD1E614B930035C922 /* ContactsViewController.m */; };
 		0256E5D11E616B820035C922 /* AvatarData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5D01E616B820035C922 /* AvatarData.m */; };
+		0256E5EF1E65E11D0035C922 /* GameResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0256E5EE1E65E11D0035C922 /* GameResultController.m */; };
 		025BA56C1DFAF8E600670EBD /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5651DFAF8E600670EBD /* NSDate+Category.m */; };
 		025BA56D1DFAF8E600670EBD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5671DFAF8E600670EBD /* NSDate+Utilities.m */; };
 		025BA56E1DFAF8E600670EBD /* NSUserDefaults+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BA5691DFAF8E600670EBD /* NSUserDefaults+Helpers.m */; };
@@ -190,6 +191,8 @@
 		0256E5CD1E614B930035C922 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		0256E5CF1E616B820035C922 /* AvatarData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarData.h; sourceTree = "<group>"; };
 		0256E5D01E616B820035C922 /* AvatarData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarData.m; sourceTree = "<group>"; };
+		0256E5ED1E65E11D0035C922 /* GameResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultController.h; sourceTree = "<group>"; };
+		0256E5EE1E65E11D0035C922 /* GameResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResultController.m; sourceTree = "<group>"; };
 		025BA5641DFAF8E600670EBD /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		025BA5651DFAF8E600670EBD /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		025BA5661DFAF8E600670EBD /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
@@ -529,6 +532,8 @@
 				023A86111E1797CA00D291FC /* Storyboard */,
 				0216590A1E4B857200D779C1 /* ProfileViewController.h */,
 				0216590B1E4B857200D779C1 /* ProfileViewController.m */,
+				0256E5ED1E65E11D0035C922 /* GameResultController.h */,
+				0256E5EE1E65E11D0035C922 /* GameResultController.m */,
 			);
 			name = Avatar;
 			sourceTree = "<group>";
@@ -1010,6 +1015,7 @@
 				021659141E4B886500D779C1 /* SaudiMealsController.m in Sources */,
 				029957811E4EFD7700DB1F0F /* ResultsViewController.m in Sources */,
 				02311F1D1DFFD6E7000F9FFD /* ResetPasswordController.m in Sources */,
+				0256E5EF1E65E11D0035C922 /* GameResultController.m in Sources */,
 				021659031E4B7BC300D779C1 /* StartViewController.m in Sources */,
 				0231A6051DFAE278003D63DB /* TTTAttributedLabel.m in Sources */,
 				021659171E4B894600D779C1 /* WesternMealsController.m in Sources */,

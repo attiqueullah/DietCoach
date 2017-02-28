@@ -108,7 +108,60 @@
         }
     }];
 }
+-(void)getFoodsWithCompletionBlock:(void(^)(PFObject *reqObj, NSError *error))completionBlock
 
+{
+    QueryManager *query = [QueryManager queryWithClassName:@"Avatar"];
+    
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"start_day" equalTo:[[NSDate date] startOfDay]];
+    [query whereKey:@"end_day" lessThan:[[NSDate date] endOfDay]];
+    [query includeKey:@"user"];
+    //[query orderByDescending:@"total_points"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count==0) {
+                NSUInteger day = [[NSUserDefaults retrieveObjectForKey:@"startDay"] integerValue];
+                PFObject* newDay = [PFObject objectWithClassName:@"Avatar"];
+                newDay[@"user"] = [PFUser currentUser];
+                newDay[@"start_day"] = [[NSDate date] startOfDay];
+                newDay[@"end_day"] =   [[NSDate date] endOfDay];
+                newDay[@"days"] =   [NSNumber numberWithInteger:day+1];
+                [PARSEMANAGER storeParseObject:newDay];
+                [NSUserDefaults saveObject:[NSNumber numberWithInteger:day+1] forKey:@"startDay"];
+                completionBlock(newDay,nil);
+            }
+            else
+            {
+                completionBlock([objects lastObject],nil);
+            }
+        } else {
+            
+            completionBlock(nil,error);
+        }
+    }];
+}
+-(void)getLastFoodsWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock
+
+{
+    QueryManager *query = [QueryManager queryWithClassName:@"Avatar"];
+    
+    NSUInteger day = [[NSUserDefaults retrieveObjectForKey:@"startDay"] integerValue];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-0]];
+    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-1]];
+    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-2]];
+    [query includeKey:@"user"];
+    //[query orderByDescending:@"total_points"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            completionBlock(objects,nil);
+        } else {
+            
+            completionBlock(nil,error);
+        }
+    }];
+}
 -(void)saveUserData:(UserInfo*)user
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Quiz"];

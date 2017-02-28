@@ -17,6 +17,8 @@
 #pragma  mark Login Email Method
 -(void)signinWithUsername:(NSString*)username andPassword:(NSString*)password  inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock;
 -(void)getAllQuizWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock;
+-(void)getFoodsWithCompletionBlock:(void(^)(PFObject *reqObj, NSError *error))completionBlock;
+-(void)getLastFoodsWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock;
 -(void)saveUserData:(UserInfo*)user;
 -(void)storeParseObject:(PFObject*)obj;
 @end

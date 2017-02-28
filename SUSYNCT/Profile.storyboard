@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Myriad Pro Semibold.ttf">
+            <string>MyriadPro-Semibold</string>
+        </array>
         <array key="Westmeath.ttf">
             <string>Westmeath</string>
         </array>
@@ -22,7 +25,7 @@
                         <viewControllerLayoutGuide type="top" id="U8n-Og-Cxn"/>
                         <viewControllerLayoutGuide type="bottom" id="RQH-Fh-GHb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="GjA-PZ-9ni">
+                    <view key="view" contentMode="scaleToFill" id="GjA-PZ-9ni">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -227,6 +230,7 @@
                         <outlet property="userEnergy" destination="bzp-H4-HyP" id="w4t-vG-gzR"/>
                         <outlet property="userFeedImg" destination="QG4-YI-1Nt" id="ivm-gH-1Im"/>
                         <outletCollection property="dropTargetViews" destination="FY6-rH-vaL" id="jYs-xq-HLz"/>
+                        <segue destination="LOe-uN-TNK" kind="show" identifier="game_result" id="Xjc-C1-zqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBN-F0-es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,12 +238,76 @@
             </objects>
             <point key="canvasLocation" x="836" y="187.55622188905548"/>
         </scene>
+        <!--Game Result Controller-->
+        <scene sceneID="2OQ-5N-YjV">
+            <objects>
+                <viewController id="LOe-uN-TNK" customClass="GameResultController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PFZ-Cx-eNz"/>
+                        <viewControllerLayoutGuide type="bottom" id="W2E-fP-A6y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LBv-Yr-2Et">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-ft-zHj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOR-bd-YbH">
+                                <rect key="frame" x="30" y="401" width="315" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7sq-Y9-hwz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="20"/>
+                                <state key="normal" title="Restart Game">
+                                    <color key="titleColor" red="0.0" green="0.47058823529999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="uc6-Te-UMD">
+                                <rect key="frame" x="112" y="20" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4e7-Rc-ciD"/>
+                                    <constraint firstAttribute="height" constant="150" id="ifY-la-z0l"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have Done Great Job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o46-fg-iQA">
+                                <rect key="frame" x="30" y="233" width="315" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="DSQ-Ie-nha"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W2E-fP-A6y" firstAttribute="top" secondItem="YSG-ft-zHj" secondAttribute="bottom" id="3V3-ig-uRO"/>
+                            <constraint firstItem="o46-fg-iQA" firstAttribute="top" secondItem="uc6-Te-UMD" secondAttribute="bottom" constant="63" id="60u-a5-6yJ"/>
+                            <constraint firstItem="OOR-bd-YbH" firstAttribute="top" secondItem="o46-fg-iQA" secondAttribute="bottom" constant="88" id="LQB-gJ-PhI"/>
+                            <constraint firstItem="YSG-ft-zHj" firstAttribute="leading" secondItem="LBv-Yr-2Et" secondAttribute="leading" id="QFf-xA-gkM"/>
+                            <constraint firstItem="uc6-Te-UMD" firstAttribute="top" secondItem="PFZ-Cx-eNz" secondAttribute="bottom" constant="20" id="Y9h-tb-yUB"/>
+                            <constraint firstItem="uc6-Te-UMD" firstAttribute="centerX" secondItem="LBv-Yr-2Et" secondAttribute="centerX" id="g0o-qC-CY8"/>
+                            <constraint firstItem="YSG-ft-zHj" firstAttribute="top" secondItem="PFZ-Cx-eNz" secondAttribute="bottom" id="ian-ft-HhZ"/>
+                            <constraint firstAttribute="trailing" secondItem="o46-fg-iQA" secondAttribute="trailing" constant="30" id="itZ-GD-kWY"/>
+                            <constraint firstItem="OOR-bd-YbH" firstAttribute="leading" secondItem="LBv-Yr-2Et" secondAttribute="leading" constant="30" id="j6D-qd-ddE"/>
+                            <constraint firstItem="o46-fg-iQA" firstAttribute="leading" secondItem="LBv-Yr-2Et" secondAttribute="leading" constant="30" id="stO-KC-R8f"/>
+                            <constraint firstAttribute="trailing" secondItem="YSG-ft-zHj" secondAttribute="trailing" id="wco-N0-1SI"/>
+                            <constraint firstAttribute="trailing" secondItem="OOR-bd-YbH" secondAttribute="trailing" constant="30" id="yAU-GY-uhe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vb9-1W-Bdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1578" y="188"/>
+        </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="Ifi-yL-Dbh">
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" id="kbr-bI-0gE" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4K4-wm-otF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="4K4-wm-otF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -259,5 +327,6 @@
         <image name="background" width="540" height="960"/>
         <image name="energy-6.png" width="212" height="1172"/>
         <image name="male_0.png" width="601" height="864"/>
+        <image name="welcome" width="210" height="210"/>
     </resources>
 </document>
