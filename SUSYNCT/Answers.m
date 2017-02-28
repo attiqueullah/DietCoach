@@ -16,6 +16,7 @@
     [encoder encodeObject:[NSNumber numberWithInteger:self.points] forKey:@"points"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.questionType] forKey:@"questionType"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.answerType] forKey:@"answerType"];
+    [encoder encodeObject:[NSNumber numberWithBool:self.isAnswered] forKey:@"isAnswered"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -29,8 +30,7 @@
         self.points = (QuizType)[[decoder decodeObjectForKey:@"points"] integerValue];
         self.questionType = (QuestionType)[[decoder decodeObjectForKey:@"questionType"] integerValue];
         self.answerType = (AnswerType)[[decoder decodeObjectForKey:@"answerType"] integerValue];
-        
-        
+        self.isAnswered = [[decoder decodeObjectForKey:@"isAnswered"] boolValue];
     }
     return self;
 }

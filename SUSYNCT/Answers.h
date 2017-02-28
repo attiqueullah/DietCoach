@@ -15,4 +15,5 @@
 @property(nonatomic,assign)QuizType quizType;
 @property(nonatomic,assign)QuestionType questionType;
 @property(nonatomic,assign)AnswerType answerType;
+@property(nonatomic,assign)BOOL isAnswered;
 @end

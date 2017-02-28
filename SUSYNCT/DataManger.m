@@ -150,24 +150,29 @@
     NSMutableArray* arr = [[self loadQuizes] mutableCopy];
     NSUInteger points = 0;
     for (Answers* ans in results) {
-        if (ans.points==20) {
-            points = points + ans.points;
+        if (ans.points==20 && !ans.isAnswered) {
+            
             if (arr.count>0) {
                 NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.quizType == %d) AND (SELF.questionType == %d)", ans.quizType,ans.questionType];
                 NSArray *filteredArray = [arr filteredArrayUsingPredicate:namePredicate];
                 if (filteredArray.count==0) {
+                    ans.isAnswered = YES;
+                    points = points + ans.points;
                     [arr addObject:ans];
                 }
             }
             else
             {
+                ans.isAnswered = YES;
+                points = points + ans.points;
                 [arr addObject:ans];
             }
             
         }
     }
-    self.userData.quizPassed =  self.userData.quizPassed + arr.count;
+    self.userData.quizPassed =   arr.count;
     self.userData.totalPoints =  self.userData.totalPoints + points;
+    
     [self saveUserData];
     [self storeQuizesObject:arr];
 }
@@ -192,16 +197,19 @@
     newUSer.gender = user[@"gender"];
     
     PFObject* quiz = user[@"quiz"];
-    newUSer.q1Attempt = [quiz[@"quiz_1_attempt"] integerValue];
-    newUSer.q2Attempt = [quiz[@"quiz_2_attempt"] integerValue];
-    newUSer.q3Attempt = [quiz[@"quiz_3_attempt"] integerValue];
-    newUSer.q4Attempt = [quiz[@"quiz_4_attempt"] integerValue];
-    newUSer.quizPassed = [quiz[@"quiz_passed"] integerValue];
-    newUSer.totalPoints = [quiz[@"total_points"] integerValue];
+    [quiz fetchInBackgroundWithBlock:^(PFObject* obj,NSError* error){
+        newUSer.q1Attempt = [obj[@"quiz_1_attempt"] integerValue];
+        newUSer.q2Attempt = [obj[@"quiz_2_attempt"] integerValue];
+        newUSer.q3Attempt = [obj[@"quiz_3_attempt"] integerValue];
+        newUSer.q4Attempt = [obj[@"quiz_4_attempt"] integerValue];
+        newUSer.quizPassed = [obj[@"quiz_passed"] integerValue];
+        newUSer.totalPoints = [obj[@"total_points"] integerValue];
+        self.userData = newUSer;
+        [self storeUserInfoObject:newUSer];
+
+    }];
     
-    self.userData = newUSer;
-    [self storeUserInfoObject:newUSer];
-}
+    }
 -(UserInfo*)getParseQuiz:(PFUser*)obj
 {
     UserInfo* newUSer = [UserInfo new];

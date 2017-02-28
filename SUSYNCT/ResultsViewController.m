@@ -100,8 +100,8 @@
 -(IBAction)btnCheckMyScore:(id)sender
 {
     
-    
     [DATAMANAGER evaluateResults:self.answersArray];
+    
     [DATAMANAGER goToLeaderBoard:self.revealViewController];
 }
 

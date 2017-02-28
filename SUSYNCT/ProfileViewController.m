@@ -289,11 +289,6 @@
         [PARSEMANAGER storeParseObject:self.currentFoodItem];
 
     }
-        /*UIView* imgv = operation.dragSourceView;
-    [self.foodData removeObjectAtIndex:imgv.tag];*/
-    
-    //[operation removeDraggingView];
-    
 }
 
 - (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target {

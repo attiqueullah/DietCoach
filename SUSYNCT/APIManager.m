@@ -71,7 +71,8 @@
                                              controller.view.userInteractionEnabled = YES;
                                              if (user) {
                                                  [DATAMANAGER saveParseUser:user];
-                                                 [user saveInBackgroundWithBlock:nil];
+                                                 [PARSEMANAGER storeParseObject:user];
+                                                
                                                  completionBlock(user,YES,nil);
                                              } else {
                                                  completionBlock(nil,NO,error);
@@ -201,7 +202,7 @@
                 obj[@"quiz_passed"]    = [NSNumber numberWithInteger:user.quizPassed];
                 obj[@"total_points"]    = [NSNumber numberWithInteger:user.totalPoints];
                 
-                [obj saveInBackgroundWithBlock:nil];
+                [PARSEMANAGER storeParseObject:obj];
 
             }
             

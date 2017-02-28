@@ -72,6 +72,7 @@
 #define SERVER         @"https://parseapi.back4app.com/"
 
 #define GANNALYTICS    @"UA-41410883-2"
+#define QUIZ_TOTAL     80
 
 #pragma mark Constants
 #define DATAMANAGER  [DataManger  sharedInstance]
