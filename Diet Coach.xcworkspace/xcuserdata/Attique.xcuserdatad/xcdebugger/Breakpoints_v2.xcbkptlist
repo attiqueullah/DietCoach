@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/DataManger.m"
-            timestampString = "509996907.025359"
+            filePath = "SUSYNCT/ProfileViewController.m"
+            timestampString = "511548564.432861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-evaluateResults:"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-getLastThreeDaysFoods"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/DataManger.m"
-            timestampString = "509995235.202159"
+            filePath = "SUSYNCT/ProfileViewController.m"
+            timestampString = "511548564.432861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-evaluateResults:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/QuizViewController.m"
-            timestampString = "509997339.866985"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "-updateUserData"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-getLastThreeDaysFoods"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

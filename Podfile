@@ -15,5 +15,7 @@ target 'Diet Coach' do
   pod 'HCSStarRatingView', '~> 1.4.4'
   pod 'Google/Analytics'
   pod 'ContactsManager'
-  pod 'AFNetworking', '~> 3.0'
+  pod 'MZTimerLabel'
+  pod 'HockeySDK', '~> 4.1.3'
+  pod 'PBJVideoPlayer'
 end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTTAttributedLabel.h"
+#import "HCSStarRatingView.h"
 @interface TextFieldCell : UITableViewCell<TTTAttributedLabelDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtInput1;
 @property (weak, nonatomic) IBOutlet UITextField *txtInput2;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblInput1;
 @property (weak, nonatomic) IBOutlet UILabel *lblInput2;
 @property (weak, nonatomic) IBOutlet UILabel *lblInput3;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starRateing;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgUser;
 

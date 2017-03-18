@@ -18,7 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getAllQuizes];
+    
+    BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
+    
+    if (!isTestPassed) {
+        [self getAllQuizes];
+    }
+    else
+    {
+        [self getAllAvatar];
+    }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -34,6 +44,17 @@
 -(void)getAllQuizes
 {
     [PARSEMANAGER getAllQuizWithCompletionBlock:^(NSArray* quizes,NSError* error){
+        if (!error) {
+            if (quizes.count>0) {
+                self.quizes = quizes;
+                [self.tblUsers reloadData];
+            }
+        }
+    }];
+}
+-(void)getAllAvatar
+{
+    [PARSEMANAGER getAllAvatarWithCompletionBlock:^(NSArray* quizes,NSError* error){
         if (!error) {
             if (quizes.count>0) {
                 self.quizes = quizes;
@@ -65,33 +86,80 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UsersRankingCell" forIndexPath:indexPath];
     
-    UserInfo* quiz = self.quizes[indexPath.section];
+    TextFieldCell *cell = nil;
+    BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
     
-    cell.lblInput1.text = quiz.first_name;
-    cell.lblInput3.layer.masksToBounds = NO;
-    cell.lblInput3.clipsToBounds = YES;
-    cell.lblInput3.layer.borderColor = [UIColor blackColor].CGColor;
-    cell.lblInput3.layer.borderWidth = 1.5;
-    cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
-    cell.lblInput3.text = [DATAMANAGER createShortText:quiz.first_name];
-    
-    if (indexPath.section==0) {
-        cell.lblInput2.text = [NSString stringWithFormat:@"🥇%d",(int)quiz.totalPoints];
-    }
-    else if (indexPath.section==1) {
-        cell.lblInput2.text = [NSString stringWithFormat:@"🥈%d",(int)quiz.totalPoints];
-    }
-    else if (indexPath.section==2) {
-        cell.lblInput2.text = [NSString stringWithFormat:@"🥉%d",(int)quiz.totalPoints];
+    if (!isTestPassed) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"UsersRankingCell" forIndexPath:indexPath];
+        
+        UserInfo* quiz = self.quizes[indexPath.section];
+        
+        cell.lblInput1.text = quiz.first_name;
+        cell.lblInput3.layer.masksToBounds = NO;
+        cell.lblInput3.clipsToBounds = YES;
+        cell.lblInput3.layer.borderColor = [UIColor blackColor].CGColor;
+        cell.lblInput3.layer.borderWidth = 1.5;
+        cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
+        cell.lblInput3.text = [DATAMANAGER createShortText:quiz.first_name];
+        
+        if (indexPath.section==0) {
+            cell.lblInput2.text = [NSString stringWithFormat:@"🥇%d",(int)quiz.totalPoints];
+        }
+        else if (indexPath.section==1) {
+            cell.lblInput2.text = [NSString stringWithFormat:@"🥈%d",(int)quiz.totalPoints];
+        }
+        else if (indexPath.section==2) {
+            cell.lblInput2.text = [NSString stringWithFormat:@"🥉%d",(int)quiz.totalPoints];
+        }
+        else
+        {
+            cell.lblInput2.text = [NSString stringWithFormat:@"%d",(int)quiz.totalPoints];
+        }
+         return cell;
     }
     else
     {
-        cell.lblInput2.text = [NSString stringWithFormat:@"%d",(int)quiz.totalPoints];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"UsersRankingCell2" forIndexPath:indexPath];
+        UserInfo* quiz = self.quizes[indexPath.section];
+        
+        cell.lblInput1.text = quiz.first_name;
+        cell.lblInput3.layer.masksToBounds = NO;
+        cell.lblInput3.clipsToBounds = YES;
+        cell.lblInput3.layer.borderColor = [UIColor blackColor].CGColor;
+        cell.lblInput3.layer.borderWidth = 1.5;
+        cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
+        cell.lblInput3.text = [DATAMANAGER createShortText:quiz.first_name];
+        
+        
+        NSArray* foodArray = quiz.adventure[@"foods"];
+        int points = 0;
+        int totPoints = 0;
+        if (foodArray.count>0) {
+            for (int i=0; i<foodArray.count; i++) {
+                NSDictionary* dic = foodArray[i];
+                
+                NSUInteger pt = [dic[@"value"] integerValue];
+                points = ((int)pt * (i+1)) + points;
+                totPoints = totPoints + (int)pt;
+                
+            }
+            float avg = points/totPoints;
+            cell.starRateing.value = avg;
+        }
+        else
+        {
+            cell.starRateing.value = 0;
+        }
+        
+        cell.lblInput2.text = [NSString stringWithFormat:@"(%d)",(int)totPoints];
+        return cell;
     }
     
-    return cell;
+    
+    
+    
+   
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MenuViewController.h"
-@interface AppDelegate ()<SWRevealViewControllerDelegate>
+@import HockeySDK;
+@import UserNotifications;
+@interface AppDelegate ()<SWRevealViewControllerDelegate,UNUserNotificationCenterDelegate>
 
 @end
 
@@ -25,8 +27,21 @@
         [DATAMANAGER loadUserInfo];
         [self goToDashboard:self.window.rootViewController];
     }
-
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                              if (!error) {
+                                  NSLog(@"request authorization succeeded!");
+                                 
+                              }
+                          }];
     //self.window.backgroundColor = RGB(57, 181, 74);
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"643da36111e3405fae32f0c9c2b034d0"];
+    // Do some additional configuration if needed here
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator
+     authenticateInstallation];
 
     return YES;
 }
@@ -82,6 +97,11 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    PFObject* obj = [DATAMANAGER avatarObject];
+    NSDate* dateOld = [NSUserDefaults retrieveObjectForKey:@"startDate"];
+    NSTimeInterval remainTime = [[NSDate date] timeIntervalSinceDate:dateOld];
+    obj[@"timer"] = [NSNumber numberWithFloat:TOTAL_TIME - remainTime];
+    [PARSEMANAGER storeParseObject:obj];
 }
 
 
@@ -92,6 +112,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -113,5 +134,15 @@
 }
 
 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    NSLog(@"User Info : %@",notification.request.content.userInfo);
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+}
 
+//Called to let your app know which action was selected by the user for a given notification.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    completionHandler();
+}
 @end

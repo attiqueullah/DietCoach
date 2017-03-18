@@ -140,6 +140,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==1) {
+        BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
+        
+        if (!isTestPassed) {
+            return 4;
+        }
         return 5;
     }
     if (section == 2) {
@@ -199,7 +204,7 @@
         }
         else if (indexPath.row==4)
         {
-            cell.lblNTitle.text = @"Profile";
+            cell.lblNTitle.text = @"Adventure Chamber";
             cell.lblNIcon.text = @"👤";
             [cell configureCell:[UIColor whiteColor]];
             cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR colors:@[[UIColor whiteColor]]];

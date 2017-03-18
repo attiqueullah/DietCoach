@@ -9,6 +9,8 @@
 		<string>22</string>
 		<key>image</key>
 		<string>cheese_burger</string>
+		<key>category</key>
+		<string>Junk Food</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -17,6 +19,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>broccoli</string>
+		<key>category</key>
+		<string>Vegetables</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -33,6 +37,8 @@
 		<string>15</string>
 		<key>image</key>
 		<string>hotdog_avatar</string>
+		<key>category</key>
+		<string>Junk Food</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -41,6 +47,8 @@
 		<string>96</string>
 		<key>image</key>
 		<string>grilled_avatar</string>
+		<key>category</key>
+		<string>Proteins</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -49,6 +57,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>carrots</string>
+		<key>category</key>
+		<string>Vegetables</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -57,6 +67,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>steamed</string>
+		<key>category</key>
+		<string>Vegetables</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -65,6 +77,8 @@
 		<string>38</string>
 		<key>image</key>
 		<string>lambMeat</string>
+		<key>category</key>
+		<string>Proteins</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -73,6 +87,8 @@
 		<string>28</string>
 		<key>image</key>
 		<string>chickenSandwich</string>
+		<key>category</key>
+		<string>Junk Food</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -81,6 +97,8 @@
 		<string>2</string>
 		<key>image</key>
 		<string>kitkat</string>
+		<key>category</key>
+		<string>Junk Food</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -89,6 +107,8 @@
 		<string>47</string>
 		<key>image</key>
 		<string>orangeJuice</string>
+		<key>category</key>
+		<string>Drinks</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -97,6 +117,8 @@
 		<string>28</string>
 		<key>image</key>
 		<string>fries</string>
+		<key>category</key>
+		<string>Carbs</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -105,6 +127,8 @@
 		<string>2</string>
 		<key>image</key>
 		<string>snicker</string>
+		<key>category</key>
+		<string>Junk Food</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -113,6 +137,8 @@
 		<string>40</string>
 		<key>image</key>
 		<string>chicken</string>
+		<key>category</key>
+		<string>Proteins</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -121,6 +147,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>salaad</string>
+		<key>category</key>
+		<string>Vegetables</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -129,6 +157,8 @@
 		<string>75</string>
 		<key>image</key>
 		<string>rice</string>
+		<key>category</key>
+		<string>Carbs</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -137,6 +167,8 @@
 		<string>5</string>
 		<key>image</key>
 		<string>cake</string>
+		<key>category</key>
+		<string>Carbs</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -145,6 +177,8 @@
 		<string>1</string>
 		<key>image</key>
 		<string>coke</string>
+		<key>category</key>
+		<string>Drinks</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -153,6 +187,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>pineapple</string>
+		<key>category</key>
+		<string>Fruits</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -161,6 +197,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>banana</string>
+		<key>category</key>
+		<string>Fruits</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -169,6 +207,8 @@
 		<string>100</string>
 		<key>image</key>
 		<string>apple</string>
+		<key>category</key>
+		<string>Fruits</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -177,6 +217,8 @@
 		<string>68</string>
 		<key>image</key>
 		<string>saleeq</string>
+		<key>category</key>
+		<string>Carbs</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -185,6 +227,8 @@
 		<string>88</string>
 		<key>image</key>
 		<string>jaresh</string>
+		<key>category</key>
+		<string>Carbs</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -193,6 +237,8 @@
 		<string>52</string>
 		<key>image</key>
 		<string>milk</string>
+		<key>category</key>
+		<string>Drinks</string>
 	</dict>
 </array>
 </plist>

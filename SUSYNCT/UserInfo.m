@@ -17,6 +17,7 @@
     [encoder encodeObject:self.email forKey:@"email"];
     [encoder encodeObject:self.password forKey:@"password"];
     [encoder encodeObject:self.gender forKey:@"gender"];
+    [encoder encodeObject:self.startDate forKey:@"startDate"];
     
     [encoder encodeObject:[NSNumber numberWithInteger:self.q1Attempt] forKey:@"q1Attempt"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.q2Attempt] forKey:@"q2Attempt"];
@@ -39,6 +40,7 @@
         self.email = [decoder decodeObjectForKey:@"email"];
         self.password = [decoder decodeObjectForKey:@"password"];
         self.gender = [decoder decodeObjectForKey:@"gender"];
+        self.startDate = [decoder decodeObjectForKey:@"startDate"];
         
         
         self.q1Attempt   = [[decoder decodeObjectForKey:@"q1Attempt"]   integerValue];

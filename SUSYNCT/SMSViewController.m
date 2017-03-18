@@ -44,6 +44,7 @@
         if (!error) {
             
             NSLog(@"Message Sent Successfully");
+            
             [DATAMANAGER userData].totalSMS =   [DATAMANAGER userData].totalSMS + 1;
             
             [PFUser currentUser][@"total_SMS"] = [NSNumber numberWithInteger:[DATAMANAGER userData].totalSMS];

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface HelpViewController : BaseViewController
-
+@property (weak, nonatomic) IBOutlet UIView *vwVideo;
 @end

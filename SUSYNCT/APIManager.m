@@ -43,6 +43,7 @@
              controller.view.userInteractionEnabled = YES;
              if (!error) {
                  [DATAMANAGER saveParseUser:user];
+                 [PARSEMANAGER storeParseObject:user];
                  [SVProgressHUD dismiss];
                  
                  completionBlock(user,succeeded,nil);
@@ -109,28 +110,41 @@
         }
     }];
 }
--(void)getFoodsWithCompletionBlock:(void(^)(PFObject *reqObj, NSError *error))completionBlock
+-(void)getAllAvatarWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock
+{
+    QueryManager *query = [QueryManager queryWithClassName:@"_User"];
+    [query whereKeyExists:@"adventure"];
+    [query includeKey:@"adventure"];
+    [query includeKey:@"quiz"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSMutableArray* users = [NSMutableArray new];
+            for (PFUser* user in objects) {
+                
+                [users addObject:[DATAMANAGER getParseQuiz:user]];
+                
+            }
+            completionBlock(users,nil);
+        } else {
+            
+            completionBlock(nil,error);
+        }
+    }];
+}
+-(void)getFoodsWithDate:(NSDate*)dte WithCompletionBlock:(void(^)(PFObject *reqObj, NSError *error))completionBlock
 
 {
     QueryManager *query = [QueryManager queryWithClassName:@"Avatar"];
-    
+
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query whereKey:@"start_day" equalTo:[[NSDate date] startOfDay]];
-    [query whereKey:@"end_day" lessThan:[[NSDate date] endOfDay]];
+    [query whereKey:@"start_day" greaterThanOrEqualTo:dte];
+    
     [query includeKey:@"user"];
     //[query orderByDescending:@"total_points"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count==0) {
-                NSUInteger day = [[NSUserDefaults retrieveObjectForKey:@"startDay"] integerValue];
-                PFObject* newDay = [PFObject objectWithClassName:@"Avatar"];
-                newDay[@"user"] = [PFUser currentUser];
-                newDay[@"start_day"] = [[NSDate date] startOfDay];
-                newDay[@"end_day"] =   [[NSDate date] endOfDay];
-                newDay[@"days"] =   [NSNumber numberWithInteger:day+1];
-                [PARSEMANAGER storeParseObject:newDay];
-                [NSUserDefaults saveObject:[NSNumber numberWithInteger:day+1] forKey:@"startDay"];
-                completionBlock(newDay,nil);
+                completionBlock([self createNewAvatarGame:dte],nil);
             }
             else
             {
@@ -142,20 +156,37 @@
         }
     }];
 }
--(void)getLastFoodsWithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock
+-(PFObject*)createNewAvatarGame:(NSDate*)newDate
+{
+    NSUInteger day = [[NSUserDefaults retrieveObjectForKey:@"startDay"] integerValue];
+    PFObject* newDay = [PFObject objectWithClassName:@"Avatar"];
+    newDay[@"user"] = [PFUser currentUser];
+    newDay[@"start_day"] = newDate;
+    newDay[@"end_day"] =   [newDate  dateByAddingDays:3];
+    newDay[@"days"] =   [NSNumber numberWithInteger:day+1];
+    
+    [newDay saveInBackgroundWithBlock:^(BOOL sucess, NSError* error){
+        [PFUser currentUser][@"adventure"] = newDay;
+        [PARSEMANAGER storeParseObject:[PFUser currentUser]];
+    }];
+   
+    [NSUserDefaults saveObject:[NSNumber numberWithInteger:day+1] forKey:@"startDay"];
+    return newDay;
+}
+-(void)getLastFoodsWithDate:(NSDate*)dte withNewDate:(NSDate*)newDate WithCompletionBlock:(void(^)(NSArray *reqObj, NSError *error))completionBlock
 
 {
     QueryManager *query = [QueryManager queryWithClassName:@"Avatar"];
-    
-    NSUInteger day = [[NSUserDefaults retrieveObjectForKey:@"startDay"] integerValue];
+
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-0]];
-    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-1]];
-    [query whereKey:@"days" equalTo:[NSNumber numberWithInteger:day-2]];
+    [query whereKey:@"start_day" equalTo:dte];
+    [query whereKey:@"passed"   equalTo:[NSNumber numberWithBool:NO]];
     [query includeKey:@"user"];
+    
     //[query orderByDescending:@"total_points"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            [self createNewAvatarGame:newDate];
             completionBlock(objects,nil);
         } else {
             

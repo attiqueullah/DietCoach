@@ -17,11 +17,13 @@
 @property(nonatomic,strong)NSString* password;
 @property(nonatomic,strong)NSString* confirmPassword;
 @property(nonatomic,strong)NSString* gender;
+@property(nonatomic,strong)NSDate* startDate;
 @property(nonatomic)BOOL validEmail;
 @property(nonatomic)BOOL validUsername;
 @property(nonatomic)BOOL isAgreeTerms;
 
 @property(nonatomic,strong)PFUser* userId;
+@property(nonatomic,strong)PFObject* adventure;
 
 @property(nonatomic)NSUInteger q1Attempt;
 @property(nonatomic)NSUInteger q2Attempt;

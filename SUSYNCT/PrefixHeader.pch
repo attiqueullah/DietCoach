@@ -73,6 +73,7 @@
 
 #define GANNALYTICS    @"UA-41410883-2"
 #define QUIZ_TOTAL     80
+#define TOTAL_TIME     3*24*60*60
 
 #pragma mark Constants
 #define DATAMANAGER  [DataManger  sharedInstance]
@@ -81,8 +82,8 @@
 #define ISNETWORK        [DATAMANAGER networkConnectivitywithCompletionBlock]
 
 #pragma mark Twilio Credentials
-#define TwilioURL @"https://AC439073eae4b847809b8ee31d2259c6e4:afb444494d89fda4372a4d2048841359@api.twilio.com/2010-04-01/Accounts/AC439073eae4b847809b8ee31d2259c6e4/SMS/Messages.json"
-#define FROM_TWILIO @"+14247813414"
+#define TwilioURL @"https://AC963f6a1cbd96c98a4cb81625b6cac91d:c7b9159154c740518d2e60016cb6613d@api.twilio.com/2010-04-01/Accounts/AC963f6a1cbd96c98a4cb81625b6cac91d/SMS/Messages.json"
+#define FROM_TWILIO @"+17207100007"
 
 #define CHECK_CLASS          [self isKindOfClass:[ScheduleSetupController class]] || [self isKindOfClass:[SportsViewController class]]
 

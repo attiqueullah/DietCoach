@@ -8,6 +8,7 @@
 
 #import "DataManger.h"
 #import "Reachability.h"
+@import UserNotifications;
 
 @interface DataManger ()
 @property(nonatomic,strong)UserInfo* userData;
@@ -33,7 +34,14 @@
     return self;
 }
 
-
+-(void)setAvatarObject:(PFObject *)avatarObject
+{
+    _avatarObject = avatarObject;
+}
+-(void)setAvatarDate:(NSDate *)avatarDate
+{
+    _avatarDate = avatarDate;
+}
 #pragma mark SVProgressHud
 -(void)showWithStatus:(NSString*)text withType:(ProgressHUDType)type
 {
@@ -145,12 +153,12 @@
     return [NSArray new];
 }
 #pragma mark Store Quizes Results
--(void)evaluateResults:(NSArray*)results
+-(BOOL)evaluateResults:(NSArray*)results
 {
     NSMutableArray* arr = [[self loadQuizes] mutableCopy];
     NSUInteger points = 0;
     for (Answers* ans in results) {
-        if (ans.points==20 && !ans.isAnswered) {
+        if (ans.points==25 && !ans.isAnswered) {
             
             if (arr.count>0) {
                 NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.quizType == %d) AND (SELF.questionType == %d)", ans.quizType,ans.questionType];
@@ -173,8 +181,16 @@
     self.userData.quizPassed =   arr.count;
     self.userData.totalPoints =  self.userData.totalPoints + points;
     
+    BOOL isPassed = NO;
+    if (self.userData.totalPoints == 100) {
+        [PFUser currentUser][@"test_passed"] = [NSNumber numberWithBool:YES];
+        [PARSEMANAGER storeParseObject:[PFUser currentUser]];
+        [DATAMANAGER configureAvatrStartupNotifications];
+        isPassed =  YES;
+    }
     [self saveUserData];
     [self storeQuizesObject:arr];
+    return isPassed;
 }
 -(void)goToLeaderBoard:(SWRevealViewController*)baseController
 {
@@ -195,19 +211,28 @@
     newUSer.email = user.email;
     newUSer.password = user.password;
     newUSer.gender = user[@"gender"];
+    newUSer.startDate = user[@"login_date"];
     
     PFObject* quiz = user[@"quiz"];
-    [quiz fetchInBackgroundWithBlock:^(PFObject* obj,NSError* error){
-        newUSer.q1Attempt = [obj[@"quiz_1_attempt"] integerValue];
-        newUSer.q2Attempt = [obj[@"quiz_2_attempt"] integerValue];
-        newUSer.q3Attempt = [obj[@"quiz_3_attempt"] integerValue];
-        newUSer.q4Attempt = [obj[@"quiz_4_attempt"] integerValue];
-        newUSer.quizPassed = [obj[@"quiz_passed"] integerValue];
-        newUSer.totalPoints = [obj[@"total_points"] integerValue];
+    if (quiz) {
+        [quiz fetchInBackgroundWithBlock:^(PFObject* obj,NSError* error){
+            newUSer.q1Attempt = [obj[@"quiz_1_attempt"] integerValue];
+            newUSer.q2Attempt = [obj[@"quiz_2_attempt"] integerValue];
+            newUSer.q3Attempt = [obj[@"quiz_3_attempt"] integerValue];
+            newUSer.q4Attempt = [obj[@"quiz_4_attempt"] integerValue];
+            newUSer.quizPassed = [obj[@"quiz_passed"] integerValue];
+            newUSer.totalPoints = [obj[@"total_points"] integerValue];
+            self.userData = newUSer;
+            [self storeUserInfoObject:newUSer];
+            
+        }];
+    }
+    else
+    {
         self.userData = newUSer;
         [self storeUserInfoObject:newUSer];
-
-    }];
+    }
+   
     
     }
 -(UserInfo*)getParseQuiz:(PFUser*)obj
@@ -226,6 +251,9 @@
     newUSer.quizPassed = [quiz[@"quiz_passed"] integerValue];
     newUSer.totalPoints = [quiz[@"total_points"] integerValue];
 
+    if (obj[@"adventure"]) {
+        newUSer.adventure = obj[@"adventure"];
+    }
     return newUSer;
 }
 -(void)saveUserData
@@ -287,16 +315,11 @@
                             message,@"Body",
                             nil];
     
+    AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:TwilioURL]];
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:TwilioURL parameters:params];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    //manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    //manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    //[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    manager.requestSerializer.timeoutInterval = 30;
-    [manager POST:TwilioURL parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject){
-        //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
         NSDictionary *dic = [NSJSONSerialization
                              JSONObjectWithData:responseObject
@@ -312,13 +335,131 @@
             completionBlock(NO,error);
         }
         
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-    }
-          failure:^(NSURLSessionTask *operation, NSError *error){
-              
-          }];
+        completionBlock(NO,error);
+    }];
     
+    [operation start];
+
+       
+}
+#pragma mark Notifications
+-(void)configureAvatrStartupNotifications
+{
+    
+    BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
+    
+    if (!isTestPassed) {
+        return;
+    }
+    UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
+    objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Ready for Coaching?" arguments:nil];
+    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Friend is Ready For Their First Healthy Meal." arguments:nil];
+    objNotificationContent.sound = [UNNotificationSound defaultSound];
+    
+    /// 4. update application icon badge number
+    objNotificationContent.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+    
+    // Deliver the notification in five seconds.
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
+                                                  triggerWithTimeInterval:900 repeats:YES];
+    
+    NSString* identi = @"FirstReminder";
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identi
+                                                                          content:objNotificationContent trigger:trigger];
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray* requests){
+        if (requests.count>0) {
+            
+            NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.identifier CONTAINS[cd] %@)",identi];
+            NSArray *filteredArray = [requests filteredArrayUsingPredicate:namePredicate];
+            
+            if (filteredArray.count == 0) {
+                NSUInteger avatarPoints = [[NSUserDefaults retrieveObjectForKey:@"total_avatar_points"] integerValue];
+                if (avatarPoints==0) {
+                    [self addNotification:request];
+                }
+                else
+                {
+                    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+                    [center removeDeliveredNotificationsWithIdentifiers:@[identi]];
+                    [center removePendingNotificationRequestsWithIdentifiers:@[identi]];
+                    [self configureAvatrAfterFeedNotifications];
+                }
+
+            }
+            else
+            {
+                NSUInteger avatarPoints = [[NSUserDefaults retrieveObjectForKey:@"total_avatar_points"] integerValue];
+                if (avatarPoints>0) {
+                    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+                    [center removeDeliveredNotificationsWithIdentifiers:@[identi]];
+                    [center removePendingNotificationRequestsWithIdentifiers:@[identi]];
+                    [self configureAvatrAfterFeedNotifications];
+                }
+            }
+        }
+        else
+        {
+            [self addNotification:request];
+        }
+    }];
     
 }
 
+-(void)configureAvatrAfterFeedNotifications
+{
+    
+    NSString* identi = @"SecondReminder";
+    UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
+    objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Hey Coach!" arguments:nil];
+    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Friend is Hungry. It's Time for Another Healthy Meal." arguments:nil];
+    objNotificationContent.sound = [UNNotificationSound defaultSound];
+    
+    /// 4. update application icon badge number
+    objNotificationContent.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+    
+    // Deliver the notification in five seconds.
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
+                                                  triggerWithTimeInterval:3600*1 repeats:YES];
+    
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identi
+                                                                          content:objNotificationContent trigger:trigger];
+   
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray* requests){
+        if (requests.count>0) {
+            NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.identifier CONTAINS[cd] %@)",identi];
+            NSArray *filteredArray = [requests filteredArrayUsingPredicate:namePredicate];
+            if (filteredArray.count==0) {
+                 [self addNotification:request];
+            }
+            
+        }
+        else
+        {
+            [self addNotification:request];
+        }
+       }];
+    
+}
+
+-(void)addNotification:(UNNotificationRequest*)req
+{
+    /// 3. schedule localNotification
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:req withCompletionHandler:^(NSError * _Nullable error) {
+        if (!error) {
+            NSLog(@"Local Notification succeeded");
+        }
+        else {
+            NSLog(@"Local Notification failed");
+        }
+    }];
+}
 @end

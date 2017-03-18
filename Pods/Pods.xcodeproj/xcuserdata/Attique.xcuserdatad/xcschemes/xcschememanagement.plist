@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>BlocksKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HockeySDK-HockeySDKResources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQDropDownTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +40,16 @@
 			<false/>
 		</dict>
 		<key>MSCellAccessory.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MZTimerLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PBJVideoPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>116FE739A3F45E8AE87205F82810FDB0</key>
+		<key>0A2E50C24B03143F1418B06D739A8001</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38F2C145E521EEF03CF3387548C7CC72</key>
+		<key>116FE739A3F45E8AE87205F82810FDB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>548EED92F6FB54A068C2D5CFAF4A188B</key>
+		<key>632FF4EF5D3DEB1D7492FB266032423D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8568F803E0861B409008C3F810F7B67A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
+		<key>EB9AD825427F216B54E693242E671FA1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E39879685D1285E16BB46CAB439A5E8A</key>
+		<key>F49FE4EAB6999940AD4C9E2E40D49F3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F96E3A05E6FB7BB7A87A8BBB4281BEC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

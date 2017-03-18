@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,26 +43,73 @@ Are you ready??? Let’s start by learning!!!</string>
                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-bv-na9">
+                                <rect key="frame" x="16" y="321" width="343" height="262"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="262" id="caK-1J-wL0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" tag="61764" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGa-Op-I4D">
+                                <rect key="frame" x="162" y="427" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="b6h-fw-jIL"/>
+                                    <constraint firstAttribute="height" constant="50" id="rmG-t0-fSg"/>
+                                </constraints>
+                                <state key="normal" image="play_button.png"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rmG-t0-fSg"/>
+                                        <exclude reference="b6h-fw-jIL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="rmG-t0-fSg"/>
+                                        <include reference="b6h-fw-jIL"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnPlay:" destination="P7D-Bs-8C7" eventType="touchUpInside" id="a6b-eV-PX7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FfX-Va-FyD" secondAttribute="trailing" id="0j8-cv-FrQ"/>
-                            <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="0uj-R2-h4N" secondAttribute="bottom" constant="300" id="3XS-lO-a3m"/>
+                            <constraint firstItem="VGa-Op-I4D" firstAttribute="centerY" secondItem="lpu-bv-na9" secondAttribute="centerY" id="ASh-3o-fOJ"/>
+                            <constraint firstItem="VGa-Op-I4D" firstAttribute="centerX" secondItem="lpu-bv-na9" secondAttribute="centerX" id="C1a-xk-GcK"/>
                             <constraint firstItem="FfX-Va-FyD" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" id="Eiy-l5-iu8"/>
+                            <constraint firstAttribute="trailing" secondItem="lpu-bv-na9" secondAttribute="trailing" constant="16" id="H1p-mi-WBs"/>
                             <constraint firstItem="FfX-Va-FyD" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" id="Mdj-nj-E0K"/>
                             <constraint firstAttribute="trailing" secondItem="0uj-R2-h4N" secondAttribute="trailing" constant="5" id="Roi-fK-NNQ"/>
+                            <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="lpu-bv-na9" secondAttribute="bottom" constant="20" id="VdY-9f-ae7"/>
                             <constraint firstItem="0uj-R2-h4N" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" constant="5" id="Vkc-hw-pvi"/>
+                            <constraint firstItem="lpu-bv-na9" firstAttribute="leading" secondItem="Agx-QK-dml" secondAttribute="leading" constant="16" id="fox-yd-eE2"/>
                             <constraint firstItem="Ngh-Ax-aaY" firstAttribute="top" secondItem="FfX-Va-FyD" secondAttribute="bottom" id="hlj-Jt-4qv"/>
+                            <constraint firstItem="lpu-bv-na9" firstAttribute="top" secondItem="0uj-R2-h4N" secondAttribute="bottom" constant="18" id="pMq-cJ-PSZ"/>
                             <constraint firstItem="0uj-R2-h4N" firstAttribute="top" secondItem="wk9-aJ-1mW" secondAttribute="bottom" constant="20" id="rPI-8d-7fe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="385-lc-9VL">
                         <barButtonItem key="backBarButtonItem" title=" " id="5Xr-Bf-DZr"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="vwVideo" destination="lpu-bv-na9" id="rcm-Il-mBQ"/>
+                        <segue destination="BMV-h5-LG4" kind="presentation" identifier="videoPlayer" id="TpC-xw-jrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbl-Qo-go3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="189.3553223388306"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="CdR-HY-iTU">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="BMV-h5-LG4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zya-zJ-Xdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="868"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="8gm-yM-Vvt">
@@ -91,5 +138,6 @@ Are you ready??? Let’s start by learning!!!</string>
     </scenes>
     <resources>
         <image name="background" width="540" height="960"/>
+        <image name="play_button.png" width="77" height="77"/>
     </resources>
 </document>

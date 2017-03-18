@@ -52,7 +52,7 @@
     
     
     if ([ans isEqualToString:userAnswer]) {
-        ans1.points = 20;
+        ans1.points = 25;
         self.userAns1.text = [NSString stringWithFormat:@"✅ %@",userAnswer];
     }
     else
@@ -75,7 +75,7 @@
     self.correctAns2.text = ans;
 
     if ([ans isEqualToString:userAnswer]) {
-        ans1.points = 20;
+        ans1.points = 25;
         self.userAns2.text = [NSString stringWithFormat:@"✅ %@",userAnswer];
         
     }
@@ -99,10 +99,26 @@
 
 -(IBAction)btnCheckMyScore:(id)sender
 {
+    if ([DATAMANAGER evaluateResults:self.answersArray]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Congratulations"
+                                                                       message:@"You have qualified for Adventure Chamber"
+                                                                preferredStyle:UIAlertControllerStyleAlert]; // 1
+        UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"OK"
+                                                              style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                                  NSLog(@"You pressed button one");
+                                                                   [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                              }]; // 2
+        
+        [alert addAction:firstAction]; // 4
+        
+        [self presentViewController:alert animated:YES completion:nil]; // 6
+    }
+    else
+    {
+        [DATAMANAGER goToLeaderBoard:self.revealViewController];
+    }
     
-    [DATAMANAGER evaluateResults:self.answersArray];
-    
-    [DATAMANAGER goToLeaderBoard:self.revealViewController];
+   
 }
 
 /*

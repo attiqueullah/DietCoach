@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
 };
 @interface DataManger : NSObject
 @property(nonatomic,readonly)UserInfo* userData;
+@property(nonatomic,strong)PFObject* avatarObject;
+@property(nonatomic,strong)NSDate* avatarDate;
 +(id)sharedInstance;
 
 
@@ -44,7 +46,7 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
 -(BOOL)networkConnectivitywithCompletionBlock;
 -(void)storeQuizesObject:(id)userObject;
 -(NSArray*)loadUserInfo:(QuizType)type;
--(void)evaluateResults:(NSArray*)results;
+-(BOOL)evaluateResults:(NSArray*)results;
 -(void)goToLeaderBoard:(SWRevealViewController*)baseController;
 -(void)saveUserData;
 -(BOOL)loadUserInfo;
@@ -56,4 +58,7 @@ typedef NS_ENUM(NSUInteger, AnswerType) {
 -(void)storeUserInfoObject:(id)userObject;
 #pragma  mark SMS TWilio Method
 -(void)sendSMSViaTwilio:(NSString*)message withTo:(NSString*)to WithCompletionBlock:(void(^)(BOOL success,NSError* error))completionBlock;
+#pragma mark Notifications
+-(void)configureAvatrStartupNotifications;
+-(void)configureAvatrAfterFeedNotifications;
 @end
