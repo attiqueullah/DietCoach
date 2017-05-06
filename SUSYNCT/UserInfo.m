@@ -18,6 +18,8 @@
     [encoder encodeObject:self.password forKey:@"password"];
     [encoder encodeObject:self.gender forKey:@"gender"];
     [encoder encodeObject:self.startDate forKey:@"startDate"];
+    [encoder encodeObject:self.submit forKey:@"submit"];
+    [encoder encodeObject:self.age forKey:@"age"];
     
     [encoder encodeObject:[NSNumber numberWithInteger:self.q1Attempt] forKey:@"q1Attempt"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.q2Attempt] forKey:@"q2Attempt"];
@@ -25,8 +27,10 @@
     [encoder encodeObject:[NSNumber numberWithInteger:self.q4Attempt] forKey:@"q4Attempt"];
     
     [encoder encodeObject:[NSNumber numberWithInteger:self.quizPassed] forKey:@"quizPassed"];
+     [encoder encodeObject:[NSNumber numberWithInteger:self.totalMeals] forKey:@"totalMeals"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.totalPoints] forKey:@"totalPoints"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.totalSMS] forKey:@"totalSMS"];
+     [encoder encodeObject:[NSNumber numberWithBool:self.test_passed] forKey:@"test_passed"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -41,6 +45,8 @@
         self.password = [decoder decodeObjectForKey:@"password"];
         self.gender = [decoder decodeObjectForKey:@"gender"];
         self.startDate = [decoder decodeObjectForKey:@"startDate"];
+        self.submit = [decoder decodeObjectForKey:@"submit"];
+        self.age = [decoder decodeObjectForKey:@"age"];
         
         
         self.q1Attempt   = [[decoder decodeObjectForKey:@"q1Attempt"]   integerValue];
@@ -48,10 +54,10 @@
         self.q3Attempt   = [[decoder decodeObjectForKey:@"q3Attempt"]   integerValue];
         self.q3Attempt   = [[decoder decodeObjectForKey:@"q4Attempt"]   integerValue];
         self.quizPassed  = [[decoder decodeObjectForKey:@"quizPassed"]  integerValue];
+        self.totalMeals  = [[decoder decodeObjectForKey:@"totalMeals"]  integerValue];
         self.totalPoints = [[decoder decodeObjectForKey:@"totalPoints"] integerValue];
         self.totalSMS = [[decoder decodeObjectForKey:@"totalSMS"] integerValue];
-        
-        
+        self.test_passed = [[decoder decodeObjectForKey:@"test_passed"] boolValue];
     }
     return self;
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Healthy Eating Reference-->
+        <scene sceneID="o9M-J3-c0F">
+            <objects>
+                <viewController storyboardIdentifier="HealthyViewController" id="gHK-24-SYR" customClass="HealthyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GFs-dX-FOw"/>
+                        <viewControllerLayoutGuide type="bottom" id="7f8-mA-rJD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lhq-xj-L3T">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="4Rd-kp-b9B">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthy.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5c-bb-Yu1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s5c-bb-Yu1" firstAttribute="top" secondItem="Lhq-xj-L3T" secondAttribute="top" id="Cff-Xk-2IB"/>
+                            <constraint firstAttribute="trailing" secondItem="4Rd-kp-b9B" secondAttribute="trailing" id="GvM-8v-gn8"/>
+                            <constraint firstItem="4Rd-kp-b9B" firstAttribute="leading" secondItem="Lhq-xj-L3T" secondAttribute="leading" id="N47-LW-TGm"/>
+                            <constraint firstItem="s5c-bb-Yu1" firstAttribute="leading" secondItem="Lhq-xj-L3T" secondAttribute="leading" id="ZFo-se-Arb"/>
+                            <constraint firstItem="4Rd-kp-b9B" firstAttribute="top" secondItem="Lhq-xj-L3T" secondAttribute="top" id="c5P-c1-hHZ"/>
+                            <constraint firstItem="7f8-mA-rJD" firstAttribute="top" secondItem="s5c-bb-Yu1" secondAttribute="bottom" id="feL-HW-vdk"/>
+                            <constraint firstAttribute="trailing" secondItem="s5c-bb-Yu1" secondAttribute="trailing" id="fmg-go-Jpw"/>
+                            <constraint firstItem="7f8-mA-rJD" firstAttribute="top" secondItem="4Rd-kp-b9B" secondAttribute="bottom" id="ykr-LY-soz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Healthy Eating Reference" id="d0A-j9-OMY">
+                        <barButtonItem key="backBarButtonItem" title=" " id="89v-B8-jWn"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5N-29-2rA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="157"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="cEn-j7-wpG">
+            <objects>
+                <navigationController storyboardIdentifier="HealthNavigation" automaticallyAdjustsScrollViewInsets="NO" id="B7i-dM-DXQ" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="uYi-gG-FYq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gHK-24-SYR" kind="relationship" relationship="rootViewController" id="u4X-PA-bZ4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CI0-1Z-Vbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-138.40000000000001" y="156.97151424287858"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="540" height="960"/>
+        <image name="healthy.png" width="540" height="960"/>
+    </resources>
+</document>

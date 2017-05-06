@@ -7,7 +7,7 @@
 //
 
 #import "ResultsViewController.h"
-
+#import "PlayersViewController.h"
 @interface ResultsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *correctAns1;
 @property (weak, nonatomic) IBOutlet UILabel *correctAns2;
@@ -106,7 +106,8 @@
         UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                                   NSLog(@"You pressed button one");
-                                                                   [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                                  [self performSegueWithIdentifier:@"players" sender:self];
+                                                                   //[DATAMANAGER goToLeaderBoard:self.revealViewController];
                                                               }]; // 2
         
         [alert addAction:firstAction]; // 4

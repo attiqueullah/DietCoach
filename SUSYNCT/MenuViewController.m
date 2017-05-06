@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "ViewController.h"
+#import "HealthyViewController.h"
 @interface MenuViewController ()
 {
     NSInteger _presentedRow;
@@ -111,9 +112,19 @@
     {
         [PFObject unpinAllObjectsInBackground];
         [PFUser logOutInBackground];
+        [DATAMANAGER removeAllNotifications];
+        
+        [NSUserDefaults clearUserDefaults];
         ViewController *frontViewController = [MAIN instantiateViewControllerWithIdentifier:NAV_LOGIN];
         [[UIApplication sharedApplication] keyWindow].rootViewController = frontViewController;
     }
+#pragma mark GO TO Healthy Chiken Plate
+-(void)goToHealthyChikenPlate
+{
+    HealthyViewController *frontViewController = [HEALTH instantiateViewControllerWithIdentifier:NAV_Healthy];
+    [self.revealViewController setFrontViewController:frontViewController animated:YES];    //sf
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -143,9 +154,9 @@
         BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
         
         if (!isTestPassed) {
-            return 4;
+            return 5;
         }
-        return 5;
+        return 6;
     }
     if (section == 2) {
         return 3;
@@ -171,7 +182,15 @@
              [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] animated:NO scrollPosition:UITableViewScrollPositionNone];
             return cell;
         }
-        else if (indexPath.row==1)
+        if (indexPath.row==1) {
+            cell.lblNTitle.text = @"Healthy Eating";
+            cell.lblNIcon.text = @"🍱";
+            [cell configureCell:[UIColor whiteColor]];
+            cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR colors:@[[UIColor whiteColor]]];
+            
+            return cell;
+        }
+        else if (indexPath.row==2)
         {
             cell.lblNTitle.text = @"Saudi Meals";
             cell.lblNIcon.text = @"🥘";
@@ -181,7 +200,7 @@
             return cell;
             
         }
-        else if (indexPath.row==2)
+        else if (indexPath.row==3)
         {
             cell.lblNTitle.text = @"Western Meals";
             cell.lblNIcon.text = @"🍔";
@@ -192,7 +211,7 @@
             
             
         }
-        else if (indexPath.row==3)
+        else if (indexPath.row==4)
         {
             cell.lblNTitle.text = @"SMS";
             cell.lblNIcon.text = @"💬";
@@ -202,7 +221,7 @@
             
             
         }
-        else if (indexPath.row==4)
+        else if (indexPath.row==5)
         {
             cell.lblNTitle.text = @"Adventure Chamber";
             cell.lblNIcon.text = @"👤";
@@ -274,17 +293,21 @@
         }
         if (indexPath.row==1) {
             
-            [self goToSaudiMeals];
+            [self goToHealthyChikenPlate];
         }
         if (indexPath.row==2) {
+            
+            [self goToSaudiMeals];
+        }
+        if (indexPath.row==3) {
            ///Go to Western Meals ///
             [self goToWesternMeals];
         }
-        if (indexPath.row==3) {
+        if (indexPath.row==4) {
            ///Go to SMS ///
             [self goToSMS];
         }
-        if (indexPath.row==4) {
+        if (indexPath.row==5) {
            ///Go to Notifications ///
             [self goToProfile];
         }

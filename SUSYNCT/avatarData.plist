@@ -104,7 +104,7 @@
 		<key>name</key>
 		<string>Orange Juice </string>
 		<key>value</key>
-		<string>47</string>
+		<string>53</string>
 		<key>image</key>
 		<string>orangeJuice</string>
 		<key>category</key>
@@ -237,6 +237,26 @@
 		<string>52</string>
 		<key>image</key>
 		<string>milk</string>
+		<key>category</key>
+		<string>Drinks</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Carrot Orange Juice </string>
+		<key>value</key>
+		<string>85</string>
+		<key>image</key>
+		<string>carrot_juice</string>
+		<key>category</key>
+		<string>Drinks</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Pineapple Juice </string>
+		<key>value</key>
+		<string>68</string>
+		<key>image</key>
+		<string>pinapple_juice</string>
 		<key>category</key>
 		<string>Drinks</string>
 	</dict>

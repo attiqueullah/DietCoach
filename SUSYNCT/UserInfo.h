@@ -17,13 +17,18 @@
 @property(nonatomic,strong)NSString* password;
 @property(nonatomic,strong)NSString* confirmPassword;
 @property(nonatomic,strong)NSString* gender;
+@property(nonatomic,strong)NSString* age;
+@property(nonatomic,strong)NSString* image;
 @property(nonatomic,strong)NSDate* startDate;
+@property(nonatomic,strong)NSDate* submit;
 @property(nonatomic)BOOL validEmail;
 @property(nonatomic)BOOL validUsername;
 @property(nonatomic)BOOL isAgreeTerms;
+@property(nonatomic)BOOL test_passed;
 
 @property(nonatomic,strong)PFUser* userId;
 @property(nonatomic,strong)PFObject* adventure;
+@property(nonatomic,assign)NSUInteger adventurePoints;
 
 @property(nonatomic)NSUInteger q1Attempt;
 @property(nonatomic)NSUInteger q2Attempt;
@@ -31,6 +36,7 @@
 @property(nonatomic)NSUInteger q4Attempt;
 
 @property(nonatomic)NSUInteger quizPassed;
+@property(nonatomic)NSUInteger totalMeals;
 
 @property(nonatomic)NSUInteger totalPoints;
 

@@ -39,16 +39,16 @@
     NSArray *phones = self.selContact[@"phones"];
     NSDictionary *phoneItem = phones[0];
     NSString* phonenumber = [phoneItem[@"value"] stringByReplacingOccurrencesOfString:@"-" withString:@""];
-
+    //NSString* phonenumber =  @"+923317702008";
+    [DATAMANAGER showWithStatus:@"Please wait..." withType:STATUS];
     [DATAMANAGER sendSMSViaTwilio:self.txtmessage.text withTo:phonenumber WithCompletionBlock:^(BOOL sucess, NSError* error){
         if (!error) {
-            
+            [DATAMANAGER showWithStatus:@"Message Sent" withType:SUCESS];
             NSLog(@"Message Sent Successfully");
             
             [DATAMANAGER userData].totalSMS =   [DATAMANAGER userData].totalSMS + 1;
             
             [PFUser currentUser][@"total_SMS"] = [NSNumber numberWithInteger:[DATAMANAGER userData].totalSMS];
-            [DATAMANAGER storeParseObject:[PFUser currentUser]];
             [DATAMANAGER storeUserInfoObject:[DATAMANAGER userData]];
            
             PFObject* obj = [PFObject objectWithClassName:@"SMS"];
@@ -57,7 +57,9 @@
             obj[@"message"] = self.txtmessage.text;
             obj[@"user"]= [PFUser currentUser];
             
-            [DATAMANAGER storeParseObject:obj];
+            [[PFUser currentUser] saveInBackgroundWithBlock:nil];
+            [obj saveInBackgroundWithBlock:nil];
+           // [DATAMANAGER storeParseObject:obj];
         }
     }];
 }

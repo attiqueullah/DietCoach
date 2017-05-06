@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Leaderboard</key>
+	<array>
+		<string>tutorial_0.png</string>
+		<string>tutorial_1.png</string>
+		<string>tutorial_2.png</string>
+	</array>
+	<key>Avatar</key>
+	<array>
+		<string>tutorial_3.png</string>
+	</array>
+</dict>
+</plist>

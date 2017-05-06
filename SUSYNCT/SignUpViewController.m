@@ -119,12 +119,12 @@
 {
     [self hideKeyboard];
     
-    if (self.userData.first_name.length==0) {
+    /*if (self.userData.first_name.length==0) {
         [DATAMANAGER showWithStatus:@"Please Enter Name" withType:ERROR];
         return;
         
     }
-    /*if (self.userData.last_name.length==0) {
+    if (self.userData.last_name.length==0) {
         [DATAMANAGER showWithStatus:@"Please Enter Last Name" withType:ERROR];
         return;
         
@@ -156,6 +156,11 @@
             return;
         }
     }
+    if (self.userData.age.length==0) {
+        [DATAMANAGER showWithStatus:@"Please Enter Age" withType:ERROR];
+        return;
+        
+    }
     if (![self.userData.password isEqualToString:self.userData.confirmPassword]) {
         [DATAMANAGER showWithStatus:@"Password mismatch" withType:ERROR];
         return;
@@ -170,7 +175,7 @@
         return;
     }*/
     
-    [PARSEMANAGER signupWithUsername:self.userData.username andPassword:self.userData.password andEmail:self.userData.email andName:self.userData.first_name andGender:self.userData.gender inController:self withCompletionBlock:^(PFUser *user, BOOL success, NSError *error){
+    [PARSEMANAGER signupWithUsername:self.userData.username andPassword:self.userData.password andEmail:self.userData.email andName:self.userData.first_name andGender:self.userData.gender andAge:self.userData.age inController:self withCompletionBlock:^(PFUser *user, BOOL success, NSError *error){
         if (success && !error) {
             /////Go to Home Screen////
             
@@ -203,7 +208,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     // Return the number of sections.
-    return 8;
+    return 9;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -355,6 +360,19 @@
     if (indexPath.section==3) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
         
+        cell.txtInput1.placeholder = @"Age";
+        cell.txtInput1.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [cell.txtInput1 setBk_didEndEditingBlock:^(UITextField *textField) {
+            self.userData.age = textField.text;
+        }];
+        
+        return cell;
+        
+    }
+    if (indexPath.section==4) {
+        TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
+        
         cell.txtInput1.placeholder = @"Password";
         cell.txtInput1.autocapitalizationType = UITextAutocapitalizationTypeWords;
         cell.btnShowPassword.hidden = NO;
@@ -368,7 +386,7 @@
         }];
         return cell;
     }
-    if (indexPath.section==4) {
+    if (indexPath.section==5) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTextField" forIndexPath:indexPath];
         
         cell.txtInput1.placeholder = @"Confirm Password";
@@ -384,18 +402,18 @@
         }];
         return cell;
     }
-    if (indexPath.section==5) {
+    if (indexPath.section==6) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GenderCell" forIndexPath:indexPath];
         return cell;
     }
-    if (indexPath.section==6) {
+    if (indexPath.section==7) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
         [cell.btnAction addTarget:self action:@selector(btnSignUp:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
         
     }
-    if (indexPath.section==7) {
+    if (indexPath.section==8) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SignUpCell" forIndexPath:indexPath];
         [cell.btnAction addTarget:self action:@selector(btnSignIn:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
@@ -407,22 +425,25 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section==0) {
+        return CGFLOAT_MIN;
+    }
     if (indexPath.section==2) {
         if (indexPath.row==1) {
             return 20;
         }
     }
-    if (indexPath.section==7) {
+    if (indexPath.section==8) {
         return 20.0f;
     }
     return 44.0;
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section==1 ||section==2 || section==3 || section==4 || section==5) {
+    if (section==1 ||section==2 || section==3 || section==4 || section==5 || section==6) {
         return 10.0f;
     }
-    if (section==6) {
+    if (section==7) {
         return 30.0f;
     }
     return CGFLOAT_MIN;

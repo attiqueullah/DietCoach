@@ -65,6 +65,8 @@
 #define SMS          [UIStoryboard storyboardWithName:@"SMS"                     bundle:nil]
 #define HELP         [UIStoryboard storyboardWithName:@"Help"                    bundle:nil]
 #define ABOUT        [UIStoryboard storyboardWithName:@"About"                   bundle:nil]
+#define HEALTH       [UIStoryboard storyboardWithName:@"Healthy"                   bundle:nil]
+
 
 #pragma mark PARSE Keys
 #define APPID          @"uwnYFq3zSr7Ia1EMQPnibLpgdBpTc7YYIu7C6NjM"
@@ -72,8 +74,9 @@
 #define SERVER         @"https://parseapi.back4app.com/"
 
 #define GANNALYTICS    @"UA-41410883-2"
-#define QUIZ_TOTAL     80
-#define TOTAL_TIME     3*24*60*60
+#define QUIZ_TOTAL     100
+#define DAYS           3
+#define TOTAL_TIME     DAYS*24*60*60
 
 #pragma mark Constants
 #define DATAMANAGER  [DataManger  sharedInstance]
@@ -111,4 +114,5 @@
 #define NAV_SMS                @"SMSNavigation"
 #define NAV_HELP               @"HelpNavigation"
 #define NAV_ABOUT              @"AboutNavigation"
+#define NAV_Healthy            @"HealthNavigation"
 #endif /* PrefixHeader_pch */

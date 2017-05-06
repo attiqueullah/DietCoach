@@ -35,6 +35,17 @@
         
         self.adventure = foods;
         self.userFoods = foods[@"foods"];
+        
+        for (NSDictionary* dic in self.userFoods) {
+            
+            for (int i=0; i<self.foodData.count; i++) {
+                NSDictionary* dic2  = self.foodData[i];
+                if ([dic[@"name"] isEqualToString:dic2[@"name"]]) {
+                    [self.foodData removeObjectAtIndex:i];
+                    break;
+                }
+            }
+        }
         [self.tblUsers reloadData];
     }];
 }

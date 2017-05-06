@@ -20,7 +20,7 @@
     return _sharedManager;
 }
 #pragma  mark Signup Method
--(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andName:(NSString*)name andGender:(NSString*)gender inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock
+-(void)signupWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andName:(NSString*)name andGender:(NSString*)gender andAge:(NSString*)age inController:(UIViewController*)controller withCompletionBlock:(void(^)(PFUser *user, BOOL success, NSError *error))completionBlock
 
 {
     controller.view.userInteractionEnabled = NO;
@@ -37,13 +37,14 @@
          user.password = password;
          user.email = email;
          user[@"gender"] = gender;
-         user[@"name"] = name;
+         user[@"name"] = @"";
+         user[@"age"] = age;
         
          [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
              controller.view.userInteractionEnabled = YES;
              if (!error) {
+                 [DATAMANAGER removeAllNotifications];
                  [DATAMANAGER saveParseUser:user];
-                 [PARSEMANAGER storeParseObject:user];
                  [SVProgressHUD dismiss];
                  
                  completionBlock(user,succeeded,nil);
@@ -71,6 +72,7 @@
                                              [SVProgressHUD dismiss];
                                              controller.view.userInteractionEnabled = YES;
                                              if (user) {
+                                                 [DATAMANAGER removeAllNotifications];
                                                  [DATAMANAGER saveParseUser:user];
                                                  [PARSEMANAGER storeParseObject:user];
                                                 
@@ -124,6 +126,8 @@
                 [users addObject:[DATAMANAGER getParseQuiz:user]];
                 
             }
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"adventurePoints" ascending:NO];
+            [users sortUsingDescriptors:@[sortDescriptor]];
             completionBlock(users,nil);
         } else {
             
@@ -164,9 +168,11 @@
     newDay[@"start_day"] = newDate;
     newDay[@"end_day"] =   [newDate  dateByAddingDays:3];
     newDay[@"days"] =   [NSNumber numberWithInteger:day+1];
+    newDay[@"passed"] =   [NSNumber numberWithBool:NO];
     
     [newDay saveInBackgroundWithBlock:^(BOOL sucess, NSError* error){
         [PFUser currentUser][@"adventure"] = newDay;
+        [PFUser currentUser][@"login_date"] = newDate;
         [PARSEMANAGER storeParseObject:[PFUser currentUser]];
     }];
    
@@ -179,14 +185,14 @@
     QueryManager *query = [QueryManager queryWithClassName:@"Avatar"];
 
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query whereKey:@"start_day" equalTo:dte];
+    //[query whereKey:@"start_day" greaterThanOrEqualTo:dte];
     [query whereKey:@"passed"   equalTo:[NSNumber numberWithBool:NO]];
     [query includeKey:@"user"];
     
     //[query orderByDescending:@"total_points"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [self createNewAvatarGame:newDate];
+            //[self createNewAvatarGame:newDate];
             completionBlock(objects,nil);
         } else {
             

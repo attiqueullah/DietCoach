@@ -398,7 +398,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="20"/>
-                                                    <state key="normal" title="Sigin Up">
+                                                    <state key="normal" title="Sign Up">
                                                         <color key="titleColor" red="0.0" green="0.47058823529999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
@@ -424,7 +424,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BuL-aR-uHK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="19"/>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="Already have an account? ">
@@ -560,7 +560,7 @@
                                             <outlet property="lblNTitle" destination="rHE-wX-qVA" id="cix-6j-WS5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="150" id="pKG-Sy-Wbz" customClass="LeftTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="150" id="pKG-Sy-Wbz" customClass="LeftTableViewCell">
                                         <rect key="frame" x="0.0" y="72" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKG-Sy-Wbz" id="qOr-ay-WZW">

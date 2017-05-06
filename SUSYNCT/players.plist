@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Yasser Al-Qahtani</string>
+		<key>image</key>
+		<string>P_01</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mohammad Al-Sahlawi</string>
+		<key>image</key>
+		<string>P_02</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Omar Al Somah</string>
+		<key>image</key>
+		<string>P_03</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fahad Al-Muwallad</string>
+		<key>image</key>
+		<string>P_04</string>
+	</dict>
+</array>
+</plist>

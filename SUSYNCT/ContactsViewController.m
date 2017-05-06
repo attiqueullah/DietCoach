@@ -29,6 +29,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)btnCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark Custom Methods
 -(void)contactManager
 {

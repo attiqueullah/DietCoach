@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EAIntroView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EARestrictedScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>295C1C1E462DB0F329C9A5238615CCBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>45FF4A7AFE5D8E17D01023C53AED87FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5873330485B2B207CDCE7C768246B1FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>58AAD2C9E898747F2F4ABF348E6325F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +122,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8568F803E0861B409008C3F810F7B67A</key>
+		<key>640BF33BB0217FE5566BD4C6291E35EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>822DA31A6A34C7EF41E1EC7A5EF8FC2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,16 +148,6 @@
 			<true/>
 		</dict>
 		<key>EB9AD825427F216B54E693242E671FA1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F49FE4EAB6999940AD4C9E2E40D49F3D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F96E3A05E6FB7BB7A87A8BBB4281BEC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

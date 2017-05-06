@@ -182,10 +182,10 @@
     self.userData.totalPoints =  self.userData.totalPoints + points;
     
     BOOL isPassed = NO;
-    if (self.userData.totalPoints == 100) {
+    if (self.userData.totalPoints == QUIZ_TOTAL) {
         [PFUser currentUser][@"test_passed"] = [NSNumber numberWithBool:YES];
         [PARSEMANAGER storeParseObject:[PFUser currentUser]];
-        [DATAMANAGER configureAvatrStartupNotifications];
+        [DATAMANAGER configureNotifications];
         isPassed =  YES;
     }
     [self saveUserData];
@@ -212,6 +212,10 @@
     newUSer.password = user.password;
     newUSer.gender = user[@"gender"];
     newUSer.startDate = user[@"login_date"];
+    newUSer.submit = user[@"submit"];
+    newUSer.test_passed = [user[@"test_passed"] boolValue];
+    newUSer.totalMeals = [user[@"total_meals"] integerValue];
+    
     
     PFObject* quiz = user[@"quiz"];
     if (quiz) {
@@ -244,6 +248,7 @@
     newUSer.first_name = obj[@"name"];
     newUSer.email = obj.email;
     newUSer.gender = obj[@"gender"];
+    newUSer.image = obj[@"image"];
     newUSer.q1Attempt = [quiz[@"quiz_1_attempt"] integerValue];
     newUSer.q2Attempt = [quiz[@"quiz_2_attempt"] integerValue];
     newUSer.q3Attempt = [quiz[@"quiz_3_attempt"] integerValue];
@@ -253,6 +258,22 @@
 
     if (obj[@"adventure"]) {
         newUSer.adventure = obj[@"adventure"];
+        
+        NSArray* foodArray = newUSer.adventure[@"foods"];
+        int totPoints = 0;
+        if (foodArray.count>0) {
+            newUSer.adventurePoints = 0;
+            for (int i=0; i<foodArray.count; i++) {
+                NSDictionary* dic = foodArray[i];
+                
+                NSUInteger pt = [dic[@"value"] integerValue];
+                totPoints = totPoints + (int)pt;
+                
+            }
+            float avg = totPoints/foodArray.count;
+            newUSer.adventurePoints = avg;
+        }
+
     }
     return newUSer;
 }
@@ -328,7 +349,7 @@
         
         NSLog(@"message sent at: %@",dic);
         if (!error) {
-            completionBlock(YES,responseObject);
+            completionBlock(YES,nil);
         }
         else
         {
@@ -345,17 +366,28 @@
        
 }
 #pragma mark Notifications
--(void)configureAvatrStartupNotifications
+-(void)configureNotifications
 {
-    
     BOOL isTestPassed = [[PFUser currentUser][@"test_passed"] boolValue];
     
     if (!isTestPassed) {
         return;
     }
+    NSUInteger avatarPoints = [[NSUserDefaults retrieveObjectForKey:@"total_avatar_points"] integerValue];
+    if (avatarPoints ==0 && [DATAMANAGER userData].totalMeals == 0) {
+        [self configureAvatrStartupNotifications];
+    }
+    else
+    {
+        [self configureAvatrAfterFeedNotifications];
+    }
+}
+-(void)configureAvatrStartupNotifications
+{
+    
     UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
     objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Ready for Coaching?" arguments:nil];
-    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Friend is Ready For Their First Healthy Meal." arguments:nil];
+    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Hero is Ready For Their First Healthy Meal." arguments:nil];
     objNotificationContent.sound = [UNNotificationSound defaultSound];
     
     /// 4. update application icon badge number
@@ -363,7 +395,7 @@
     
     // Deliver the notification in five seconds.
     UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
-                                                  triggerWithTimeInterval:900 repeats:YES];
+                                                  triggerWithTimeInterval:3600*3 repeats:YES];
     
     NSString* identi = @"FirstReminder";
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identi
@@ -416,7 +448,7 @@
     NSString* identi = @"SecondReminder";
     UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
     objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Hey Coach!" arguments:nil];
-    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Friend is Hungry. It's Time for Another Healthy Meal." arguments:nil];
+    objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"Your Hero is Hungry. It's Time for Another Healthy Meal." arguments:nil];
     objNotificationContent.sound = [UNNotificationSound defaultSound];
     
     /// 4. update application icon badge number
@@ -424,7 +456,7 @@
     
     // Deliver the notification in five seconds.
     UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
-                                                  triggerWithTimeInterval:3600*1 repeats:YES];
+                                                  triggerWithTimeInterval:3600*24 repeats:YES];
     
     
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identi
@@ -437,6 +469,7 @@
             NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"(SELF.identifier CONTAINS[cd] %@)",identi];
             NSArray *filteredArray = [requests filteredArrayUsingPredicate:namePredicate];
             if (filteredArray.count==0) {
+                
                  [self addNotification:request];
             }
             
@@ -452,6 +485,7 @@
 -(void)addNotification:(UNNotificationRequest*)req
 {
     /// 3. schedule localNotification
+    [self removeAllNotifications];
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:req withCompletionHandler:^(NSError * _Nullable error) {
         if (!error) {
@@ -462,4 +496,66 @@
         }
     }];
 }
+-(void)removeAllNotifications
+{
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center removeAllDeliveredNotifications];
+    [center removeAllPendingNotificationRequests];
+    
+}
+#pragma mark TutorialView
+-(void)showTutorialForItem:(NSString*)data withController:(UIViewController*)controller WithCompletionBlock:(void(^)(BOOL success))completionBlock
+{
+    
+    
+    BOOL isShowed = NO;
+    NSMutableArray *users = [[NSUserDefaults retrieveObjectForKey:data] mutableCopy];
+    NSString *username = [PFUser currentUser].username;
+   
+    if (!users) {
+        users = [NSMutableArray new];
+    }
+    if (users && [users containsObject:username]) {
+        isShowed = YES;
+    }
+    
+    if (!isShowed) {
+        [controller.navigationController setNavigationBarHidden:YES];
+        [users addObject:username];
+        [NSUserDefaults saveObject:users forKey:data];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"plist"];
+        NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        NSArray* arr = [dict objectForKey:data];
+        [DATAMANAGER createTutorialViewInView:controller withArray:arr WithCompletionBlock:^(BOOL isDone){
+            completionBlock(YES);
+        }];
+    }else
+    {
+        completionBlock(NO);
+    }
+}
+-(void)createTutorialViewInView:(UIViewController*)controller withArray:(NSArray*)images WithCompletionBlock:(void(^)(BOOL success))completionBlock
+{
+    self.returnHandler = completionBlock;
+    NSMutableArray* pages = [NSMutableArray new];
+    for (NSString* img in images) {
+        
+        EAIntroPage *page = [EAIntroPage page];
+        page.bgImage = [UIImage imageNamed:img];
+        [pages addObject:page];
+    }
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:controller.view.bounds andPages:pages];
+    [intro setDelegate:self];
+    intro.pageControl.hidden = NO;
+    [intro showInView:controller.view animateDuration:0.3];
+
+}
+#pragma mark - EAIntroView delegate
+- (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped
+{
+    NSLog(@"introDidFinish callback");
+    self.returnHandler(YES);
+}
+
 @end

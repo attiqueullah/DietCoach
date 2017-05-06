@@ -10,7 +10,11 @@
 #import "HCSStarRatingView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TimerReusableView.h"
+
 @interface ProfileViewController ()<DNDDragSourceDelegate, DNDDropTargetDelegate , MZTimerLabelDelegate>
+{
+    BOOL isSubmit;
+}
 @property(nonatomic,strong)NSMutableArray* foodData;
 @property (weak, nonatomic) IBOutlet UICollectionView *foodCollection;
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starRateing;
@@ -31,11 +35,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [SoundManager sharedManager].allowsBackgroundMusic = YES;
+    [[SoundManager sharedManager] prepareToPlay];
+    
+    NSDate* submitDate = [NSUserDefaults retrieveObjectForKey:@"submit"];
+    if (submitDate == nil) {
+        submitDate = [[DATAMANAGER userData] submit];
+    }
+    NSUInteger hours = [[submitDate dateAtStartOfDay] hoursBeforeDate:[NSDate date]];
+    //hours = 34;
+    if (submitDate!=nil) {
+        if (hours>=24) {
+            isSubmit = YES;
+            NSDate* newDate = [NSDate date];
+            //[NSUserDefaults deleteObjectForKey:@"startDate"];
+            [PFUser currentUser][@"login_date"] = newDate;
+            [[PFUser currentUser] saveInBackground];
+            [PARSEMANAGER storeParseObject:[PFUser currentUser]];
+            self.currentDate = newDate;
+            [NSUserDefaults deleteObjectForKey:@"submit"];
+        }
+        else
+        {
+            isSubmit = NO;
+        }
+    }
+    else
+    {
+        isSubmit = YES;
+    }
+    
     self.starRateing.value = 0;
     NSDate* dateOld = [NSUserDefaults retrieveObjectForKey:@"startDate"];
     
     NSUInteger passedDays = [[NSDate date] daysAfterDate:dateOld];
-    if (passedDays >3 && dateOld ) {
+    NSTimeInterval remainTime = [[NSDate date] timeIntervalSinceDate:dateOld];
+    NSTimeInterval remTime = TOTAL_TIME-remainTime;
+    if ((passedDays >=DAYS && dateOld) && remTime <=0) {
         self.currentDate = [NSDate date];
         [self getLastThreeDaysFoods];
     }
@@ -45,6 +81,7 @@
             [NSUserDefaults saveObject:[[DATAMANAGER userData] startDate] forKey:@"startDate"];
             self.currentDate = [[DATAMANAGER userData] startDate];
             [PFUser currentUser][@"login_date"] = self.currentDate;
+             [PARSEMANAGER storeParseObject:[PFUser currentUser]];
 
         }
         else
@@ -72,7 +109,7 @@
     [self getAvatarData];
     // Do any additional setup after loading the view.
     self.starRateing.userInteractionEnabled = false;
-    self.starRateing.value = 2.0;
+    self.starRateing.value = 0.0;
     self.starRateing.maximumValue = 5.0;
     [self registerTableViewForDragging:self.foodCollection];
     [self updateAvatar];
@@ -83,17 +120,110 @@
     [super viewWillAppear:animated];
     [DATAMANAGER trackPage:@"Avatar"];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [DATAMANAGER showTutorialForItem:@"Avatar" withController:self WithCompletionBlock:^(BOOL isDone){
+        [self.navigationController setNavigationBarHidden:NO];
+    }];
+    for (UIView *dropTargetView in self.dropTargetViews) {
+        [self.dragAndDropController registerDropTarget:dropTargetView withDelegate:self];
+    }
+    
+}
 
-
--(void)addSuggesstion
+-(UIBarButtonItem*)addSuggesstion
 {
-    UIBarButtonItem* btnSugesstions = [[UIBarButtonItem alloc] initWithTitle:@"Suggestions" style:UIBarButtonItemStylePlain target:self action:@selector(btnSuggesstions)];
-    self.navigationItem.rightBarButtonItem = btnSugesstions;
+    UIBarButtonItem* btnSugesstions = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bulb"] style:UIBarButtonItemStylePlain target:self action:@selector(btnSuggesstions)];
+    return btnSugesstions;
+    
 
+}
+-(UIBarButtonItem*)addSubmitAction
+{
+    UIBarButtonItem* btnSubmit = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(btnSubmitPressed)];
+    return btnSubmit;
 }
 -(void)btnSuggesstions
 {
     [self performSegueWithIdentifier:@"game_result" sender:self];
+}
+
+-(void)btnSubmitPressed
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Adventure Chamber"
+                                                                   message:@"Do you want submit your results?"
+                                                            preferredStyle:UIAlertControllerStyleAlert]; // 1
+    UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Submit"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                              
+                                                              isSubmit = NO;
+                                                              NSDate* newDate = [NSDate date];
+                                                              [NSUserDefaults saveObject:newDate forKey:@"submit"];
+                                                              [NSUserDefaults saveObject:newDate forKey:@"submit"];
+                                                              [PFUser currentUser][@"submit"] = newDate;
+                                                              
+                                                              
+                                                              //NSUInteger points = 0;
+                                                              NSUInteger totPoints = 0;
+                                                              for (int i=0; i<self.userFoodArray.count; i++) {
+                                                                  NSDictionary* dic = self.userFoodArray[i];
+                                                                  NSUInteger pt = [dic[@"value"] integerValue];
+                                                                  totPoints = totPoints + pt;
+                                                                  
+                                                              }
+                                                              
+                                                              float average = totPoints/self.userFoodArray.count;
+                                                              [self updateStars:average];
+                                                              
+                                                              
+                                                              NSUInteger totalMeals = [[PFUser currentUser][@"total_meals"] integerValue];
+                                                              totalMeals = totalMeals + 1;
+                                                              [DATAMANAGER userData].totalMeals = totalMeals;
+                                                              [PFUser currentUser][@"total_meals"] = [NSNumber numberWithInteger:[[DATAMANAGER userData] totalMeals]];
+                                                              
+
+                                                              [[PFUser currentUser] saveInBackground];
+                                                              
+                                                              [NSUserDefaults saveObject:[NSNumber numberWithInteger:0] forKey:@"total_avatar_points"];
+                                                              
+                                                              [DATAMANAGER removeAllNotifications];
+                                                              [DATAMANAGER configureNotifications];
+                                                               if([[DATAMANAGER userData] totalMeals]%DAYS==0)
+                                                               {
+                                                                   //// Get Last Three Meals ///
+                                                                   [self getLastThreeDaysFoods];
+                                                                   
+                                                               }
+                                                               else
+                                                               {
+                                                                  [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                               }
+                                                              
+                                                          }];
+    UIAlertAction *reset = [UIAlertAction actionWithTitle:@"Reset"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                              
+                                                              [self.userFoodArray removeAllObjects];
+                                                              [self.userFeedArray removeAllObjects];
+                                                              self.currentFoodItem[@"foods"] = self.userFoodArray;
+                                                              self.currentFoodItem[@"points"] = [NSNumber numberWithInteger:0];
+                                                              self.currentFoodItem[@"number_foods"] = [NSNumber numberWithInteger:self.userFoodArray.count];
+                                                              [NSUserDefaults saveObject:[NSNumber numberWithInteger:0] forKey:@"total_avatar_points"];
+                                                              [self updateAvatar];
+                                                              [self.foodCollection reloadData];
+                                                              
+                                                              [DATAMANAGER removeAllNotifications];
+                                                              [DATAMANAGER configureNotifications];
+
+                                                              [PARSEMANAGER storeParseObject:self.currentFoodItem];
+                                                              
+                                                          }];
+    
+    [alert addAction:firstAction];
+    [alert addAction:reset];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 -(void)userTimeExpireNotification:(NSNotification*)notifi
 {
@@ -106,13 +236,6 @@
     [tableView.panGestureRecognizer requireGestureRecognizerToFail:dragRecognizer]; // prevent UITableView from hijacking touches
     
     [self.dragAndDropController registerDragSource:tableView withDelegate:self dragRecognizer:dragRecognizer];
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    for (UIView *dropTargetView in self.dropTargetViews) {
-        [self.dragAndDropController registerDropTarget:dropTargetView withDelegate:self];
-    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -151,28 +274,33 @@
     
     //NSUInteger points = [foods[@"points"] integerValue];
     
-    
+
     if (self.userFoodArray.count>0) {
-        NSUInteger points = 0;
+       // NSUInteger points = 0;
         NSUInteger totPoints = 0;
         for (int i=0; i<self.userFoodArray.count; i++) {
             NSDictionary* dic = self.userFoodArray[i];
             NSUInteger pt = [dic[@"value"] integerValue];
-            points = (pt * (i+1)) + points;
+            //points = (pt * (i+1)) + points;
             totPoints = totPoints + pt;
             
         }
-         float avg = points/totPoints;
-         [self updateStars:avg];
+         //float avg = points/totPoints;
+         //
        
         float average = totPoints/self.userFoodArray.count;
+        NSMutableArray* array = [NSMutableArray new];
+        if (self.userFoodArray.count>=3) {
+            if (isSubmit) {
+                [array addObject:[self addSubmitAction]];
+            }
+        }
         if (average < 60) {
-            [self addSuggesstion];
+            [array addObject:[self addSuggesstion]];
         }
-        else
-        {
-            self.navigationItem.rightBarButtonItem = nil;
-        }
+        [self updateStars:average];
+        self.navigationItem.rightBarButtonItems = array;
+
 
     }
    else
@@ -198,39 +326,50 @@
         [PARSEMANAGER storeParseObject:[PFUser currentUser]];
 
         self.lastFoods = foods;
-        PFObject* obj = [foods lastObject];
-        obj[@"passed"] = [NSNumber numberWithBool:YES];
-        [PARSEMANAGER storeParseObject:obj];
-        NSArray* foodItems = [foods lastObject][@"points"];
-        NSUInteger total = [[foods lastObject][@"points"] integerValue];
         
-        float avg = total/foodItems.count;
-        if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
-            if (avg < 75) {
-                [self showFailureAlert:@"The food choices you have made for the last three days were not so healthy. Your friend is not fit to join the national team for the World Cup. You can try helping him again by giving him healthier food choices ☹️"];
-            }
-            else
-            {
-                [self showSucessAlert:@"The food choices you have made for the last three days were not so healthy. Your friend not fit to join the national team for the World Cup. You can try helping him again by giving him healthier food choices 😀"];
-            }
-        }
-        else
+        if([[DATAMANAGER userData] totalMeals]%DAYS==0)
         {
-            if (avg < 75) {
-                [self showFailureAlert:@"The food choices you have made for the last three days were not so healthy. Your friend is not fit to join the cast for her dream movie. You can try helping her again by giving her healthier food choices ☹️"];
+            CGFloat totalAvg = 0.0;
+            for (PFObject* obj in foods) {
+                NSArray* foodItems = obj[@"foods"];
+                NSUInteger total = [obj[@"points"] integerValue];
+                float avg = total/foodItems.count;
+                
+                totalAvg = totalAvg + avg;
+                obj[@"passed"] = [NSNumber numberWithBool:YES];
+                [PARSEMANAGER storeParseObject:obj];
+            }
+            
+            CGFloat average = totalAvg/DAYS;
+            if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
+                if (average < 75) {
+                    [self showFailureAlert:@"The food choices you have made for the last three days were not so healthy. Your friend is not fit to join the national team for the World Cup. You can try helping him again by giving him healthier food choices ☹️"];
+                }
+                else
+                {
+                    [self showSucessAlert:@"The food choices you have made for the last three days were not so healthy. Your friend not fit to join the national team for the World Cup. You can try helping him again by giving him healthier food choices 😀"];
+                }
             }
             else
             {
-                [self showSucessAlert:@"You have done a great job feeding your friend for the last three days. She is now fit and ready to join the cast for her dream movie. Congratulations! 😀"];
+                if (average < 75) {
+                    [self showFailureAlert:@"The food choices you have made for the last three days were not so healthy. Your friend is not fit to join the cast for her dream movie. You can try helping her again by giving her healthier food choices ☹️"];
+                }
+                else
+                {
+                    [self showSucessAlert:@"You have done a great job feeding your friend for the last three days. She is now fit and ready to join the cast for her dream movie. Congratulations! 😀"];
+                }
+                
             }
  
         }
+        
     }];
 }
 
 -(void)checkFoodItems
 {
-    if (self.userFoodArray.count==5 && [self.currentDate daysAfterDate:[NSDate date]]>3) {
+    if (self.userFoodArray.count==5 && [self.currentDate daysAfterDate:[NSDate date]]>DAYS) {
         [self getLastThreeDaysFoods];
     }
 }
@@ -238,13 +377,22 @@
 {
     NSString* str = @"male";
     
-    if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
-        str = @"male";
+    NSDictionary* player = [NSUserDefaults retrieveObjectForKey:@"Player"];
+    
+    if (player) {
+        str = player[@"image"];
     }
     else
     {
-        str = @"female";
+        if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
+            str = @"male";
+        }
+        else
+        {
+            str = @"female";
+        }
     }
+    
     self.userFeedImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d",str,(int)self.userFeedArray.count]];
     self.userEnergy.image = [UIImage imageNamed:[NSString stringWithFormat:@"energy-%d",(int)self.userFeedArray.count]];
     
@@ -270,15 +418,25 @@
         [DATAMANAGER showWithStatus:@"You cannot choose more than 5 foods" withType:ERROR];
         return false;
     }
+    
     NSString* str = @"male";
     
-    if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
-        str = @"male";
+    NSDictionary* player = [NSUserDefaults retrieveObjectForKey:@"Player"];
+    
+    if (player) {
+        str = player[@"image"];
     }
     else
     {
-        str = @"female";
+        if ([[[DATAMANAGER userData] gender] isEqualToString:@"male"]) {
+            str = @"male";
+        }
+        else
+        {
+            str = @"female";
+        }
     }
+    
     [self.userFeedArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%d",str,(int)self.userFeedArray.count]]];
     self.userFeedImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d",str,(int)self.userFeedArray.count]];
     self.userEnergy.image = [UIImage imageNamed:[NSString stringWithFormat:@"energy-%d",(int)self.userFeedArray.count]];
@@ -325,8 +483,6 @@
     cell.lblInput3.layer.masksToBounds = NO;
     cell.lblInput3.clipsToBounds = YES;
     cell.lblInput3.layer.cornerRadius = cell.lblInput3.frame.size.width/2;
-    
-
     return cell;
 }
 
@@ -381,13 +537,8 @@
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"OK"
                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                               NSLog(@"You pressed button one");
-                                                              NSDate* newDate = [NSDate date];
-                                                              [NSUserDefaults deleteObjectForKey:@"startDate"];
-                                                              [PFUser currentUser][@"login_date"] = newDate;
-                                                              [PARSEMANAGER storeParseObject:[PFUser currentUser]];
-                                                              self.currentDate = newDate;
-                                                              [self updateAvatarFoodItems:[PARSEMANAGER createNewAvatarGame:newDate]];
-                                                              [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                             [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                              
                                                           }]; // 2
     
     [alert addAction:firstAction]; // 4
@@ -403,13 +554,24 @@
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"OK"
                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                               NSLog(@"You pressed button one");
-                                                              NSDate* newDate = [NSDate date];
-                                                              [NSUserDefaults deleteObjectForKey:@"startDate"];
-                                                              [PFUser currentUser][@"login_date"] = newDate;
-                                                              [PARSEMANAGER storeParseObject:[PFUser currentUser]];
-                                                              self.currentDate = newDate;
-                                                              [self updateAvatarFoodItems:[PARSEMANAGER createNewAvatarGame:newDate]];
+                                                              
+                                                
                                                               [DATAMANAGER goToLeaderBoard:self.revealViewController];
+                                                          }]; // 2
+    
+    [alert addAction:firstAction]; // 4
+    
+    [self presentViewController:alert animated:YES completion:nil]; // 6
+    
+}
+-(void)showFailureAlert2:(NSString*)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Adventure Chamber"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert]; // 1
+    UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                              
                                                           }]; // 2
     
     [alert addAction:firstAction]; // 4
@@ -422,6 +584,10 @@
 - (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation {
     UICollectionView *tableView = (UICollectionView *)operation.dragSourceView;
     
+    if (!isSubmit) {
+        [self showFailureAlert2:@"Your hero is not hungry yet. Please try again later"];
+        return nil;
+    }
     NSIndexPath *indexPath = [tableView indexPathForItemAtPoint:[operation locationInView:tableView]];
     if (indexPath == nil) {
         return nil;
@@ -477,32 +643,31 @@
         NSDictionary* dic = self.foodData[tempImg.tag];
         [self.userFoodArray addObject:dic];
         
-        NSUInteger points = 0;
         NSUInteger totPoints = 0;
         for (int i=0; i<self.userFoodArray.count; i++) {
             NSDictionary* dic = self.userFoodArray[i];
             NSUInteger pt = [dic[@"value"] integerValue];
-            points = (pt * (i+1)) + points;
             totPoints = totPoints + pt;
 
         }
         
-        float avg = points/totPoints;
         self.currentFoodItem[@"foods"] = self.userFoodArray;
         self.currentFoodItem[@"points"] = [NSNumber numberWithInteger:totPoints];
         self.currentFoodItem[@"number_foods"] = [NSNumber numberWithInteger:self.userFoodArray.count];
-        [NSUserDefaults saveObject:[NSNumber numberWithInteger:points] forKey:@"total_avatar_points"];
+        [NSUserDefaults saveObject:[NSNumber numberWithInteger:totPoints] forKey:@"total_avatar_points"];
         
         float average = totPoints/self.userFoodArray.count;
+        NSMutableArray* array = [NSMutableArray new];
+        if (self.userFoodArray.count>=3) {
+            [array addObject:[self addSubmitAction]];
+        }
         if (average < 60) {
-            [self addSuggesstion];
+            [array addObject:[self addSuggesstion]];
         }
-        else
-        {
-            self.navigationItem.rightBarButtonItem = nil;
-        }
-        [DATAMANAGER configureAvatrAfterFeedNotifications];
-        [self updateStars:avg];
+        [self playSentPacketDebugSound];
+        self.navigationItem.rightBarButtonItems = array;
+        [DATAMANAGER configureNotifications];
+       // [self updateStars:average];
         [PARSEMANAGER storeParseObject:self.currentFoodItem];
     }
 }
@@ -518,26 +683,32 @@
 
 -(void)updateStars:(float)points
 {
-    self.starRateing.value = points;
-//    if (points > 0 & points <= 20) {
-//        self.starRateing.value = 1.0;
-//    }
-//    else if (points > 20 & points <= 40) {
-//        self.starRateing.value = 2.0;
-//    }
-//    else if (points > 40 & points <= 60) {
-//        self.starRateing.value = 3.0;
-//    }
-//    else if (points > 60 & points <= 80) {
-//        self.starRateing.value = 4.0;
-//    }
-//    else if (points > 80 & points <= 100)
-//    {
-//        self.starRateing.value = 5.0;
-//    }
-//    else
-//    {
-//        self.starRateing.value = 0.0;
-//    }
+    //self.starRateing.value = points;
+    if (points > 0 && points <= 20) {
+        self.starRateing.value = 1.0;
+    }
+    else if (points > 20 && points <= 40) {
+        self.starRateing.value = 2.0;
+    }
+    else if (points > 40 && points <= 60) {
+        self.starRateing.value = 3.0;
+    }
+    else if (points > 60 && points <= 80) {
+        self.starRateing.value = 4.0;
+    }
+    else if (points > 80 && points <= 100)
+    {
+        self.starRateing.value = 5.0;
+    }
+    else
+    {
+        self.starRateing.value = 0.0;
+    }
+    
 }
+-(void)playSentPacketDebugSound
+{
+    [[SoundManager sharedManager] playSound:@"send_packet.mp3" looping:NO];
+}
+
 @end

@@ -17,13 +17,15 @@
     NSDate* dateOld = dte;
     NSTimeInterval remainTime = [[NSDate date] timeIntervalSinceDate:dateOld];
     if (remainTime>0) {
-        NSTimeInterval remTime = TOTAL_TIME-remainTime;
+        NSTimeInterval totTime = TOTAL_TIME;
+        NSTimeInterval remTime = totTime-remainTime;
         if (remTime>0) {
             [self.lblTimer setCountDownTime:(TOTAL_TIME-remainTime)];
         }
         else
         {
             [self.lblTimer setCountDownTime:TOTAL_TIME];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"timeExpire" object:nil];
         }
     }
     else
@@ -40,6 +42,7 @@
         [PARSEMANAGER storeParseObject:[PFUser currentUser]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"timeExpire" object:nil];
     }];
+    
 }
 #pragma mark MZTimerLabel DELEGATE Method
 
@@ -57,6 +60,10 @@
     }
     else if (hours >48 && hours < 72) {
         self.lblTitle.text = @"3 Days Remaining";
+    }
+    else
+    {
+        self.lblTitle.text = @"";
     }
     return [NSString stringWithFormat:@"%02dh %02dm %02ds",hours,minute,second];
 }

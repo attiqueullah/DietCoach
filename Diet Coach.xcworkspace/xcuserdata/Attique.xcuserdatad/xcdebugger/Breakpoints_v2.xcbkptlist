@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/ProfileViewController.m"
-            timestampString = "511548564.432861"
+            filePath = "SUSYNCT/LabelCollectionCell.m"
+            timestampString = "513109587.136773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "-getLastThreeDaysFoods"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-configureCell:withIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SUSYNCT/ProfileViewController.m"
-            timestampString = "511548564.432861"
+            filePath = "SUSYNCT/APIManager.m"
+            timestampString = "515357234.955515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-getLastThreeDaysFoods"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-getAllAvatarWithCompletionBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SUSYNCT/DataManger.m"
+            timestampString = "515527144.293528"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "-configureNotifications"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

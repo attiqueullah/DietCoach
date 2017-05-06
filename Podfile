@@ -18,4 +18,5 @@ target 'Diet Coach' do
   pod 'MZTimerLabel'
   pod 'HockeySDK', '~> 4.1.3'
   pod 'PBJVideoPlayer'
+  pod 'EAIntroView'
 end

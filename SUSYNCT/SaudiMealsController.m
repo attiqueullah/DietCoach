@@ -42,9 +42,10 @@
 -(void)takeQuiz:(NSUInteger)trck
 {
     if (trck == self.saudiMeals.count-1) {
+        
          NSArray* arrQuiz = [DATAMANAGER loadUserInfo:QuizTypeFirst];
-        UIBarButtonItem* btnQuiz = [[UIBarButtonItem alloc]initWithTitle:@"Take a Quℹ️z" style:UIBarButtonItemStylePlain target:self action:@selector(btnTakeQuiz)];
-        if (arrQuiz.count!=2) {
+        UIBarButtonItem* btnQuiz = [[UIBarButtonItem alloc]initWithTitle:@"Take a Quiz" style:UIBarButtonItemStylePlain target:self action:@selector(btnTakeQuiz)];
+        if (arrQuiz.count!=2 && ![[DATAMANAGER userData] test_passed]) {
            self.navigationItem.rightBarButtonItem = btnQuiz; 
         }
         

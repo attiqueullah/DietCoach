@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -126,7 +126,7 @@
                                                             <rect key="frame" x="0.0" y="28" width="345" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBr-1X-qUg" id="oEz-RB-0LQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="29"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="29.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAIN INGREDIANTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6S-Fn-u31">
@@ -159,7 +159,7 @@
                                                             <rect key="frame" x="0.0" y="58" width="345" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VRI-gn-Shs" id="qK7-Q8-O2L">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="29"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="29.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAIN INGREDIANTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoE-pW-Vfr">
@@ -231,6 +231,7 @@
                                             <outlet property="lblInput2" destination="QcP-v2-6Eu" id="3Ds-WE-VGU"/>
                                             <outlet property="lblInput3" destination="pXP-9n-J1C" id="jHE-Ee-Mzr"/>
                                             <outlet property="previousBtn" destination="aUI-kv-OvQ" id="PJ7-Wl-32j"/>
+                                            <outlet property="tableview" destination="YSq-su-L9j" id="CDR-IU-6Uw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -289,6 +290,6 @@
     <resources>
         <image name="background" width="540" height="960"/>
         <image name="bottomBar" width="540" height="154"/>
-        <image name="cheeseBurger" width="277" height="209"/>
+        <image name="cheeseBurger" width="245" height="183"/>
     </resources>
 </document>

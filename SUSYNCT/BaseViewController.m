@@ -29,7 +29,7 @@
     
     [revealButtonItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    [DATAMANAGER configureAvatrStartupNotifications];
+    [DATAMANAGER configureNotifications];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -20,7 +20,7 @@
     self.imgFood.image = [UIImage imageNamed:foodItem[@"image"]];
     self.mainIngrediants = foodItem[@"main_ingrediants"];
     self.foodGroup = foodItem[@"food_group"];
-    [self.tableview reloadData];
+    
     
     if (ind.item==0) {
         self.previousBtn.hidden = YES;
@@ -37,7 +37,9 @@
     {
         self.forwardBtn.hidden = NO;
     }
-     [DATAMANAGER trackPage:self.lblInput2.text];
+    
+    [DATAMANAGER trackPage:self.lblInput2.text];
+    [self.tableview reloadData];
 }
 
 #pragma mark - Table view data source
@@ -56,6 +58,7 @@
 {
     TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderDetails" forIndexPath:indexPath];
     
+    NSLog(@"%@",self.mainIngrediants[indexPath.row]);
     cell.lblInput1.text = self.mainIngrediants[indexPath.row];
     cell.lblInput2.text = self.foodGroup[indexPath.row];
     
